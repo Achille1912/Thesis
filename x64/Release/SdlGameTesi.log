@@ -161,8 +161,8 @@ D:\Progetti\SdlGame\SDL_Tesi\SdlGameTesi\World.cpp(441,69): warning C4244: 'argu
 D:\Progetti\SdlGame\SDL_Tesi\SdlGameTesi\World.cpp(447,11): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
 D:\Progetti\SdlGame\SDL_Tesi\SdlGameTesi\World.cpp(448,11): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
   Generating code
-  355 of 361 functions (98.3%) were compiled, the rest were copied from previous compilation.
-    1 functions were new in current compilation
-    1 functions had inline decision re-evaluated but remain unchanged
+  0 of 361 functions ( 0.0%) were compiled, the rest were copied from previous compilation.
+    0 functions were new in current compilation
+    0 functions had inline decision re-evaluated but remain unchanged
   Finished generating code
   SdlGameTesi.vcxproj -> D:\Progetti\SdlGame\SDL_Tesi\x64\Release\SdlGameTesi.exe
