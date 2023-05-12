@@ -33,10 +33,10 @@ void Game::init(const char* t_title, int t_xpos, int t_ypos, int t_width, int t_
 	// OBJECTS INITIALIZATION
 
 	int mass1 = 1;
-	int mass2 = 1;
+	int mass2 = 10;
 	
-	m_world->AddGameObject(new DynamicBody("./gfx/grass.png", Graphics::renderer, 30, 10, Vector2f(0,0) , 36, 36, mass2, 0.4));
-	m_world->AddGameObject(new DynamicBody("./gfx/grass.png", Graphics::renderer, 100, 100, Vector2f(0, 0), 36, 36, mass2, 0.4));
+	m_world->AddGameObject(new DynamicBody("./gfx/woodBox.jpg", Graphics::renderer, 30, 10, Vector2f(0,0) , 46, 46, mass2, 0.4));
+	m_world->AddGameObject(new DynamicBody("./gfx/woodBox.jpg", Graphics::renderer, 100, 100, Vector2f(0, 0), 46, 46, mass2, 0.4));
 
 	m_world->AddGameObject(new StaticBody("./gfx/ground.png", Graphics::renderer, 10, 300, 300, 48, mass2, 20, 15, 0.4));
 
@@ -71,7 +71,7 @@ void Game::handleEvents() {
 			int x, y;
 			Uint32 mouseState = SDL_GetMouseState(&x, &y);
 
-			m_world->AddGameObject(new DynamicBody("./gfx/grass.png", Graphics::renderer, x,y, Vector2f(0, 0), 36, 36, (1 + (rand() % 10)), 0.4));
+			m_world->AddGameObject(new DynamicBody("./gfx/woodBox.jpg", Graphics::renderer, x,y, Vector2f(0, 0), 46, 46, (1 + (rand() % 10)), 0.4));
 
 		}
 		break;
@@ -137,6 +137,7 @@ void Game::render(){
 
 	Graphics::RenderScale();
 	Graphics::RenderFrame();
+
 }
 
 void Game::clean(){
