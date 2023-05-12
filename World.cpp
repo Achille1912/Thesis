@@ -112,8 +112,8 @@ void World::SolveDynVsDynCollisionRotationAndFriction(DynamicBody* t_objA, Dynam
 
 	float e =  std::min(t_objA->getRestitution(), t_objB->getRestitution());
 
-	float sf = (t_objA->m_staticFriction + t_objB->m_staticFriction) * 0.5;
-	float df = (t_objA->m_dynamicFriction + t_objB->m_dynamicFriction) * 0.5;
+	float sf = (t_objA->getStaticFriction() + t_objB->getStaticFriction()) * 0.5;
+	float df = (t_objA->getDynamicFriction() + t_objB->getDynamicFriction()) * 0.5;
 
 	std::vector <Vector2f> contactList;
 	std::vector <Vector2f> impulseList(2);
@@ -285,8 +285,8 @@ void World::SolveStaticVsDynCollisionRotationAndFriction(DynamicBody* t_objA, St
 
 	Vector2f normal = t_check.getCollidingAxis();
 	float e = std::min(t_objA->getRestitution(), t_objB->getRestitution());
-	float sf = (t_objA->m_staticFriction + t_objB->m_staticFriction) * 0.5;
-	float df = (t_objA->m_dynamicFriction + t_objB->m_dynamicFriction) * 0.5;
+	float sf = (t_objA->getStaticFriction() + t_objB->getStaticFriction()) * 0.5;
+	float df = (t_objA->getDynamicFriction() + t_objB->getDynamicFriction()) * 0.5;
 
 	std::vector <Vector2f> contactList;
 	std::vector <Vector2f> impulseList(2);
@@ -444,8 +444,8 @@ void World::SolveDynVsStaticCollisionRotationAndFriction(DynamicBody* t_objA, St
 
 	Vector2f normal = t_check.getCollidingAxis();
 	float e = std::min(t_objA->getRestitution(), t_objB->getRestitution());
-	float sf = (t_objA->m_staticFriction + t_objB->m_staticFriction) * 0.5;
-	float df = (t_objA->m_dynamicFriction + t_objB->m_dynamicFriction) * 0.5;
+	float sf = (t_objA->getStaticFriction() + t_objB->getStaticFriction()) * 0.5;
+	float df = (t_objA->getDynamicFriction() + t_objB->getDynamicFriction()) * 0.5;
 
 	std::vector <Vector2f> contactList;
 	std::vector <Vector2f> impulseList(2);

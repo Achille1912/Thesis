@@ -35,7 +35,7 @@ void Game::init(const char* t_title, int t_xpos, int t_ypos, int t_width, int t_
 	int mass1 = 1;
 	int mass2 = 1;
 	
-	m_world->AddGameObject(new DynamicBody("./gfx/grass.png", Graphics::renderer, 20, 10, Vector2f(0,0) , 36, 36, mass2, 0.4));
+	m_world->AddGameObject(new DynamicBody("./gfx/grass.png", Graphics::renderer, 30, 10, Vector2f(0,0) , 36, 36, mass2, 0.4));
 	m_world->AddGameObject(new DynamicBody("./gfx/grass.png", Graphics::renderer, 100, 100, Vector2f(0, 0), 36, 36, mass2, 0.4));
 
 	m_world->AddGameObject(new StaticBody("./gfx/ground.png", Graphics::renderer, 10, 300, 300, 48, mass2, 20, 15, 0.4));
@@ -43,8 +43,6 @@ void Game::init(const char* t_title, int t_xpos, int t_ypos, int t_width, int t_
 	m_world->AddGameObject(new StaticBody("./gfx/ground.png", Graphics::renderer, 300, 450, 300, 48, mass2, 20, -15, 0.4));
 
 	m_world->AddGameObject(new StaticBody("./gfx/ground.png", Graphics::renderer, 10, 550, 600, 48, mass2, 20, 0, 0.4));
-
-
 
 	player = dynamic_cast<DynamicBody*>(m_world->GetGameObjects()[0]);
 }
@@ -132,21 +130,10 @@ void Game::render(){
 	SDL_RenderCopy(Graphics::renderer, Graphics::sfondo_texture, NULL, &destrect);
 
 	for (int i = 0; i < m_world->GetGameObjects().size(); i++) {
-		if (typeid(*m_world->GetGameObjects()[i]) == typeid(DynamicBody)) {
-			dynamic_cast<DynamicBody*>(m_world->GetGameObjects()[i])->render();
-		}
-		if (typeid(*m_world->GetGameObjects()[i]) == typeid(StaticBody)) {
-			dynamic_cast<StaticBody*>(m_world->GetGameObjects()[i])->render();
-		}
-		if (typeid(*m_world->GetGameObjects()[i]) == typeid(DynamicBody)) {
-			SDL_SetTextureColorMod(dynamic_cast<DynamicBody*>(m_world->GetGameObjects()[i])->getTex(), 255, 255, 255);
-		}
-		if (typeid(*m_world->GetGameObjects()[i]) == typeid(StaticBody)) {
-			SDL_SetTextureColorMod(dynamic_cast<StaticBody*>(m_world->GetGameObjects()[i])->getTex(), 255, 255, 255);
-		}
+		m_world->GetGameObjects()[i]->render();
+		
+		SDL_SetTextureColorMod(m_world->GetGameObjects()[i]->getTex(), 255, 255, 255);
 	}
-
-	
 
 	Graphics::RenderScale();
 	Graphics::RenderFrame();

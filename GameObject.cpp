@@ -1,11 +1,15 @@
 #include "GameObject.h"
 #include "Vector2.h"
+#include "Graphics.h"
 #include <vector>
+#include "Constants.h"
 #include "Math.h"
 #include "TextureManager.h"
 #include "Game.h"
 
-GameObject::GameObject(const char* t_textureSheet, SDL_Renderer* t_renderer, float t_xpos, float t_ypos, float t_width, float t_height, double t_mass, float t_theta) {
+GameObject::GameObject(const char* t_textureSheet, SDL_Renderer* t_renderer, float t_xpos, float t_ypos, 
+	float t_width, float t_height, double t_mass, float t_theta, float t_restitution) {
+
 	m_renderer = t_renderer;
 	m_objectTexture = TextureManager::LoadTexture(t_textureSheet, t_renderer);
 
@@ -22,6 +26,8 @@ GameObject::GameObject(const char* t_textureSheet, SDL_Renderer* t_renderer, flo
 
 	m_momentOfInertia = (m_mass * (m_width * m_width + m_height * m_height)) / 12;
 
+	m_restitution = t_restitution;
+
 	m_dstRect.h = t_height;
 	m_dstRect.w = t_width;
 
@@ -32,7 +38,16 @@ GameObject::GameObject(const char* t_textureSheet, SDL_Renderer* t_renderer, flo
 }
 
 void GameObject::render() {
-	SDL_RenderCopy(m_renderer, m_objectTexture, NULL, &m_dstRect);
+	if (Graphics::debug) {
+		SDL_SetRenderDrawColor(m_renderer, 255, 0, 0, 0);
+		SDL_RenderFillRect(m_renderer, &m_dstRect);
+		SDL_SetRenderDrawColor(m_renderer, 255, 255, 255, 255);
+		Graphics::DrawVertices(m_renderer, CalculateVertices(), Color(0, 255, 0, 0));
+	}
+
+	SDL_RenderCopyEx(m_renderer, m_objectTexture, NULL, &m_dstRect, m_theta, NULL, SDL_FLIP_NONE);
+
+	if (Graphics::debug) Graphics::DrawCenterPoint(dynamic_cast<GameObject*>(this), 5, 5, Color(0, 0, 255, 0));
 }
 
 
