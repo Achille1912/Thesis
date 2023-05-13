@@ -39,8 +39,8 @@ void DynamicBody::update(float t_dt, float t_gravity, int t_iterations) {
 	}
 
 	// friction
-	if (m_velocity.x > 0) m_velocity.x -= (8 * t_dt);
-	if (m_velocity.x < 0) m_velocity.x += (8 * t_dt);
+	if (m_velocity.x > 0) m_velocity.x -= (2 * t_dt * PIXELS_PER_METER);
+	if (m_velocity.x < 0) m_velocity.x += (2 * t_dt * PIXELS_PER_METER);
 }
 
 void DynamicBody::move(Vector2f t_direction) {

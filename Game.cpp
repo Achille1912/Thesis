@@ -15,6 +15,7 @@
 #include "Utils.h"
 
 DynamicBody* player;
+bool level0 = false;
 
 // Singleton
 Game* Game::m_uniqueInstance = 0;
@@ -31,23 +32,45 @@ void Game::init(const char* t_title, int t_xpos, int t_ypos, int t_width, int t_
 
 	m_world = new World(-9.8, false);
 
-	// OBJECTS INITIALIZATION
+	
 
+	// OBJECTS INITIALIZATION
 	int mass1 = 1;
 	int mass2 = 10;
-	
-	m_world->AddGameObject(new DynamicBody("./gfx/woodBox.jpg", Graphics::renderer, 30, 10, Vector2f(0,0) , 46, 46, mass2, 0.4));
-	m_world->AddGameObject(new DynamicBody("./gfx/woodBox.jpg", Graphics::renderer, 110, 100, Vector2f(0, 0), 46, 46, mass2, 0.4));
+	if (level0) {
+		
 
-	m_world->AddGameObject(new StaticBody("./gfx/ground.png", Graphics::renderer, 10, 300, 300, 48, mass2, 20, 15, 0.4));
+		m_world->AddGameObject(new DynamicBody("./gfx/woodBox.jpg", Graphics::renderer, 30, 10, Vector2f(0, 0), 46, 46, mass2, 0.4));
+		m_world->AddGameObject(new DynamicBody("./gfx/woodBox.jpg", Graphics::renderer, 110, 100, Vector2f(0, 0), 46, 46, mass2, 0.4));
 
-	m_world->AddGameObject(new StaticBody("./gfx/ground.png", Graphics::renderer, 300, 450, 300, 48, mass2, 20, -15, 0.4));
+		m_world->AddGameObject(new StaticBody("./gfx/ground.png", Graphics::renderer, 10, 300, 300, 48, mass2, 20, 15, 0.4));
 
-	m_world->AddGameObject(new StaticBody("./gfx/ground.png", Graphics::renderer, 10, 550, 600, 48, mass2, 20, 0, 0.4));
+		m_world->AddGameObject(new StaticBody("./gfx/ground.png", Graphics::renderer, 300, 450, 300, 48, mass2, 20, -15, 0.4));
 
-	m_world->AddGameObject(new StaticBody("./gfx/ground.png", Graphics::renderer, 300, 80, 100, 48, mass2, 20, 0, 0.4));
+		m_world->AddGameObject(new StaticBody("./gfx/ground.png", Graphics::renderer, 10, 550, 600, 48, mass2, 20, 0, 0.4));
 
-	player = dynamic_cast<DynamicBody*>(m_world->GetGameObjects()[0]);
+		m_world->AddGameObject(new StaticBody("./gfx/ground.png", Graphics::renderer, 300, 80, 100, 48, mass2, 20, 0, 0.4));
+
+		player = dynamic_cast<DynamicBody*>(m_world->GetGameObjects()[0]);
+	}
+	else {
+		m_world->AddGameObject(new DynamicBody("./gfx/bird.png", Graphics::renderer, 10, 500, Vector2f(0, 0), 46, 46, mass2, 0));
+
+		m_world->AddGameObject(new DynamicBody("./gfx/woodBox.jpg", Graphics::renderer, 400, 400, Vector2f(0, 0), 26, 200, mass2, 0.4));
+		m_world->AddGameObject(new DynamicBody("./gfx/woodBox.jpg", Graphics::renderer, 600, 400, Vector2f(0, 0), 26, 200, mass2, 0.4));
+
+		m_world->AddGameObject(new DynamicBody("./gfx/woodBox.jpg", Graphics::renderer, 400, 300, Vector2f(0, 0), 226, 26, mass2, 0.4));
+
+		m_world->AddGameObject(new DynamicBody("./gfx/woodBox.jpg", Graphics::renderer, 450, 200, Vector2f(0, 0), 26, 150, mass2, 0.4));
+		m_world->AddGameObject(new DynamicBody("./gfx/woodBox.jpg", Graphics::renderer, 550, 200, Vector2f(0, 0), 26, 150, mass2, 0.4));
+
+		m_world->AddGameObject(new DynamicBody("./gfx/woodBox.jpg", Graphics::renderer, 450, 150, Vector2f(0, 0), 126, 26, mass2, 0.4));
+
+		m_world->AddGameObject(new DynamicBody("./gfx/woodBox.jpg", Graphics::renderer, 500, 100, Vector2f(0, 0), 26, 46, mass2, 0.4));
+
+		m_world->AddGameObject(new StaticBody("./gfx/ground.png", Graphics::renderer, 10, 550, 800, 48, mass2, 20, 0, 0));
+		player = dynamic_cast<DynamicBody*>(m_world->GetGameObjects()[0]);
+	}
 }
 
 void Game::handleEvents() {
@@ -73,9 +96,13 @@ void Game::handleEvents() {
 		{
 			int x, y;
 			Uint32 mouseState = SDL_GetMouseState(&x, &y);
-
-			m_world->AddGameObject(new DynamicBody("./gfx/woodBox.jpg", Graphics::renderer, x,y, Vector2f(0, 0), 46, 46, (1 + (rand() % 10)), 0.4));
-
+			if (level0) {
+				m_world->AddGameObject(new DynamicBody("./gfx/woodBox.jpg", Graphics::renderer, x, y, Vector2f(0, 0), 46, 46, (1 + (rand() % 10)), 0.4));
+			}
+			else {
+				Vector2f vel = Vector2f(x, y) - player->getCenter();
+				player->AddVel(vel);
+			}
 		}
 		break;
 	case SDL_KEYDOWN:
