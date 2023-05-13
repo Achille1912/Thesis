@@ -24,3 +24,5 @@ Finally, update the world every frame to simulate the physics of your game objec
 // update the world to simulate physics for one frame
 updateWorld(world, deltaTime);
 ```
+## Example
+![image](./angry birds.gif)
