@@ -1,4 +1,4 @@
-﻿  DynamicBody.cpp
+﻿  Game.cpp
 D:\Progetti\SdlGame\SDL_Tesi\SdlGameTesi\Vector2.h(50,34): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
 D:\Progetti\SdlGame\SDL_Tesi\SdlGameTesi\Vector2.h(50,21): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
 D:\Progetti\SdlGame\SDL_Tesi\SdlGameTesi\GameObject.h(51): warning C4305: 'initializing': truncation from 'double' to 'float'
@@ -10,9 +10,32 @@ D:\Progetti\SdlGame\SDL_Tesi\SdlGameTesi\Utils.h(21,23): warning C4244: '=': con
 D:\Progetti\SdlGame\SDL_Tesi\SdlGameTesi\Utils.h(22,23): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
 D:\Progetti\SdlGame\SDL_Tesi\SdlGameTesi\Constants.h(5,22): warning C4305: 'initializing': truncation from 'double' to 'float'
 D:\Progetti\SdlGame\SDL_Tesi\SdlGameTesi\Constants.h(7,33): warning C4305: 'initializing': truncation from 'double' to 'float'
-D:\Progetti\SdlGame\SDL_Tesi\SdlGameTesi\DynamicBody.cpp(13,103): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Progetti\SdlGame\SDL_Tesi\SdlGameTesi\Game.cpp(33,34): warning C4305: 'argument': truncation from 'double' to 'float'
+D:\Progetti\SdlGame\SDL_Tesi\SdlGameTesi\Game.cpp(43,126): warning C4305: 'argument': truncation from 'double' to 'float'
+D:\Progetti\SdlGame\SDL_Tesi\SdlGameTesi\Game.cpp(44,128): warning C4305: 'argument': truncation from 'double' to 'float'
+D:\Progetti\SdlGame\SDL_Tesi\SdlGameTesi\Game.cpp(46,118): warning C4305: 'argument': truncation from 'double' to 'float'
+D:\Progetti\SdlGame\SDL_Tesi\SdlGameTesi\Game.cpp(48,120): warning C4305: 'argument': truncation from 'double' to 'float'
+D:\Progetti\SdlGame\SDL_Tesi\SdlGameTesi\Game.cpp(50,117): warning C4305: 'argument': truncation from 'double' to 'float'
+D:\Progetti\SdlGame\SDL_Tesi\SdlGameTesi\Game.cpp(52,117): warning C4305: 'argument': truncation from 'double' to 'float'
+D:\Progetti\SdlGame\SDL_Tesi\SdlGameTesi\Game.cpp(59,129): warning C4305: 'argument': truncation from 'double' to 'float'
+D:\Progetti\SdlGame\SDL_Tesi\SdlGameTesi\Game.cpp(60,129): warning C4305: 'argument': truncation from 'double' to 'float'
+D:\Progetti\SdlGame\SDL_Tesi\SdlGameTesi\Game.cpp(62,129): warning C4305: 'argument': truncation from 'double' to 'float'
+D:\Progetti\SdlGame\SDL_Tesi\SdlGameTesi\Game.cpp(64,129): warning C4305: 'argument': truncation from 'double' to 'float'
+D:\Progetti\SdlGame\SDL_Tesi\SdlGameTesi\Game.cpp(65,129): warning C4305: 'argument': truncation from 'double' to 'float'
+D:\Progetti\SdlGame\SDL_Tesi\SdlGameTesi\Game.cpp(67,129): warning C4305: 'argument': truncation from 'double' to 'float'
+D:\Progetti\SdlGame\SDL_Tesi\SdlGameTesi\Game.cpp(69,128): warning C4305: 'argument': truncation from 'double' to 'float'
+D:\Progetti\SdlGame\SDL_Tesi\SdlGameTesi\Game.cpp(100,140): warning C4305: 'argument': truncation from 'double' to 'float'
+D:\Progetti\SdlGame\SDL_Tesi\SdlGameTesi\Game.cpp(100,88): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\Progetti\SdlGame\SDL_Tesi\SdlGameTesi\Game.cpp(100,85): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\Progetti\SdlGame\SDL_Tesi\SdlGameTesi\Game.cpp(103,32): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\Progetti\SdlGame\SDL_Tesi\SdlGameTesi\Game.cpp(103,29): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\Progetti\SdlGame\SDL_Tesi\SdlGameTesi\Game.cpp(112,210): warning C4305: 'argument': truncation from 'double' to 'float'
+D:\Progetti\SdlGame\SDL_Tesi\SdlGameTesi\Game.cpp(112,167): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\Progetti\SdlGame\SDL_Tesi\SdlGameTesi\Game.cpp(112,146): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\Progetti\SdlGame\SDL_Tesi\SdlGameTesi\Game.cpp(112,107): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\Progetti\SdlGame\SDL_Tesi\SdlGameTesi\Game.cpp(112,85): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
   Generating code
-  4 of 373 functions ( 1.1%) were compiled, the rest were copied from previous compilation.
+  3 of 373 functions ( 0.8%) were compiled, the rest were copied from previous compilation.
     0 functions were new in current compilation
     0 functions had inline decision re-evaluated but remain unchanged
   Finished generating code

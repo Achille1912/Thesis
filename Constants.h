@@ -10,7 +10,7 @@ const int SCREEN_WIDTH = 800;
 
 const int SCREEN_HEIGHT = 600;
 
-const int ANGULAR_FACTOR = 28;
+const int ANGULAR_FACTOR = 38;
 
 const int SPRITE_W = 34;
 const int SPRITE_H = 26;

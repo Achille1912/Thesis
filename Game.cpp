@@ -15,7 +15,7 @@
 #include "Utils.h"
 
 DynamicBody* player;
-bool level0 = false;
+bool level0 = true;
 
 // Singleton
 Game* Game::m_uniqueInstance = 0;
