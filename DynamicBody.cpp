@@ -10,7 +10,7 @@
 
 DynamicBody::DynamicBody(const char* t_textureSheet, SDL_Renderer* t_renderer, float t_xpos, float t_ypos,
 	Vector2f t_velocity, float t_width, float t_height, double t_mass, float t_restitution)
-	:GameObject(t_textureSheet, t_renderer, t_xpos, t_ypos, t_width,t_height, t_mass, 0, t_restitution) {
+	:GameObject(t_textureSheet, t_renderer, t_xpos, t_ypos, t_width,t_height, t_mass, 0, t_restitution, 1/t_mass) {
 	m_renderer = t_renderer;
 	m_objectTexture = TextureManager::LoadTexture(t_textureSheet, t_renderer);
 	m_velocity = t_velocity;
@@ -34,10 +34,13 @@ void DynamicBody::update(float t_dt, float t_gravity, int t_iterations) {
 	m_vertices = CalculateVertices();
 
 	// Safe Area
-	if (std::abs(m_velocity.len()) < SmallAmount) {
+	if (std::abs(m_velocity.len()) < SmallAmount*100) {
 		m_velocity = Vector2f(0, 0);
 	}
 
+	// friction
+	if (m_velocity.x > 0) m_velocity.x -= (8 * t_dt);
+	if (m_velocity.x < 0) m_velocity.x += (8 * t_dt);
 }
 
 void DynamicBody::move(Vector2f t_direction) {

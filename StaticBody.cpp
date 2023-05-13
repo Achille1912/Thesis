@@ -7,7 +7,7 @@
 
 StaticBody::StaticBody(const char* t_textureSheet, SDL_Renderer* t_renderer, float t_xpos, float t_ypos, float t_width,
 	float t_height, double t_mass, float t_friction, float t_angle, float t_restitution) 
-	: GameObject(t_textureSheet, t_renderer, t_xpos, t_ypos, t_width, t_height, t_mass, t_angle, t_restitution) {
+	: GameObject(t_textureSheet, t_renderer, t_xpos, t_ypos, t_width, t_height, t_mass, t_angle, t_restitution, 0) {
 	m_renderer = t_renderer;
 	m_objectTexture = TextureManager::LoadTexture(t_textureSheet, t_renderer);
 

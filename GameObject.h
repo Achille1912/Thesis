@@ -11,7 +11,7 @@
 class GameObject {
 public:
 	GameObject() {}
-	GameObject(const char* t_textureSheet, SDL_Renderer* t_renderer, float t_xpos, float t_ypos, float t_width, float t_height, double t_mass, float theta, float restitution);
+	GameObject(const char* t_textureSheet, SDL_Renderer* t_renderer, float t_xpos, float t_ypos, float t_width, float t_height, double t_mass, float t_theta, float t_restitution, float t_invMass);
 	virtual ~GameObject() {}
 
 	// SETTERS
@@ -26,7 +26,6 @@ public:
 	Point getPos() { return Point(m_xpos, m_ypos); }
 	Vector2f getCenter() { return Vector2f(m_xpos + m_width / 2, m_ypos + m_height / 2); }
 	double getMass() { return m_mass; }
-	float getInvMass() { return m_inv_mass; }
 	SDL_Rect* getRect() { return &m_dstRect; }
 	SDL_Renderer* getRenderer() { return m_renderer; }
 	float getMomentOfInertia() { return m_momentOfInertia; }
@@ -36,6 +35,7 @@ public:
 	float getStaticFriction() { return m_staticFriction; }
 	float getDynamicFriction() { return m_dynamicFriction; }
 	float getRestitution() { return m_restitution; }
+	float getInvMass() { return m_invMass; }
 
 
 	std::vector <Vector2f> CalculateVertices();
@@ -45,7 +45,7 @@ protected:
 	// Physics
 	float m_xpos, m_ypos, m_width, m_height;
 	double m_mass;
-	float m_inv_mass;
+	float m_invMass;
 	float m_momentOfInertia;
 	float m_theta = 0;
 	float m_staticFriction = 0.2;

@@ -8,6 +8,7 @@
 #include "StaticBody.h"
 #include <cmath>
 #include "Game.h"
+#include "Utils.h"
 #include "Math.h"
 
 PointToSegmentType PointToSegmentDistance(Vector2f p, Vector2f va, Vector2f vb) {
@@ -128,13 +129,17 @@ CollisionType Collision::IntersectSAT(GameObject* objA, GameObject* objB) {
 
 
 	// Check Collision Mdoe
-	if (typeid(*objA) == typeid(DynamicBody) && typeid(*objB) == typeid(DynamicBody)) {
+	
+	if (Utils::isInstanceOf(objA, typeid(DynamicBody)) && 
+		Utils::isInstanceOf(objB, typeid(DynamicBody))) {
 		result.setCollisionMode(DynVsDyn);
 	}
-	else if ((typeid(*objA) == typeid(DynamicBody) && typeid(*objB) == typeid(StaticBody))){
+	else if (Utils::isInstanceOf(objA, typeid(DynamicBody)) &&
+		Utils::isInstanceOf(objB, typeid(StaticBody))) {
 		result.setCollisionMode(DynVsStatic);
 	}
-	else if (typeid(*objA) == typeid(StaticBody) && typeid(*objB) == typeid(DynamicBody)) {
+	else if (Utils::isInstanceOf(objA, typeid(StaticBody)) &&
+		Utils::isInstanceOf(objB, typeid(DynamicBody))) {
 		result.setCollisionMode(StaticVsDyn);
 	}
 

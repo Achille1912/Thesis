@@ -31,15 +31,11 @@ public:
 
 	void SolveDynVsDynCollisionBasic(DynamicBody* t_objA, DynamicBody* t_objB,CollisionType t_check);
 
-	void SolveStaticVsDynCollisionBasic(DynamicBody* t_objA, StaticBody* t_objB, CollisionType t_check);
-
 	void SolveDynVsStaticCollisionBasic(DynamicBody* t_objA, StaticBody* t_objB, CollisionType t_check);
 
-	void SolveDynVsDynCollisionRotationAndFriction(DynamicBody* t_objA, DynamicBody* t_objB, CollisionType t_check);
+	void SolveDynVsDynCollisionRotation(DynamicBody* t_objA, DynamicBody* t_objB, CollisionType t_check);
 
-	void SolveStaticVsDynCollisionRotationAndFriction(DynamicBody* t_objA, StaticBody* t_objB, CollisionType t_check);
-
-	void SolveDynVsStaticCollisionRotationAndFriction(DynamicBody* t_objA, StaticBody* t_objB, CollisionType t_check);
+	void SolveDynVsStaticCollisionRotation(DynamicBody* t_objA, StaticBody* t_objB, CollisionType t_check);
 
 	Collision* m_collisionManager;
 

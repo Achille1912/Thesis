@@ -2,14 +2,18 @@
 
 #ifndef UTILS_H
 #define UTILS_H
-
 #include <string>
+#include "GameObject.h"
 
 struct Utils {
 
     static void Print(std::string str) {
         std::cout << str << std::endl;
     }
+    static bool isInstanceOf(GameObject* obj, const std::type_info& type){
+        return typeid(*obj) == type;
+    }
+
 
     static void SetRectSizeAndPosition(SDL_Rect &t_dstRect, float t_x, float t_y, float t_w, float t_h) {
         t_dstRect.h = t_h;

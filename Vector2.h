@@ -65,6 +65,24 @@ struct Vector2f
 		return *this;
 	}
 
+	Vector2f& operator+=(float t_value) {
+		x += t_value;
+		y += t_value;
+		return *this;
+	}
+
+	Vector2f& operator-=(const Vector2f& t_vector) {
+		x -= t_vector.x;
+		y -= t_vector.y;
+		return *this;
+	}
+
+	Vector2f& operator-=(float t_value) {
+		x -= t_value;
+		y -= t_value;
+		return *this;
+	}
+
 	friend std::ostream& operator<<(std::ostream& os, const Vector2f& t_vector) {
 		os << "(" << t_vector.x << ", " << t_vector.y << ")" << std::endl;
 		return os;

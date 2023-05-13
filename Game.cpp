@@ -3,6 +3,7 @@
 #include <iostream>
 #include <string>
 
+
 #include "Game.h"
 #include "Graphics.h"
 #include "TextureManager.h"
@@ -36,13 +37,15 @@ void Game::init(const char* t_title, int t_xpos, int t_ypos, int t_width, int t_
 	int mass2 = 10;
 	
 	m_world->AddGameObject(new DynamicBody("./gfx/woodBox.jpg", Graphics::renderer, 30, 10, Vector2f(0,0) , 46, 46, mass2, 0.4));
-	m_world->AddGameObject(new DynamicBody("./gfx/woodBox.jpg", Graphics::renderer, 100, 100, Vector2f(0, 0), 46, 46, mass2, 0.4));
+	m_world->AddGameObject(new DynamicBody("./gfx/woodBox.jpg", Graphics::renderer, 110, 100, Vector2f(0, 0), 46, 46, mass2, 0.4));
 
 	m_world->AddGameObject(new StaticBody("./gfx/ground.png", Graphics::renderer, 10, 300, 300, 48, mass2, 20, 15, 0.4));
 
 	m_world->AddGameObject(new StaticBody("./gfx/ground.png", Graphics::renderer, 300, 450, 300, 48, mass2, 20, -15, 0.4));
 
 	m_world->AddGameObject(new StaticBody("./gfx/ground.png", Graphics::renderer, 10, 550, 600, 48, mass2, 20, 0, 0.4));
+
+	m_world->AddGameObject(new StaticBody("./gfx/ground.png", Graphics::renderer, 300, 80, 100, 48, mass2, 20, 0, 0.4));
 
 	player = dynamic_cast<DynamicBody*>(m_world->GetGameObjects()[0]);
 }
@@ -111,6 +114,16 @@ void Game::handleEvents() {
 			player->rotate();
 			std::cout << player->getRotation() << std::endl;
 			break;
+		case SDLK_m:
+			if (m_world->m_basic) {
+				m_world->m_basic = false;
+				Utils::Print("Mode: Rotation");
+			}
+			else {
+				m_world->m_basic = true;
+				Utils::Print("Mode: Basic");
+			}
+			break;
 		}
 
 		break;
@@ -121,7 +134,7 @@ void Game::handleEvents() {
 }
 
 void Game::update(float dt) {
-	m_world->Update(dt, 30);
+	m_world->Update(dt, 60);
 }
 
 void Game::render(){

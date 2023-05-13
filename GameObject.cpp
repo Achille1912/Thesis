@@ -8,7 +8,7 @@
 #include "Game.h"
 
 GameObject::GameObject(const char* t_textureSheet, SDL_Renderer* t_renderer, float t_xpos, float t_ypos, 
-	float t_width, float t_height, double t_mass, float t_theta, float t_restitution) {
+	float t_width, float t_height, double t_mass, float t_theta, float t_restitution, float t_invMass) {
 
 	m_renderer = t_renderer;
 	m_objectTexture = TextureManager::LoadTexture(t_textureSheet, t_renderer);
@@ -22,7 +22,7 @@ GameObject::GameObject(const char* t_textureSheet, SDL_Renderer* t_renderer, flo
 	m_theta = t_theta;
 
 	m_mass = t_mass;
-	m_inv_mass = 1 / t_mass;
+	m_invMass = t_invMass;
 
 	m_momentOfInertia = (m_mass * (m_width * m_width + m_height * m_height)) / 12;
 
