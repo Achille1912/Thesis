@@ -25,4 +25,4 @@ Finally, update the world every frame to simulate the physics of your game objec
 updateWorld(world, deltaTime);
 ```
 ## Example
-![image](./dev/angry birds.gif)
+![image](dev/angry birds.gif)
