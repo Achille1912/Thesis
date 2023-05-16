@@ -1,8 +1,8 @@
 ﻿  Game.cpp
 D:\Progetti\SdlGame\SDL_Tesi\SdlGameTesi\Vector2.h(50,34): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
 D:\Progetti\SdlGame\SDL_Tesi\SdlGameTesi\Vector2.h(50,21): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-D:\Progetti\SdlGame\SDL_Tesi\SdlGameTesi\GameObject.h(51): warning C4305: 'initializing': truncation from 'double' to 'float'
 D:\Progetti\SdlGame\SDL_Tesi\SdlGameTesi\GameObject.h(52): warning C4305: 'initializing': truncation from 'double' to 'float'
+D:\Progetti\SdlGame\SDL_Tesi\SdlGameTesi\GameObject.h(53): warning C4305: 'initializing': truncation from 'double' to 'float'
 D:\Progetti\SdlGame\SDL_Tesi\SdlGameTesi\World.h(15): warning C4305: 'initializing': truncation from 'double' to 'float'
 D:\Progetti\SdlGame\SDL_Tesi\SdlGameTesi\Utils.h(19,23): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
 D:\Progetti\SdlGame\SDL_Tesi\SdlGameTesi\Utils.h(20,23): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
@@ -17,13 +17,13 @@ D:\Progetti\SdlGame\SDL_Tesi\SdlGameTesi\Game.cpp(46,118): warning C4305: 'argum
 D:\Progetti\SdlGame\SDL_Tesi\SdlGameTesi\Game.cpp(48,120): warning C4305: 'argument': truncation from 'double' to 'float'
 D:\Progetti\SdlGame\SDL_Tesi\SdlGameTesi\Game.cpp(50,117): warning C4305: 'argument': truncation from 'double' to 'float'
 D:\Progetti\SdlGame\SDL_Tesi\SdlGameTesi\Game.cpp(52,117): warning C4305: 'argument': truncation from 'double' to 'float'
-D:\Progetti\SdlGame\SDL_Tesi\SdlGameTesi\Game.cpp(59,129): warning C4305: 'argument': truncation from 'double' to 'float'
-D:\Progetti\SdlGame\SDL_Tesi\SdlGameTesi\Game.cpp(60,129): warning C4305: 'argument': truncation from 'double' to 'float'
-D:\Progetti\SdlGame\SDL_Tesi\SdlGameTesi\Game.cpp(62,129): warning C4305: 'argument': truncation from 'double' to 'float'
-D:\Progetti\SdlGame\SDL_Tesi\SdlGameTesi\Game.cpp(64,129): warning C4305: 'argument': truncation from 'double' to 'float'
-D:\Progetti\SdlGame\SDL_Tesi\SdlGameTesi\Game.cpp(65,129): warning C4305: 'argument': truncation from 'double' to 'float'
-D:\Progetti\SdlGame\SDL_Tesi\SdlGameTesi\Game.cpp(67,129): warning C4305: 'argument': truncation from 'double' to 'float'
-D:\Progetti\SdlGame\SDL_Tesi\SdlGameTesi\Game.cpp(69,128): warning C4305: 'argument': truncation from 'double' to 'float'
+D:\Progetti\SdlGame\SDL_Tesi\SdlGameTesi\Game.cpp(59,132): warning C4305: 'argument': truncation from 'double' to 'float'
+D:\Progetti\SdlGame\SDL_Tesi\SdlGameTesi\Game.cpp(60,132): warning C4305: 'argument': truncation from 'double' to 'float'
+D:\Progetti\SdlGame\SDL_Tesi\SdlGameTesi\Game.cpp(62,132): warning C4305: 'argument': truncation from 'double' to 'float'
+D:\Progetti\SdlGame\SDL_Tesi\SdlGameTesi\Game.cpp(64,132): warning C4305: 'argument': truncation from 'double' to 'float'
+D:\Progetti\SdlGame\SDL_Tesi\SdlGameTesi\Game.cpp(65,132): warning C4305: 'argument': truncation from 'double' to 'float'
+D:\Progetti\SdlGame\SDL_Tesi\SdlGameTesi\Game.cpp(67,132): warning C4305: 'argument': truncation from 'double' to 'float'
+D:\Progetti\SdlGame\SDL_Tesi\SdlGameTesi\Game.cpp(69,130): warning C4305: 'argument': truncation from 'double' to 'float'
 D:\Progetti\SdlGame\SDL_Tesi\SdlGameTesi\Game.cpp(100,140): warning C4305: 'argument': truncation from 'double' to 'float'
 D:\Progetti\SdlGame\SDL_Tesi\SdlGameTesi\Game.cpp(100,88): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
 D:\Progetti\SdlGame\SDL_Tesi\SdlGameTesi\Game.cpp(100,85): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
@@ -35,7 +35,7 @@ D:\Progetti\SdlGame\SDL_Tesi\SdlGameTesi\Game.cpp(112,146): warning C4244: 'argu
 D:\Progetti\SdlGame\SDL_Tesi\SdlGameTesi\Game.cpp(112,107): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
 D:\Progetti\SdlGame\SDL_Tesi\SdlGameTesi\Game.cpp(112,85): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
   Generating code
-  3 of 373 functions ( 0.8%) were compiled, the rest were copied from previous compilation.
+  4 of 373 functions ( 1.1%) were compiled, the rest were copied from previous compilation.
     0 functions were new in current compilation
     0 functions had inline decision re-evaluated but remain unchanged
   Finished generating code

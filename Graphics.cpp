@@ -40,7 +40,8 @@ bool Graphics::OpenWindow(const char* t_title, int t_xpos, int t_ypos, int t_wid
             SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
             std::cout << "Renderer created." << std::endl;
         }
-        //sfondo_texture = IMG_LoadTexture(Graphics::renderer, "./gfx/background.png");
+        sfondo_texture = IMG_LoadTexture(Graphics::renderer, "./gfx/background.jpg");
+
         return true;
     }
     else {
@@ -68,6 +69,13 @@ void Graphics::CloseWindow() {
     SDL_Quit();
     std::cout << "Game Closed." << std::endl;
 }
+
+void Graphics::SDL_RenderDrawRect(SDL_Renderer* t_renderer, float t_xpos, float t_ypos, float t_width, float t_height, Color t_color) {
+    SDL_SetRenderDrawColor(Graphics::renderer, t_color.r, t_color.g, t_color.b, t_color.a);
+    SDL_Rect rect = { 100, 100, 50, 50 };
+    SDL_RenderFillRect(t_renderer, &rect);
+}
+
 
 
 void Graphics::SDL_RenderDrawCircle(SDL_Renderer* t_renderer, int t_x, int t_y, int t_radius) {
@@ -98,7 +106,7 @@ void Graphics::DrawCenterPoint(GameObject* t_obj, int t_width, int t_height, Col
 }
 
 void Graphics::DrawVertices(SDL_Renderer* t_renderer, std::vector <Vector2f> t_vertices, Color t_color) {
-    SDL_SetRenderDrawColor(Graphics::renderer, 0, 255, 0, 255);
+    SDL_SetRenderDrawColor(Graphics::renderer, t_color.r, t_color.g, t_color.b, t_color.a);
     for (int i = 0; i < t_vertices.size(); i++) {
         Graphics::SDL_RenderDrawCircle(Graphics::renderer, t_vertices[i].x, t_vertices[i].y, 5);
     }

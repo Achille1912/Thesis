@@ -230,4 +230,9 @@ ContactType Collision::FindContactPoints(GameObject* objA, GameObject* objB) {
 
 
 
-
+bool Collision::IntersectAABB(GameObject* objA, GameObject* objB) {
+	return (objA->GetAABB()[0].x < objB->GetAABB()[0].x + (objB->GetAABB()[1].x - objB->GetAABB()[0].x) &&
+		objA->GetAABB()[0].x + (objA->GetAABB()[1].x - objA->GetAABB()[0].x) > objB->GetAABB()[0].x &&
+		objA->GetAABB()[0].y < objB->GetAABB()[0].y + (objB->GetAABB()[2].y - objB->GetAABB()[0].y) &&
+		objA->GetAABB()[0].y + (objA->GetAABB()[2].y - objA->GetAABB()[0].y) > objB->GetAABB()[0].y);
+}

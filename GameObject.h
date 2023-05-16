@@ -40,6 +40,7 @@ public:
 
 	std::vector <Vector2f> CalculateVertices();
 	void render();
+	std::vector <Vector2f> GetAABB();
 
 protected:
 	// Physics

@@ -80,5 +80,7 @@ public:
 
 	ContactType FindContactPoints(GameObject* objA, GameObject* objB);
 
+	bool IntersectAABB(GameObject* objA, GameObject* objB);
+
 private:
 };

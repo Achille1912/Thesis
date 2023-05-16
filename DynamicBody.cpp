@@ -24,23 +24,24 @@ void DynamicBody::update(float t_dt, float t_gravity, int t_iterations) {
 	// Euler's Integration
 	m_velocity +=  Vector2f(0,t_gravity * t_dt);
 	m_xpos += m_velocity.x * t_dt;
-	m_ypos += + m_velocity.y * t_dt;
+	m_ypos += m_velocity.y * t_dt;
 
 	m_theta += m_angularVelocity * t_dt* ANGULAR_FACTOR ;
 
 	// New Position Rect
 	Utils::SetRectSizeAndPosition(m_dstRect, m_xpos, m_ypos, m_width, m_height);
 
-	m_vertices = CalculateVertices();
+	
 
 	// Safe Area
-	if (std::abs(m_velocity.len()) < SmallAmount*100) {
+	/*if (std::abs(m_velocity.len()) < SmallAmount*100) {
 		m_velocity = Vector2f(0, 0);
-	}
+	}*/
 
 	// friction
-	if (m_velocity.x > 0) m_velocity.x -= (0.2 * t_dt * PIXELS_PER_METER);
-	if (m_velocity.x < 0) m_velocity.x += (0.2 * t_dt * PIXELS_PER_METER);
+	if (m_velocity.x > 0) m_velocity.x -= (4 * t_dt * PIXELS_PER_METER);
+	if (m_velocity.x < 0) m_velocity.x += (4 * t_dt * PIXELS_PER_METER);
+	m_vertices = CalculateVertices();
 }
 
 void DynamicBody::move(Vector2f t_direction) {
