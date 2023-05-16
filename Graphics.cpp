@@ -72,8 +72,8 @@ void Graphics::CloseWindow() {
 
 void Graphics::SDL_RenderDrawRect(SDL_Renderer* t_renderer, float t_xpos, float t_ypos, float t_width, float t_height, Color t_color) {
     SDL_SetRenderDrawColor(Graphics::renderer, t_color.r, t_color.g, t_color.b, t_color.a);
-    SDL_Rect rect = { 100, 100, 50, 50 };
-    SDL_RenderFillRect(t_renderer, &rect);
+    SDL_FRect rect = { 100, 100, 50, 50 };
+    SDL_RenderFillRectF(t_renderer, &rect);
 }
 
 
@@ -92,7 +92,7 @@ void Graphics::SDL_RenderDrawCircle(SDL_Renderer* t_renderer, int t_x, int t_y, 
 
 void Graphics::DrawCenterPoint(GameObject* t_obj, int t_width, int t_height, Color t_color) {
     SDL_SetRenderDrawColor(renderer, 255, 0, 0, 255);
-    SDL_Rect center;
+    SDL_FRect center;
 
     center.w = t_width;
     center.h = t_height;
@@ -101,7 +101,7 @@ void Graphics::DrawCenterPoint(GameObject* t_obj, int t_width, int t_height, Col
     center.y = (t_obj->getY() + t_obj->getH() / 2 - center.h / 2);
 
     SDL_SetRenderDrawColor(t_obj->getRenderer(), t_color.r, t_color.g, t_color.b, t_color.a);
-    SDL_RenderFillRect(t_obj->getRenderer(), &center);
+    SDL_RenderFillRectF(t_obj->getRenderer(), &center);
     SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
 }
 

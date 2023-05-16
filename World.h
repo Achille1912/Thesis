@@ -12,7 +12,7 @@
 
 class World {
 private:
-	float m_G = 9.81;
+	float m_G = 9.81f;
 	std::vector<GameObject*> m_objects;
 
 public:

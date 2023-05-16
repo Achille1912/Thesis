@@ -26,7 +26,7 @@ public:
 	Point getPos() { return Point(m_xpos, m_ypos); }
 	Vector2f getCenter() { return Vector2f(m_xpos + m_width/2, m_ypos + m_height/2); }
 	double getMass() { return m_mass; }
-	SDL_Rect* getRect() { return &m_dstRect; }
+	SDL_FRect* getRect() { return &m_dstRect; }
 	SDL_Texture* getTex() { return m_objectTexture; }
 
 	std::vector <Vector2f> m_vertices;
@@ -34,7 +34,7 @@ public:
 private:
 	// Rendering
 	SDL_Texture* m_objectTexture;
-	SDL_Rect m_dstRect;
+	SDL_FRect m_dstRect;
 	SDL_Renderer* m_renderer;
 };
 

@@ -2,9 +2,9 @@
 
 const int PIXELS_PER_METER = 50;
 
-const float PI = 3.14;
+const float PI = 3.14f;
 
-const float SmallAmount = 0.0005;
+const float SmallAmount = 0.0005f;
 
 const int SCREEN_WIDTH = 800;
 

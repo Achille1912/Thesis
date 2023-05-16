@@ -15,7 +15,7 @@ struct Utils {
     }
 
 
-    static void SetRectSizeAndPosition(SDL_Rect &t_dstRect, float t_x, float t_y, float t_w, float t_h) {
+    static void SetRectSizeAndPosition(SDL_FRect&t_dstRect, float t_x, float t_y, float t_w, float t_h) {
         t_dstRect.h = t_h;
         t_dstRect.w = t_w;
         t_dstRect.x = t_x;

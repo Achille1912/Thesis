@@ -15,7 +15,7 @@ class DynamicBody: public GameObject {
 
 public:
 	DynamicBody(const char* t_textureSheet, SDL_Renderer* t_renderer, float t_xpos, float t_ypos, 
-		Vector2f t_velocity, float t_width, float t_height, double t_mass, float t_restitution);
+		Vector2f t_velocity, float t_width, float t_height, float t_mass, float t_restitution);
 
 	// SETTERS
 	void setVelocity(Vector2f t_velocity) { m_velocity = t_velocity; }
@@ -37,7 +37,7 @@ public:
 	Point getPos() { return Point(m_xpos, m_ypos); }
 	Vector2f getCenter() { return Vector2f(m_xpos + m_width/2, m_ypos + m_height/2); }
 	double getMass() { return m_mass; }
-	SDL_Rect* getRect() { return &m_dstRect; }
+	SDL_FRect* getRect() { return &m_dstRect; }
 	SDL_Texture* getTex() { return m_objectTexture; }
 	float getRotation() { return m_theta; }
 	float getOmega() { return m_omega; }

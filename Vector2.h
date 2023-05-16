@@ -9,7 +9,6 @@
 
 class Point {
 public:
-	Point(){}
 	Point(float t_x, float t_y) {
 		x = t_x;
 		y = t_y;
@@ -46,9 +45,6 @@ struct Vector2f
 		return Vector2f(x - t_vector.x, y - t_vector.y);
 	}
 
-	Vector2f operator/(double t_value) {
-		return Vector2f(x / t_value, y / t_value);
-	}
 
 	Vector2f operator*(float t_value) {
 		return Vector2f(x * t_value, y * t_value);

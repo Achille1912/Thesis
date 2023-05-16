@@ -34,7 +34,7 @@ private:
 
 	// singleton
 	static Game* m_uniqueInstance;
-	Game() {}
+	
 };
 
 #endif

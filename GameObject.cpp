@@ -8,7 +8,7 @@
 #include "Game.h"
 
 GameObject::GameObject(const char* t_textureSheet, SDL_Renderer* t_renderer, float t_xpos, float t_ypos, 
-	float t_width, float t_height, double t_mass, float t_theta, float t_restitution, float t_invMass) {
+	float t_width, float t_height, float t_mass, float t_theta, float t_restitution, float t_invMass) {
 
 	m_renderer = t_renderer;
 	m_objectTexture = TextureManager::LoadTexture(t_textureSheet, t_renderer);
@@ -40,7 +40,7 @@ GameObject::GameObject(const char* t_textureSheet, SDL_Renderer* t_renderer, flo
 void GameObject::render() {
 	if (Graphics::debug) {
 		std::vector<Vector2f> tmp = GetAABB();
-		SDL_Rect tmpRect;
+		SDL_FRect tmpRect;
 		tmpRect.x = tmp[0].x;
 		tmpRect.y = tmp[0].y;
 		tmpRect.w = tmp[1].x - tmp[0].x;
@@ -48,11 +48,11 @@ void GameObject::render() {
 
 
 		SDL_SetRenderDrawColor(m_renderer, 255, 0, 0, 0);
-		SDL_RenderFillRect(m_renderer, &tmpRect);
+		SDL_RenderFillRectF(m_renderer, &tmpRect);
 		SDL_SetRenderDrawColor(m_renderer, 255, 255, 255, 255);
 	}
 	
-	SDL_RenderCopyEx(m_renderer, m_objectTexture, NULL, &m_dstRect, m_theta, NULL, SDL_FLIP_NONE);
+	SDL_RenderCopyExF(m_renderer, m_objectTexture, NULL, &m_dstRect, m_theta, NULL, SDL_FLIP_NONE);
 	SDL_SetRenderDrawColor(m_renderer, 255, 0, 0, 0);
 	
 
