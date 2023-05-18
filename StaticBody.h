@@ -3,8 +3,9 @@
 #ifndef STATICBODY_H
 #define STATICBODY_H
 
-#include "SDL_render.h"
+#include <SDL_render.h>
 #include <vector>
+
 #include "GameObject.h"
 #include "Vector2.h"
 

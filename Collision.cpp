@@ -1,18 +1,21 @@
-#include "SDL.h"
-#include "SDL_image.h"
+#include <SDL.h>
+#include <SDL_image.h>
 #include <iostream>
 #include <vector>
+#include <cmath>
+
 #include "Vector2.h"
 #include "Collision.h"
 #include "DynamicBody.h"
 #include "StaticBody.h"
-#include <cmath>
 #include "Game.h"
 #include "Utils.h"
 #include "Math.h"
 
 PointToSegmentType PointToSegmentDistance(Vector2f p, Vector2f va, Vector2f vb) {
+
 	PointToSegmentType result;
+
 	Vector2f ab = vb - va;
 
 	Vector2f ap = p - va;
@@ -21,19 +24,15 @@ PointToSegmentType PointToSegmentDistance(Vector2f p, Vector2f va, Vector2f vb) 
 	float abLenSq = (ab.x * ab.x + ab.y * ab.y);
 	float d = proj / abLenSq;
 
-	if (d <= 0) {
-		result.closestPoint = va;
-	}
-	else if (d >= 1) {
-		result.closestPoint = vb;
-	}
-	else {
-		result.closestPoint = va + ab * d;
-	}
+	if (d <= 0) result.closestPoint = va;
+	
+	else if (d >= 1) result.closestPoint = vb;
+
+	else result.closestPoint = va + ab * d;
+	
 	result.distSq = Math::getDistanceSquared(p,result.closestPoint);
 
 	return result;
-
 }
 
 
@@ -97,9 +96,9 @@ CollisionType Collision::IntersectSAT(GameObject* objA, GameObject* objB) {
 
 		if (maxA < minB || maxB < minA) {
 			
-			result.setAreColliding(false);
-			result.setCollidingAxis(Vector2f(0, 0));
-			result.setDepth(0);
+			result.areColliding =false;
+			result.CollidingAxis = Vector2f(0, 0);
+			result.depth = 0;
 			return result;
 		}
 		float axisDepth = (std::min(maxB - minA, maxA - minB));
@@ -121,9 +120,9 @@ CollisionType Collision::IntersectSAT(GameObject* objA, GameObject* objB) {
 	}
 
 	
-	result.setAreColliding(true);
-	result.setDepth(depth);
-	result.setCollidingAxis(result_normal);
+	result.areColliding = true;
+	result.depth = depth;
+	result.CollidingAxis = result_normal;
 
 	
 
@@ -132,15 +131,15 @@ CollisionType Collision::IntersectSAT(GameObject* objA, GameObject* objB) {
 	
 	if (Utils::isInstanceOf(objA, typeid(DynamicBody)) && 
 		Utils::isInstanceOf(objB, typeid(DynamicBody))) {
-		result.setCollisionMode(DynVsDyn);
+		result.mode = DynVsDyn;
 	}
 	else if (Utils::isInstanceOf(objA, typeid(DynamicBody)) &&
 		Utils::isInstanceOf(objB, typeid(StaticBody))) {
-		result.setCollisionMode(DynVsStatic);
+		result.mode = DynVsStatic;
 	}
 	else if (Utils::isInstanceOf(objA, typeid(StaticBody)) &&
 		Utils::isInstanceOf(objB, typeid(DynamicBody))) {
-		result.setCollisionMode(StaticVsDyn);
+		result.mode = StaticVsDyn;
 	}
 
 	return result;
@@ -230,9 +229,9 @@ ContactType Collision::FindContactPoints(GameObject* objA, GameObject* objB) {
 
 
 
-bool Collision::IntersectAABB(GameObject* objA, GameObject* objB) {
-	return (objA->GetAABB()[0].x < objB->GetAABB()[0].x + (objB->GetAABB()[1].x - objB->GetAABB()[0].x) &&
-		objA->GetAABB()[0].x + (objA->GetAABB()[1].x - objA->GetAABB()[0].x) > objB->GetAABB()[0].x &&
-		objA->GetAABB()[0].y < objB->GetAABB()[0].y + (objB->GetAABB()[2].y - objB->GetAABB()[0].y) &&
-		objA->GetAABB()[0].y + (objA->GetAABB()[2].y - objA->GetAABB()[0].y) > objB->GetAABB()[0].y);
+bool Collision::IntersectAABB(SDL_FRect AABBobjA, SDL_FRect AABBobjB) {
+	return (AABBobjA.x < AABBobjB.x + AABBobjB.w &&
+		AABBobjA.x + AABBobjA.w > AABBobjB.x &&
+		AABBobjA.y < AABBobjA.y + AABBobjA.h &&
+		AABBobjA.y + AABBobjA.h > AABBobjB.y);
 }

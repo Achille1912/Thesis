@@ -3,10 +3,11 @@
 #ifndef WORLD_H
 #define WORLD_H
 
+#include <vector>
+
 #include "GameObject.h"
 #include "DynamicBody.h"
 #include "StaticBody.h"
-#include <vector>
 #include "Vector2.h"
 #include "Collision.h"
 

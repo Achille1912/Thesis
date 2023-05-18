@@ -1,12 +1,15 @@
-﻿  Game.cpp
-D:\Progetti\SdlGame\SDL_Tesi\SdlGameTesi\Game.cpp(100,118): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-D:\Progetti\SdlGame\SDL_Tesi\SdlGameTesi\Game.cpp(100,88): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-D:\Progetti\SdlGame\SDL_Tesi\SdlGameTesi\Game.cpp(100,85): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-D:\Progetti\SdlGame\SDL_Tesi\SdlGameTesi\Game.cpp(103,32): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-D:\Progetti\SdlGame\SDL_Tesi\SdlGameTesi\Game.cpp(103,29): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+﻿  World.cpp
+D:\Progetti\SdlGame\SDL_Tesi\SdlGameTesi\World.cpp(107,88): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+D:\Progetti\SdlGame\SDL_Tesi\SdlGameTesi\World.cpp(107,69): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+D:\Progetti\SdlGame\SDL_Tesi\SdlGameTesi\World.cpp(108,88): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+D:\Progetti\SdlGame\SDL_Tesi\SdlGameTesi\World.cpp(108,69): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+D:\Progetti\SdlGame\SDL_Tesi\SdlGameTesi\World.cpp(199,88): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+D:\Progetti\SdlGame\SDL_Tesi\SdlGameTesi\World.cpp(199,69): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+D:\Progetti\SdlGame\SDL_Tesi\SdlGameTesi\World.cpp(200,88): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+D:\Progetti\SdlGame\SDL_Tesi\SdlGameTesi\World.cpp(200,69): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
   Generating code
-  1 of 370 functions ( 0.3%) were compiled, the rest were copied from previous compilation.
+  1 of 364 functions ( 0.3%) were compiled, the rest were copied from previous compilation.
     0 functions were new in current compilation
-    1 functions had inline decision re-evaluated but remain unchanged
+    2 functions had inline decision re-evaluated but remain unchanged
   Finished generating code
   SdlGameTesi.vcxproj -> D:\Progetti\SdlGame\SDL_Tesi\x64\Release\SdlGameTesi.exe

@@ -3,14 +3,15 @@
 #ifndef GAMEOBJECT_H
 #define GAMEOBJECT_H
 
-
-#include "SDL_render.h"
+#include <SDL_render.h>
 #include <vector>
+
 #include "Vector2.h"
 
 class GameObject {
 public:
-	GameObject(const char* t_textureSheet, SDL_Renderer* t_renderer, float t_xpos, float t_ypos, float t_width, float t_height, float t_mass, float t_theta, float t_restitution, float t_invMass);
+	GameObject(const char* t_textureSheet, SDL_Renderer* t_renderer, float t_xpos, float t_ypos, float t_width, 
+		float t_height, float t_mass, float t_theta, float t_restitution, float t_invMass);
 	virtual ~GameObject() {}
 
 	// SETTERS
@@ -34,10 +35,10 @@ public:
 	float getRestitution() { return m_restitution; }
 	float getInvMass() { return m_invMass; }
 
-
+	// Functions
 	std::vector <Vector2f> CalculateVertices();
+	SDL_FRect GetAABB();
 	void render();
-	std::vector <Vector2f> GetAABB();
 
 protected:
 	// Physics

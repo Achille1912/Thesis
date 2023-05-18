@@ -3,8 +3,8 @@
 #ifndef GAME_H
 #define GAME_H
 
-#include "SDL.h"
-#include "SDL_image.h"
+#include <SDL.h>
+#include <SDL_image.h>
 #include <vector>
 
 #include "GameObject.h"
@@ -24,13 +24,12 @@ public:
 	void render();
 	void clean();
 
-	/*GETTERS*/
+	// GETTERS
 	bool running() { return m_isRunning; }
 
 private:
 	World* m_world;
 	bool m_isRunning;
-
 
 	// singleton
 	static Game* m_uniqueInstance;

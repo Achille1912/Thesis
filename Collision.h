@@ -1,9 +1,13 @@
 #pragma once
 
-#include "SDL.h"
-#include "SDL_image.h"
+#ifndef COLLISION_H
+#define COLLISION_H
+
+#include <SDL.h>
+#include <SDL_image.h>
 #include <iostream>
 #include <vector>
+
 #include "Vector2.h"
 #include "GameObject.h"
 
@@ -45,31 +49,11 @@ public:
 		mode = m;
 	}
 
-	GameObject* obj;
-
-	float getDepth(){ return depth; }
-
-	void setDepth(float value) { depth = value; }
-
-	bool getAreColliding() { return areColliding; }
-
-	void setAreColliding(bool value) { areColliding = value; }
-
-	Vector2f getCollidingAxis() { return CollidingAxis; }
-
-	void setCollidingAxis(Vector2f ax) { CollidingAxis = ax; }
-
-	void setCollisionMode(CollisionMode m) { mode = m; }
-
-	CollisionMode getCollisionMode() { return mode; }
-
-private:
 	float depth;
 	Vector2f CollidingAxis;
 	bool areColliding;
 	CollisionMode mode;
 };
-
 
 
 
@@ -80,7 +64,8 @@ public:
 
 	ContactType FindContactPoints(GameObject* objA, GameObject* objB);
 
-	bool IntersectAABB(GameObject* objA, GameObject* objB);
+	bool IntersectAABB(SDL_FRect AABBobjA, SDL_FRect AABBobjB);
 
-private:
 };
+
+#endif

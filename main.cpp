@@ -1,5 +1,5 @@
-#include "SDL.h"
-#include "SDL_image.h"
+#include <SDL.h>
+#include <SDL_image.h>
 #include <iostream>
 
 #include "Game.h"
@@ -8,8 +8,8 @@
 
 Game* game = Game::instance();
 
-int main(int argc, char** argv)
-{
+int main(int argc, char** argv) {
+
 	Uint32 lastTime = SDL_GetTicks();
 	Uint32 currentTime = lastTime;
 	float deltaTime = 0;
@@ -27,7 +27,6 @@ int main(int argc, char** argv)
 		game->update(deltaTime);
 
 		game->render();
-
 	}
 	return 0;
 }

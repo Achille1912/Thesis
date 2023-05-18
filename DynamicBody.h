@@ -3,7 +3,7 @@
 #ifndef DYNAMICBODY_H
 #define DYNAMICBODY_H
 
-#include "SDL_render.h"
+#include <SDL_render.h>
 #include <vector>
 #include <tuple>
 
@@ -57,9 +57,9 @@ private:
 	float m_momentOfInertia;
 	float m_omega;
 	float m_mass;
-	float m_angularAcceleration = 0;
-	float m_angularVelocity = 0;
-	bool m_moving = false;
+	float m_angularAcceleration;
+	float m_angularVelocity;
+	bool m_moving;
 
 	// Rendering
 	SDL_Texture* m_objectTexture;

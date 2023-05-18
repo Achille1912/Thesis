@@ -36,62 +36,63 @@ void World::CheckCollisions() {
 	/************SAT COLLISION DETECTION******************/
 	for (int i = 0; i < m_objects.size(); ++i) {
 		for (int j = i + 1; j < m_objects.size(); ++j) {
+			// If Both Obj are Static
 			if (Utils::isInstanceOf(m_objects[i], typeid(StaticBody)) && Utils::isInstanceOf(m_objects[j], typeid(StaticBody))) {
 				continue;
 			}
-			//if (m_collisionManager->IntersectAABB(m_objects[i], m_objects[j])) {
+			// Idk why if i use AABB check first, the complexity increase
+			if (m_collisionManager->IntersectAABB(m_objects[i]->GetAABB(), m_objects[j]->GetAABB())) {
 				CollisionType check = m_collisionManager->IntersectSAT(m_objects[i], m_objects[j]);
-				if (check.getAreColliding()) {
-
+				if (check.areColliding) {
 					// Evidence the Hitting Boxes
 					if (Graphics::debug) {
 						SDL_SetTextureColorMod(m_objects[i]->getTex(), 255, 0, 0);
 						SDL_SetTextureColorMod(m_objects[j]->getTex(), 255, 0, 0);
 					}
-					switch (check.getCollisionMode()) {
-					case DynVsDyn: {
-						DynamicBody* objA = dynamic_cast<DynamicBody*>(m_objects[i]);
-						DynamicBody* objB = dynamic_cast<DynamicBody*>(m_objects[j]);
+					switch (check.mode) {
+						case DynVsDyn: {
+							DynamicBody* objA = dynamic_cast<DynamicBody*>(m_objects[i]);
+							DynamicBody* objB = dynamic_cast<DynamicBody*>(m_objects[j]);
 
-						// Move the Rectangles by the depth collision
-						objA->moveBy(-check.getCollidingAxis().x * check.getDepth() / 2, -check.getCollidingAxis().y * check.getDepth() / 2);
-						objB->moveBy(check.getCollidingAxis().x * check.getDepth() / 2, check.getCollidingAxis().y * check.getDepth() / 2);
-						if (m_basic) SolveDynVsDynCollisionBasic(objA, objB, check);
-						else SolveDynVsDynCollisionRotation(objA, objB, check);
+							// Move the Rectangles by the depth collision
+							objA->moveBy(-check.CollidingAxis.x * check.depth / 2, -check.CollidingAxis.y * check.depth / 2);
+							objB->moveBy(check.CollidingAxis.x * check.depth / 2, check.CollidingAxis.y * check.depth / 2);
+							if (m_basic) SolveDynVsDynCollisionBasic(objA, objB, check);
+							else SolveDynVsDynCollisionRotation(objA, objB, check);
 
-						break;
-					}
-					case DynVsStatic: {
-						DynamicBody* objA = dynamic_cast<DynamicBody*>(m_objects[i]);
-						StaticBody* objB = dynamic_cast<StaticBody*>(m_objects[j]);
+							break;
+						}
+						case DynVsStatic: {
+							DynamicBody* objA = dynamic_cast<DynamicBody*>(m_objects[i]);
+							StaticBody* objB = dynamic_cast<StaticBody*>(m_objects[j]);
 
-						// Move the Rectangles by the depth collision
-						objA->moveBy(-check.getCollidingAxis().x * check.getDepth(), -check.getCollidingAxis().y * check.getDepth());
+							// Move the Rectangles by the depth collision
+							objA->moveBy(-check.CollidingAxis.x * check.depth, -check.CollidingAxis.y * check.depth);
+
+	
+							if (m_basic) SolveDynVsStaticCollisionBasic(objA, objB, check);
+							else SolveDynVsStaticCollisionRotation(objA, objB, check);
+
+							break;
+						}
+						case StaticVsDyn: {
+							StaticBody* objA = dynamic_cast<StaticBody*>(m_objects[i]);
+							DynamicBody* objB = dynamic_cast<DynamicBody*>(m_objects[j]);
+
+							// Move the Rectangles by the depth collision
+							objB->moveBy(check.CollidingAxis.x * check.depth, check.CollidingAxis.y * check.depth);
 
 
-						if (m_basic) SolveDynVsStaticCollisionBasic(objA, objB, check);
-						else SolveDynVsStaticCollisionRotation(objA, objB, check);
+							if (m_basic) SolveDynVsStaticCollisionBasic(objB, objA, check);
+							else SolveDynVsStaticCollisionRotation(objB, objA, check);
 
-						break;
-					}
-					case StaticVsDyn: {
-						StaticBody* objA = dynamic_cast<StaticBody*>(m_objects[i]);
-						DynamicBody* objB = dynamic_cast<DynamicBody*>(m_objects[j]);
-
-						// Move the Rectangles by the depth collision
-						objB->moveBy(check.getCollidingAxis().x * check.getDepth(), check.getCollidingAxis().y * check.getDepth());
-
-
-						if (m_basic) SolveDynVsStaticCollisionBasic(objB, objA, check);
-						else SolveDynVsStaticCollisionRotation(objB, objA, check);
-
-						break;
-					}
-					default:
-						break;
+							break;
+						}
+						default:
+							break;
 					}
 				}
-			//}
+			}
 		}
 	}
 }
@@ -108,7 +109,7 @@ void World::SolveDynVsDynCollisionRotation(DynamicBody* t_objA, DynamicBody* t_o
 		Graphics::RenderFrame();
 	}
 
-	Vector2f normal = t_check.getCollidingAxis();
+	Vector2f normal = t_check.CollidingAxis;
 
 	float e =  std::min(t_objA->getRestitution(), t_objB->getRestitution());
 
@@ -122,6 +123,8 @@ void World::SolveDynVsDynCollisionRotation(DynamicBody* t_objA, DynamicBody* t_o
 	contactList.push_back(result.contact1);
 	contactList.push_back(result.contact2);
 
+
+	// Calculate Impulses
 	for (int i = 0; i < result.contactNumber; i++) {
 		Vector2f ra = contactList[i] - t_objA->getCenter() ;
 		Vector2f rb = contactList[i] - t_objB->getCenter();
@@ -142,8 +145,6 @@ void World::SolveDynVsDynCollisionRotation(DynamicBody* t_objA, DynamicBody* t_o
 
 		float contactVelocityMag = Math::Dot(vrel, normal);
 	
-	
-		
 		float raPerpDotN = Math::Dot(raPerp, normal);
 		float rbPerpDotN = Math::Dot(rbPerp, normal);
 
@@ -163,7 +164,8 @@ void World::SolveDynVsDynCollisionRotation(DynamicBody* t_objA, DynamicBody* t_o
 		impulseList[i] =impulse;
 
 	}
-	/******************************************/
+	
+	// Apply Impulses
 	for (int i = 0; i < result.contactNumber; i++) {
 		
 		Vector2f impulse = impulseList[i];
@@ -180,8 +182,8 @@ void World::SolveDynVsDynCollisionRotation(DynamicBody* t_objA, DynamicBody* t_o
 
 		t_objB->setVelocity(t_objB->getVelocity() - impulse * t_objB->getInvMass());
 
-		t_objB->setAngularVelocity(t_objB->getAngularVelocity() -
-			Math::Cross(rb, impulse) / t_objB->getMomentOfInertia());
+		t_objB->setAngularVelocity(t_objB->getAngularVelocity() +
+			Math::Cross(rb, -impulse) / t_objB->getMomentOfInertia());
 
 	}
 
@@ -199,7 +201,7 @@ void World::SolveDynVsStaticCollisionRotation(DynamicBody* t_objA, StaticBody* t
 		Graphics::RenderFrame();
 	}
 
-	Vector2f normal = t_check.getCollidingAxis();
+	Vector2f normal = t_check.CollidingAxis;
 	float e = std::min(t_objA->getRestitution(), t_objB->getRestitution());
 
 	std::vector <Vector2f> contactList;
@@ -211,7 +213,7 @@ void World::SolveDynVsStaticCollisionRotation(DynamicBody* t_objA, StaticBody* t
 	contactList.push_back(result.contact1);
 	contactList.push_back(result.contact2);
 
-
+	// Calculate Impulses
 	for (int i = 0; i < result.contactNumber; i++) {
 		Vector2f ra = contactList[i] - t_objA->getCenter();
 		Vector2f rb = contactList[i] - t_objB->getCenter();
@@ -219,10 +221,8 @@ void World::SolveDynVsStaticCollisionRotation(DynamicBody* t_objA, StaticBody* t
 		raList[i] = ra;
 		rbList[i] = rb;
 
-
 		Vector2f raPerp = Vector2f(-ra.y, ra.x);
 		Vector2f rbPerp = Vector2f(-rb.y, rb.x);
-
 
 		Vector2f angularLinearVelocityA = raPerp * t_objA->getAngularVelocity();
 
@@ -231,8 +231,6 @@ void World::SolveDynVsStaticCollisionRotation(DynamicBody* t_objA, StaticBody* t
 
 
 		float contactVelocityMag = Math::Dot(vrel, normal);
-
-
 
 		float raPerpDotN = Math::Dot(raPerp, normal);
 		float rbPerpDotN = Math::Dot(rbPerp, normal);
@@ -252,11 +250,11 @@ void World::SolveDynVsStaticCollisionRotation(DynamicBody* t_objA, StaticBody* t
 		impulseList[i] = impulse;
 
 	}
-	/******************************************/
+	
+	// Apply Impulses
 	for (int i = 0; i < result.contactNumber; i++) {
 
 		Vector2f impulse = impulseList[i];
-
 
 		Vector2f ra = raList[i];
 		Vector2f rb = rbList[i];
@@ -283,7 +281,7 @@ void World::Update(float t_dt, int t_iterationNumber) {
 
 
 void World::SolveDynVsDynCollisionBasic(DynamicBody* t_objA, DynamicBody* t_objB, CollisionType t_check) {
-	Vector2f normal = t_check.getCollidingAxis();
+	Vector2f normal = t_check.CollidingAxis;
 
 	float e = std::min(t_objA->getRestitution(), t_objB->getRestitution());
 
@@ -300,7 +298,7 @@ void World::SolveDynVsDynCollisionBasic(DynamicBody* t_objA, DynamicBody* t_objB
 
 
 void World::SolveDynVsStaticCollisionBasic(DynamicBody* t_objA, StaticBody* t_objB, CollisionType t_check) {
-	Vector2f normal = t_check.getCollidingAxis();
+	Vector2f normal = t_check.CollidingAxis;
 
 	float e = std::min(t_objA->getRestitution(), t_objB->getRestitution());
 

@@ -1,7 +1,8 @@
+#include <vector>
+
 #include "GameObject.h"
 #include "Vector2.h"
 #include "Graphics.h"
-#include <vector>
 #include "Constants.h"
 #include "Math.h"
 #include "TextureManager.h"
@@ -39,14 +40,7 @@ GameObject::GameObject(const char* t_textureSheet, SDL_Renderer* t_renderer, flo
 
 void GameObject::render() {
 	if (Graphics::debug) {
-		std::vector<Vector2f> tmp = GetAABB();
-		SDL_FRect tmpRect;
-		tmpRect.x = tmp[0].x;
-		tmpRect.y = tmp[0].y;
-		tmpRect.w = tmp[1].x - tmp[0].x;
-		tmpRect.h = tmp[2].y - tmp[0].y;
-
-
+		SDL_FRect tmpRect = GetAABB();
 		SDL_SetRenderDrawColor(m_renderer, 255, 0, 0, 0);
 		SDL_RenderFillRectF(m_renderer, &tmpRect);
 		SDL_SetRenderDrawColor(m_renderer, 255, 255, 255, 255);
@@ -82,9 +76,9 @@ std::vector <Vector2f> GameObject::CalculateVertices() {
 }
 
 
-std::vector <Vector2f> GameObject::GetAABB() {
-	std::vector <Vector2f> result;
+SDL_FRect GameObject::GetAABB() {
 
+	SDL_FRect res;
 	float minX = INFINITY;
 	float minY = INFINITY;
 	float maxX = -INFINITY;
@@ -98,9 +92,11 @@ std::vector <Vector2f> GameObject::GetAABB() {
 			if (v.y < minY) { minY = v.y; }
 			if (v.y > maxY) { maxY = v.y; }
 		}
-	result.push_back(Vector2f(minX, minY));
-	result.push_back(Vector2f(maxX, minY));
-	result.push_back(Vector2f(maxX, maxY));
-	result.push_back(Vector2f(minX, maxY));
-	return result;
+	
+	res.x = minX;
+	res.y = minY;
+	res.w = maxX - minX;
+	res.h = maxY - minY;
+
+	return res;
 }

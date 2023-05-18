@@ -1,9 +1,9 @@
+#include <SDL.h>
+#include <SDL_image.h>
+#include <iostream>
+
 #include "Graphics.h"
 #include "Game.h"
-#include <iostream>
-#include "SDL.h"
-#include "SDL_image.h"
-#include <iostream>
 
 
 SDL_Window* Graphics::window = NULL;
@@ -12,7 +12,7 @@ int Graphics::windowWidth = 0;
 int Graphics::windowHeight = 0;
 bool Graphics::debug = false;
 float Graphics::scale = 1.0;
-SDL_Texture* Graphics::sfondo_texture;
+SDL_Texture* Graphics::background_texture;
 
 int Graphics::Width() {
     return windowWidth;
@@ -40,7 +40,7 @@ bool Graphics::OpenWindow(const char* t_title, int t_xpos, int t_ypos, int t_wid
             SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
             std::cout << "Renderer created." << std::endl;
         }
-        sfondo_texture = IMG_LoadTexture(Graphics::renderer, "./gfx/background.jpg");
+        background_texture = IMG_LoadTexture(Graphics::renderer, "./gfx/background.jpg");
 
         return true;
     }

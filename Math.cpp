@@ -76,3 +76,4 @@ Vector2f Math::BasicResponseImpulse(float restitution, Vector2f vrel, Vector2f n
    return (normal * j);
 
 }
+

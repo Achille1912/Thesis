@@ -26,16 +26,16 @@ struct Vector2f
 
 	float len() { return std::sqrt( x * x + y * y); }
 
-	Vector2f vers() {
-		if (x == 0 && y == 0) {
-			return Vector2f(0, 0);
-		}
-		else {
-			float len = Vector2f(x, y).len();
-			return Vector2f(x / len, y / len);
-		}
+	Vector2f getDistance(Vector2f t_vector) {
+		return Vector2f(x - t_vector.x, y - t_vector.y);
 	}
 
+	Vector2f vers() {
+		if (x == 0 && y == 0) return Vector2f(0, 0);
+		else return (Vector2f(x / Vector2f(x, y).len(), y / Vector2f(x, y).len()));
+	}
+
+	// Operators With Vector
 	void operator=(Vector2f t_vector) {
 		x = t_vector.x;
 		y = t_vector.y;
@@ -45,14 +45,10 @@ struct Vector2f
 		return Vector2f(x - t_vector.x, y - t_vector.y);
 	}
 
-
-	Vector2f operator*(float t_value) {
-		return Vector2f(x * t_value, y * t_value);
-	}
-
-
-	Vector2f operator+(Vector2f t_vector) {
-		return Vector2f(x + t_vector.x, y + t_vector.y);
+	Vector2f& operator-=(const Vector2f& t_vector) {
+		x -= t_vector.x;
+		y -= t_vector.y;
+		return *this;
 	}
 
 	Vector2f& operator+=(const Vector2f& t_vector) {
@@ -61,15 +57,27 @@ struct Vector2f
 		return *this;
 	}
 
-	Vector2f& operator+=(float t_value) {
-		x += t_value;
-		y += t_value;
+	// Operators With Values
+
+	Vector2f operator*(float t_value) {
+		return Vector2f(x * t_value, y * t_value);
+	}
+
+	Vector2f& operator-() {
+		x = - x;
+		y = -y;
 		return *this;
 	}
 
-	Vector2f& operator-=(const Vector2f& t_vector) {
-		x -= t_vector.x;
-		y -= t_vector.y;
+
+	Vector2f operator+(Vector2f t_vector) {
+		return Vector2f(x + t_vector.x, y + t_vector.y);
+	}
+
+
+	Vector2f& operator+=(float t_value) {
+		x += t_value;
+		y += t_value;
 		return *this;
 	}
 
@@ -79,19 +87,11 @@ struct Vector2f
 		return *this;
 	}
 
+	// Ostream
 	friend std::ostream& operator<<(std::ostream& os, const Vector2f& t_vector) {
 		os << "(" << t_vector.x << ", " << t_vector.y << ")" << std::endl;
 		return os;
 	}
-
-
-	Vector2f getDistance(Vector2f t_vector) {
-		return Vector2f(x - t_vector.x, y - t_vector.y);
-	}
-
-	
-
-
 
 	float x, y;
 };

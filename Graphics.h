@@ -3,12 +3,14 @@
 #ifndef GRAPHICS_H
 #define GRAPHICS_H
 
-#include "SDL.h"
-#include "SDL_image.h"
+#include <SDL.h>
+#include <SDL_image.h>
+#include <vector>
+
 #include "Vector2.h"
 #include "GameObject.h"
 #include "Utils.h"
-#include <vector>
+
 
 struct Graphics {
     static int windowWidth;
@@ -17,7 +19,7 @@ struct Graphics {
     static SDL_Renderer* renderer;
     static bool debug;
     static float scale;
-    static SDL_Texture* sfondo_texture;
+    static SDL_Texture* background_texture;
 
     static int Width();
     static int Height();
