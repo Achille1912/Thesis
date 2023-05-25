@@ -37,8 +37,8 @@ void DynamicBody::update(float t_dt, float t_gravity, int t_iterations) {
 	Utils::SetRectSizeAndPosition(m_dstRect, m_xpos, m_ypos, m_width, m_height);
 
 	// Dumb friction
-	if (m_velocity.x < 0) m_velocity.x += (0.8 * t_dt * PIXELS_PER_METER);
-	if (m_velocity.x > 0) m_velocity.x -= (0.8 * t_dt * PIXELS_PER_METER);
+	if (m_velocity.x < 0) m_velocity.x += (1.5 * t_dt * PIXELS_PER_METER);
+	if (m_velocity.x > 0) m_velocity.x -= (1.5 * t_dt * PIXELS_PER_METER);
 
 	// Calculate New Vertices
 	m_vertices = CalculateVertices();

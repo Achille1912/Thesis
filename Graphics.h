@@ -5,7 +5,7 @@
 
 #include <SDL.h>
 #include <SDL_image.h>
-#include <vector>
+#include <array>
 
 #include "Vector2.h"
 #include "GameObject.h"
@@ -31,7 +31,7 @@ struct Graphics {
     static void SDL_RenderDrawRect(SDL_Renderer* t_renderer, float t_xpos, float t_ypos, float t_width, float t_height, Color t_color);
     static void SDL_RenderDrawCircle(SDL_Renderer* t_renderer, int t_xpos, int t_ypos, int t_radius);
     static void DrawCenterPoint( GameObject* t_obj, int t_width, int t_height, Color t_color);
-    static void DrawVertices(SDL_Renderer* t_renderer, std::vector <Vector2f> t_vertices, Color t_color);
+    static void DrawVertices(SDL_Renderer* t_renderer, std::array <Vector2f, 4> t_vertices, Color t_color);
 };
 
 #endif

@@ -159,6 +159,7 @@
     <ClInclude Include="Math.h" />
     <ClInclude Include="StaticBody.h" />
     <ClInclude Include="TextureManager.h" />
+    <ClInclude Include="timeUtils.h" />
     <ClInclude Include="Utils.h" />
     <ClInclude Include="World.h" />
   </ItemGroup>

@@ -4,7 +4,7 @@
 #define GAMEOBJECT_H
 
 #include <SDL_render.h>
-#include <vector>
+#include <array>
 
 #include "Vector2.h"
 
@@ -31,12 +31,12 @@ public:
 	float getMomentOfInertia() { return m_momentOfInertia; }
 	SDL_Texture* getTex() { return m_objectTexture; }
 	float getRotation() { return m_theta; }
-	std::vector <Vector2f> getVertices() { return m_vertices; }
+	std::array <Vector2f, 4> getVertices() { return m_vertices; }
 	float getRestitution() { return m_restitution; }
 	float getInvMass() { return m_invMass; }
 
 	// Functions
-	std::vector <Vector2f> CalculateVertices();
+	std::array <Vector2f, 4> CalculateVertices();
 	SDL_FRect GetAABB();
 	void render();
 
@@ -48,7 +48,7 @@ protected:
 	float m_momentOfInertia;
 	float m_theta = 0;
 	float m_restitution;
-	std::vector <Vector2f> m_vertices;
+	std::array <Vector2f, 4> m_vertices;
 
 	// Rendering
 	SDL_Texture* m_objectTexture;

@@ -105,7 +105,7 @@ void Graphics::DrawCenterPoint(GameObject* t_obj, int t_width, int t_height, Col
     SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
 }
 
-void Graphics::DrawVertices(SDL_Renderer* t_renderer, std::vector <Vector2f> t_vertices, Color t_color) {
+void Graphics::DrawVertices(SDL_Renderer* t_renderer, std::array <Vector2f, 4> t_vertices, Color t_color) {
     SDL_SetRenderDrawColor(Graphics::renderer, t_color.r, t_color.g, t_color.b, t_color.a);
     for (int i = 0; i < t_vertices.size(); i++) {
         Graphics::SDL_RenderDrawCircle(Graphics::renderer, t_vertices[i].x, t_vertices[i].y, 5);

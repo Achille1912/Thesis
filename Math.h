@@ -19,7 +19,7 @@ struct Math {
 
     static Vector2f VectorRotation(Vector2f point, Vector2f center, float rotation_deg);
 
-    static Vector2f FindArithmeticMean(std::vector <Vector2f> vertices) ;
+    static Vector2f FindArithmeticMean(std::array <Vector2f, 4> vertices) ;
 
     static bool NearlyEqual(float a, float b) ;
 

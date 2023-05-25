@@ -1,6 +1,7 @@
 #include "Math.h"
 #include "Vector2.h"
 #include "Constants.h"
+#include <array>
 
 float Math::Cross(Vector2f a, Vector2f b) {
     return (a.x * b.y - a.y * b.x);
@@ -36,7 +37,7 @@ float Math::getDistanceSquared(Vector2f t_vectorA, Vector2f t_vectorB) {
     return (dx * dx + dy * dy);
 }
 
-Vector2f Math::FindArithmeticMean(std::vector <Vector2f> vertices) {
+Vector2f Math::FindArithmeticMean(std::array <Vector2f, 4> vertices) {
     float sumX = 0;
     float sumY = 0;
 

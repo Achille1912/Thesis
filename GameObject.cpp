@@ -1,4 +1,4 @@
-#include <vector>
+#include <array>
 
 #include "GameObject.h"
 #include "Vector2.h"
@@ -54,8 +54,8 @@ void GameObject::render() {
 }
 
 
-std::vector <Vector2f> GameObject::CalculateVertices() {
-	std::vector <Vector2f> result;
+std::array <Vector2f,4> GameObject::CalculateVertices() {
+	std::array <Vector2f,4> result;
 
 	float angle = this->getRotation();
 
@@ -67,10 +67,10 @@ std::vector <Vector2f> GameObject::CalculateVertices() {
 
 	Vector2f down_left_final = Math::VectorRotation(Vector2f(this->getX(), this->getY() + this->getH()), this->getCenter(), angle);
 
-	result.push_back(Vector2f(-up_left_final.x, -up_left_final.y));
-	result.push_back(Vector2f(-up_right_final.x, -up_right_final.y));
-	result.push_back(Vector2f(-down_right_final.x, -down_right_final.y));
-	result.push_back(Vector2f(-down_left_final.x, -down_left_final.y));
+	result[0] = (Vector2f(-up_left_final.x, -up_left_final.y));
+	result[1] = (Vector2f(-up_right_final.x, -up_right_final.y));
+	result[2] = (Vector2f(-down_right_final.x, -down_right_final.y));
+	result[3] = (Vector2f(-down_left_final.x, -down_left_final.y));
 
 	return result;
 }

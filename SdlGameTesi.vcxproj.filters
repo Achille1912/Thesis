@@ -83,6 +83,9 @@
     <ClInclude Include="Math.h">
       <Filter>File di risorse</Filter>
     </ClInclude>
+    <ClInclude Include="timeUtils.h">
+      <Filter>File di risorse</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="Dockerfile" />

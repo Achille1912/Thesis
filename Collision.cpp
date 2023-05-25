@@ -42,8 +42,8 @@ Vector2f CalculateNormal(Vector2f pointA, Vector2f pointB) {
 	return Vector2f(directionVector.y, -directionVector.x);
 }
 
-std::vector <Vector2f> CalculateNormals(std::vector <Vector2f>& vertices) {
-	std::vector <Vector2f> normals(vertices.size());
+std::array <Vector2f, 4> CalculateNormals(std::array <Vector2f, 4>& vertices) {
+	std::array <Vector2f, 4> normals;
 
 	for (int i = 0; i < vertices.size(); i++) {
 		normals[i] = CalculateNormal(vertices[i + 1 % vertices.size()], vertices[i]);
@@ -59,21 +59,27 @@ CollisionType Collision::IntersectSAT(GameObject* objA, GameObject* objB) {
 	Vector2f result_normal = Vector2f(0, 0);
 	float depth = INFINITY;
 
-	std::vector <Vector2f> verticesA;
+	std::array <Vector2f, 4> verticesA;
 	
-	std::vector <Vector2f> verticesB;
+	std::array <Vector2f, 4> verticesB;
 
 	verticesA = objA->CalculateVertices();	
 
 	verticesB = objB->CalculateVertices();
 	
 
-	std::vector <Vector2f> normalsA = CalculateNormals(verticesA);
-	std::vector <Vector2f> normalsB = CalculateNormals(verticesB);
+	std::array <Vector2f, 4> normalsA = CalculateNormals(verticesA);
+	std::array <Vector2f, 4> normalsB = CalculateNormals(verticesB);
 
-	std::vector <Vector2f> normals;
-	normals.insert(normals.end(), normalsA.begin(), normalsA.end());
-	normals.insert(normals.end(), normalsB.begin(), normalsB.end());
+	std::array <Vector2f, 8> normals;
+	for (int i = 0; i < normalsA.size(); i++) {
+		normals[i] = normalsA[i];
+	}
+	for (int i = 0; i < normalsB.size(); i++) {
+		normals[i+verticesA.size()] = normalsB[i];
+	}
+	/*normals.insert(normals.end(), normalsA.begin(), normalsA.end());
+	normals.insert(normals.end(), normalsB.begin(), normalsB.end());*/
 
 	
 	for (Vector2f normal : normals) {
@@ -127,7 +133,7 @@ CollisionType Collision::IntersectSAT(GameObject* objA, GameObject* objB) {
 	
 
 
-	// Check Collision Mdoe
+	// Check Collision Mode
 	
 	if (Utils::isInstanceOf(objA, typeid(DynamicBody)) && 
 		Utils::isInstanceOf(objB, typeid(DynamicBody))) {
@@ -153,11 +159,11 @@ ContactType Collision::FindContactPoints(GameObject* objA, GameObject* objB) {
 	Vector2f contact1 = Vector2f(0, 0);
 	Vector2f contact2 = Vector2f(0, 0);
 	int contactsNumber = 0;
-	std::vector <Vector2f> verticesA; 
+	std::array <Vector2f, 4> verticesA;
 
 	verticesA = objA->CalculateVertices();
 	
-	std::vector <Vector2f> verticesB;
+	std::array <Vector2f, 4> verticesB;
 
 	verticesB = objB->CalculateVertices();
 	

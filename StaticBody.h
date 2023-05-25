@@ -4,7 +4,7 @@
 #define STATICBODY_H
 
 #include <SDL_render.h>
-#include <vector>
+#include <array>
 
 #include "GameObject.h"
 #include "Vector2.h"
@@ -30,7 +30,7 @@ public:
 	SDL_FRect* getRect() { return &m_dstRect; }
 	SDL_Texture* getTex() { return m_objectTexture; }
 
-	std::vector <Vector2f> m_vertices;
+	std::array <Vector2f, 4> m_vertices;
 	
 private:
 	// Rendering

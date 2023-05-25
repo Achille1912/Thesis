@@ -6,6 +6,8 @@
 #include "Graphics.h"
 #include "Math.h"
 #include "Utils.h"
+#include "timeUtils.h"
+#include "array"
 
 
 World::World(float t_gravity, bool t_basic) {
@@ -31,6 +33,7 @@ void World::DeleteObject(GameObject* obj) {
 std::vector<GameObject*>& World::GetGameObjects() {
 	return m_objects;
 }
+
 
 void World::CheckCollisions() {
 	/************SAT COLLISION DETECTION******************/
@@ -114,14 +117,13 @@ void World::SolveDynVsDynCollisionRotation(DynamicBody* t_objA, DynamicBody* t_o
 	float e =  std::min(t_objA->getRestitution(), t_objB->getRestitution());
 
 
-	std::vector <Vector2f> contactList;
-	std::vector <Vector2f> impulseList(2);
-	std::vector <float> jList(2);
-	std::vector <Vector2f> raList(2);
-	std::vector <Vector2f> rbList(2);
+	std::array <Vector2f, 2> contactList;
+	std::array <Vector2f,2> impulseList;
+	std::array <Vector2f, 2> raList;
+	std::array <Vector2f, 2> rbList;
 
-	contactList.push_back(result.contact1);
-	contactList.push_back(result.contact2);
+	contactList[0] = (result.contact1);
+	contactList[1] = (result.contact2);
 
 
 	// Calculate Impulses
@@ -158,7 +160,6 @@ void World::SolveDynVsDynCollisionRotation(DynamicBody* t_objA, DynamicBody* t_o
 
 		j /= result.contactNumber;
 
-		jList[i] = j;
 		Vector2f impulse =  normal * j;
 		
 		impulseList[i] =impulse;
@@ -204,14 +205,13 @@ void World::SolveDynVsStaticCollisionRotation(DynamicBody* t_objA, StaticBody* t
 	Vector2f normal = t_check.CollidingAxis;
 	float e = std::min(t_objA->getRestitution(), t_objB->getRestitution());
 
-	std::vector <Vector2f> contactList;
-	std::vector <Vector2f> impulseList(2);
-	std::vector <float> jList(2);
-	std::vector <Vector2f> raList(2);
-	std::vector <Vector2f> rbList(2);
+	std::array <Vector2f, 2> contactList;
+	std::array <Vector2f,2> impulseList;
+	std::array <Vector2f, 2> raList;
+	std::array <Vector2f, 2> rbList;
 
-	contactList.push_back(result.contact1);
-	contactList.push_back(result.contact2);
+	contactList[0] = (result.contact1);
+	contactList[1] = (result.contact2);
 
 	// Calculate Impulses
 	for (int i = 0; i < result.contactNumber; i++) {
@@ -244,7 +244,7 @@ void World::SolveDynVsStaticCollisionRotation(DynamicBody* t_objA, StaticBody* t
 
 		j /= result.contactNumber;
 
-		jList[i] = j;
+		
 		Vector2f impulse = normal * j;
 
 		impulseList[i] = impulse;
