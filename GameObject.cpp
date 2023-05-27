@@ -35,7 +35,7 @@ GameObject::GameObject(const char* t_textureSheet, SDL_Renderer* t_renderer, flo
 	m_dstRect.x = m_xpos;
 	m_dstRect.y = m_ypos;
 
-	m_vertices = CalculateVertices();
+	CalculateVertices();
 }
 
 void GameObject::render() {
@@ -54,8 +54,7 @@ void GameObject::render() {
 }
 
 
-std::array <Vector2f,4> GameObject::CalculateVertices() {
-	std::array <Vector2f,4> result;
+void GameObject::CalculateVertices() {
 
 	float angle = this->getRotation();
 
@@ -67,12 +66,12 @@ std::array <Vector2f,4> GameObject::CalculateVertices() {
 
 	Vector2f down_left_final = Math::VectorRotation(Vector2f(this->getX(), this->getY() + this->getH()), this->getCenter(), angle);
 
-	result[0] = (Vector2f(-up_left_final.x, -up_left_final.y));
-	result[1] = (Vector2f(-up_right_final.x, -up_right_final.y));
-	result[2] = (Vector2f(-down_right_final.x, -down_right_final.y));
-	result[3] = (Vector2f(-down_left_final.x, -down_left_final.y));
+	m_vertices[0] = (Vector2f(-up_left_final.x, -up_left_final.y));
+	m_vertices[1] = (Vector2f(-up_right_final.x, -up_right_final.y));
+	m_vertices[2] = (Vector2f(-down_right_final.x, -down_right_final.y));
+	m_vertices[3] = (Vector2f(-down_left_final.x, -down_left_final.y));
 
-	return result;
+
 }
 
 

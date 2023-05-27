@@ -41,6 +41,12 @@ public:
 	Collision* m_collisionManager;
 
 	bool m_basic;
+
+	std::array <Vector2f, 2> m_contactList;
+	std::array <Vector2f, 2> m_impulseList;
+	std::array <Vector2f, 2> m_raList;
+	std::array <Vector2f, 2> m_rbList;
+
 };
 
 #endif

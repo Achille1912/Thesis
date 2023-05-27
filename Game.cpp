@@ -2,6 +2,7 @@
 #include <SDL_image.h>
 #include <iostream>
 #include <string>
+#include <SDL_ttf.h>
 
 
 #include "Game.h"
@@ -140,7 +141,7 @@ void Game::handleEvents() {
 }
 
 void Game::update(float dt) {
-	m_world->Update(dt, 60);
+	m_world->Update(dt, 80);
 }
 
 void Game::render(){
@@ -153,6 +154,25 @@ void Game::render(){
 		
 		SDL_SetTextureColorMod(m_world->GetGameObjects()[i]->getTex(), 255, 255, 255);
 	}
+
+	// This code decreases FPS from 2000 to 600
+	//
+	TTF_Font* font = TTF_OpenFont("./Roboto-Black.ttf", 14); 
+	SDL_Color color = { 0, 0, 0 }; 
+
+	std::string text = "Number of objects: " + std::to_string(m_world->GetGameObjects().size()); 
+	SDL_Surface* surface = TTF_RenderText_Solid(font, text.c_str(), color);
+	SDL_Texture* texture = SDL_CreateTextureFromSurface(Graphics::renderer, surface); 
+
+	SDL_FreeSurface(surface);
+	SDL_Rect rect;
+	rect.x = 0;
+	rect.y = 0;
+	rect.w = 200; 
+	rect.h = 50; 
+
+	SDL_RenderCopy(Graphics::renderer, texture, NULL, &rect);
+	//
 	SDL_RenderPresent(Graphics::renderer);
 
 	Graphics::RenderScale();

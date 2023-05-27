@@ -10,6 +10,7 @@
 #include "array"
 
 
+
 World::World(float t_gravity, bool t_basic) {
 	m_G = -t_gravity * PIXELS_PER_METER;
 	m_basic = t_basic;
@@ -27,7 +28,11 @@ void World::AddGameObject(GameObject* obj) {
 }
 
 void World::DeleteObject(GameObject* obj) {
-	delete obj;
+	auto it = std::find(m_objects.begin(), m_objects.end(), obj);
+	if (it != m_objects.end()) {
+		delete* it;
+		m_objects.erase(it);
+	}
 }
 
 std::vector<GameObject*>& World::GetGameObjects() {
@@ -43,7 +48,6 @@ void World::CheckCollisions() {
 			if (Utils::isInstanceOf(m_objects[i], typeid(StaticBody)) && Utils::isInstanceOf(m_objects[j], typeid(StaticBody))) {
 				continue;
 			}
-			// Idk why if i use AABB check first, the complexity increase
 			if (m_collisionManager->IntersectAABB(m_objects[i]->GetAABB(), m_objects[j]->GetAABB())) {
 				CollisionType check = m_collisionManager->IntersectSAT(m_objects[i], m_objects[j]);
 				if (check.areColliding) {
@@ -116,23 +120,17 @@ void World::SolveDynVsDynCollisionRotation(DynamicBody* t_objA, DynamicBody* t_o
 
 	float e =  std::min(t_objA->getRestitution(), t_objB->getRestitution());
 
-
-	std::array <Vector2f, 2> contactList;
-	std::array <Vector2f,2> impulseList;
-	std::array <Vector2f, 2> raList;
-	std::array <Vector2f, 2> rbList;
-
-	contactList[0] = (result.contact1);
-	contactList[1] = (result.contact2);
+	m_contactList[0] = (result.contact1);
+	m_contactList[1] = (result.contact2);
 
 
 	// Calculate Impulses
 	for (int i = 0; i < result.contactNumber; i++) {
-		Vector2f ra = contactList[i] - t_objA->getCenter() ;
-		Vector2f rb = contactList[i] - t_objB->getCenter();
+		Vector2f ra = m_contactList[i] - t_objA->getCenter() ;
+		Vector2f rb = m_contactList[i] - t_objB->getCenter();
 
-		raList[i] = ra;
-		rbList[i] = rb;
+		m_raList[i] = ra;
+		m_rbList[i] = rb;
 
 		Vector2f raPerp = Vector2f(-ra.y, ra.x);
 		Vector2f rbPerp = Vector2f(-rb.y, rb.x);
@@ -162,18 +160,18 @@ void World::SolveDynVsDynCollisionRotation(DynamicBody* t_objA, DynamicBody* t_o
 
 		Vector2f impulse =  normal * j;
 		
-		impulseList[i] =impulse;
+		m_impulseList[i] =impulse;
 
 	}
 	
 	// Apply Impulses
 	for (int i = 0; i < result.contactNumber; i++) {
 		
-		Vector2f impulse = impulseList[i];
+		Vector2f impulse = m_impulseList[i];
 		
 
-		Vector2f ra = raList[i];
-		Vector2f rb = rbList[i];
+		Vector2f ra = m_raList[i];
+		Vector2f rb = m_rbList[i];
 
 
 		t_objA->setVelocity(t_objA->getVelocity() + impulse * t_objA->getInvMass());
@@ -205,21 +203,17 @@ void World::SolveDynVsStaticCollisionRotation(DynamicBody* t_objA, StaticBody* t
 	Vector2f normal = t_check.CollidingAxis;
 	float e = std::min(t_objA->getRestitution(), t_objB->getRestitution());
 
-	std::array <Vector2f, 2> contactList;
-	std::array <Vector2f,2> impulseList;
-	std::array <Vector2f, 2> raList;
-	std::array <Vector2f, 2> rbList;
 
-	contactList[0] = (result.contact1);
-	contactList[1] = (result.contact2);
+	m_contactList[0] = (result.contact1);
+	m_contactList[1] = (result.contact2);
 
 	// Calculate Impulses
 	for (int i = 0; i < result.contactNumber; i++) {
-		Vector2f ra = contactList[i] - t_objA->getCenter();
-		Vector2f rb = contactList[i] - t_objB->getCenter();
+		Vector2f ra = m_contactList[i] - t_objA->getCenter();
+		Vector2f rb = m_contactList[i] - t_objB->getCenter();
 
-		raList[i] = ra;
-		rbList[i] = rb;
+		m_raList[i] = ra;
+		m_rbList[i] = rb;
 
 		Vector2f raPerp = Vector2f(-ra.y, ra.x);
 		Vector2f rbPerp = Vector2f(-rb.y, rb.x);
@@ -247,17 +241,17 @@ void World::SolveDynVsStaticCollisionRotation(DynamicBody* t_objA, StaticBody* t
 		
 		Vector2f impulse = normal * j;
 
-		impulseList[i] = impulse;
+		m_impulseList[i] = impulse;
 
 	}
 	
 	// Apply Impulses
 	for (int i = 0; i < result.contactNumber; i++) {
 
-		Vector2f impulse = impulseList[i];
+		Vector2f impulse = m_impulseList[i];
 
-		Vector2f ra = raList[i];
-		Vector2f rb = rbList[i];
+		Vector2f ra = m_raList[i];
+		Vector2f rb = m_rbList[i];
 
 		t_objA->setVelocity(t_objA->getVelocity() + impulse * t_objA->getInvMass());
 
@@ -272,11 +266,13 @@ void World::Update(float t_dt, int t_iterationNumber) {
 			if (Utils::isInstanceOf(obj, typeid(DynamicBody))) {
 				DynamicBody* dynamic_obj = dynamic_cast<DynamicBody*>(obj);
 				dynamic_obj->update(t_dt, m_G, t_iterationNumber);
+				if (dynamic_obj->getY() > 700)
+					DeleteObject(obj);
 			}
 		}
 		CheckCollisions();
 	}
-	
+
 }
 
 

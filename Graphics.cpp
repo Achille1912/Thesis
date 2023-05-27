@@ -1,5 +1,6 @@
 #include <SDL.h>
 #include <SDL_image.h>
+#include <SDL_ttf.h>
 #include <iostream>
 
 #include "Graphics.h"
@@ -28,6 +29,7 @@ bool Graphics::OpenWindow(const char* t_title, int t_xpos, int t_ypos, int t_wid
     windowHeight = t_height;
 
     if (SDL_Init(SDL_INIT_EVERYTHING) == 0) {
+        TTF_Init();
         std::cout << "Initialized." << std::endl;
 
         window = SDL_CreateWindow(t_title, t_xpos, t_ypos, t_width, t_height, flags);

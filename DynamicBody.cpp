@@ -41,7 +41,7 @@ void DynamicBody::update(float t_dt, float t_gravity, int t_iterations) {
 	if (m_velocity.x > 0) m_velocity.x -= (1.5 * t_dt * PIXELS_PER_METER);
 
 	// Calculate New Vertices
-	m_vertices = CalculateVertices();
+	CalculateVertices();
 }
 
 void DynamicBody::move(Vector2f t_direction) {
@@ -63,6 +63,6 @@ void DynamicBody::moveTo(Vector2f t_position) {
 void DynamicBody::rotate() {
 	m_theta += 10;
 
-	m_vertices = CalculateVertices();
+	CalculateVertices();
 }
 

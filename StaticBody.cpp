@@ -21,7 +21,7 @@ StaticBody::StaticBody(const char* t_textureSheet, SDL_Renderer* t_renderer, flo
 	m_dstRect.x = m_xpos;
 	m_dstRect.y = m_ypos;
 
-	m_vertices = CalculateVertices();
+	CalculateVertices();
 }
 
 

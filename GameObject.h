@@ -36,7 +36,7 @@ public:
 	float getInvMass() { return m_invMass; }
 
 	// Functions
-	std::array <Vector2f, 4> CalculateVertices();
+	void CalculateVertices();
 	SDL_FRect GetAABB();
 	void render();
 

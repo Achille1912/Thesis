@@ -1,5 +1,3 @@
-#pragma once
-
 // ----------------------------------------------------------------
 // From "Algorithms and Game Programming" in C++ by Alessandro Bria
 // Copyright (C) 2023 Alessandro Bria (a.bria@unicas.it). 

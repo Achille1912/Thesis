@@ -1,20 +1,12 @@
-﻿  Graphics.cpp
-D:\Progetti\SdlGame\SDL_Tesi\SdlGameTesi\Graphics.cpp(97,16): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-D:\Progetti\SdlGame\SDL_Tesi\SdlGameTesi\Graphics.cpp(98,16): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-D:\Progetti\SdlGame\SDL_Tesi\SdlGameTesi\Graphics.cpp(111,90): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-D:\Progetti\SdlGame\SDL_Tesi\SdlGameTesi\Graphics.cpp(111,73): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-  World.cpp
-D:\Progetti\SdlGame\SDL_Tesi\SdlGameTesi\World.cpp(110,88): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-D:\Progetti\SdlGame\SDL_Tesi\SdlGameTesi\World.cpp(110,69): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-D:\Progetti\SdlGame\SDL_Tesi\SdlGameTesi\World.cpp(111,88): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-D:\Progetti\SdlGame\SDL_Tesi\SdlGameTesi\World.cpp(111,69): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-D:\Progetti\SdlGame\SDL_Tesi\SdlGameTesi\World.cpp(200,88): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-D:\Progetti\SdlGame\SDL_Tesi\SdlGameTesi\World.cpp(200,69): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-D:\Progetti\SdlGame\SDL_Tesi\SdlGameTesi\World.cpp(201,88): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-D:\Progetti\SdlGame\SDL_Tesi\SdlGameTesi\World.cpp(201,69): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+﻿  Game.cpp
+D:\Progetti\SdlGame\SDL_Tesi\SdlGameTesi\Game.cpp(85,118): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\Progetti\SdlGame\SDL_Tesi\SdlGameTesi\Game.cpp(85,88): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\Progetti\SdlGame\SDL_Tesi\SdlGameTesi\Game.cpp(85,85): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\Progetti\SdlGame\SDL_Tesi\SdlGameTesi\Game.cpp(88,32): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\Progetti\SdlGame\SDL_Tesi\SdlGameTesi\Game.cpp(88,29): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
   Generating code
-  52 of 275 functions (18.9%) were compiled, the rest were copied from previous compilation.
-    4 functions were new in current compilation
-    25 functions had inline decision re-evaluated but remain unchanged
+  4 of 339 functions ( 1.2%) were compiled, the rest were copied from previous compilation.
+    0 functions were new in current compilation
+    0 functions had inline decision re-evaluated but remain unchanged
   Finished generating code
   SdlGameTesi.vcxproj -> D:\Progetti\SdlGame\SDL_Tesi\x64\Release\SdlGameTesi.exe

@@ -63,9 +63,9 @@ CollisionType Collision::IntersectSAT(GameObject* objA, GameObject* objB) {
 	
 	std::array <Vector2f, 4> verticesB;
 
-	verticesA = objA->CalculateVertices();	
+	verticesA = objA->getVertices();	
 
-	verticesB = objB->CalculateVertices();
+	verticesB = objB->getVertices();
 	
 
 	std::array <Vector2f, 4> normalsA = CalculateNormals(verticesA);
@@ -78,9 +78,6 @@ CollisionType Collision::IntersectSAT(GameObject* objA, GameObject* objB) {
 	for (int i = 0; i < normalsB.size(); i++) {
 		normals[i+verticesA.size()] = normalsB[i];
 	}
-	/*normals.insert(normals.end(), normalsA.begin(), normalsA.end());
-	normals.insert(normals.end(), normalsB.begin(), normalsB.end());*/
-
 	
 	for (Vector2f normal : normals) {
 		float minA = INFINITY;
@@ -161,11 +158,11 @@ ContactType Collision::FindContactPoints(GameObject* objA, GameObject* objB) {
 	int contactsNumber = 0;
 	std::array <Vector2f, 4> verticesA;
 
-	verticesA = objA->CalculateVertices();
+	verticesA = objA->getVertices();
 	
 	std::array <Vector2f, 4> verticesB;
 
-	verticesB = objB->CalculateVertices();
+	verticesB = objB->getVertices();
 	
 
 	float minDistSq = INFINITY;
