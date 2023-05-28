@@ -64,7 +64,7 @@ public:
 
 	ContactType FindContactPoints(GameObject* objA, GameObject* objB);
 
-	bool IntersectAABB(SDL_FRect AABBobjA, SDL_FRect AABBobjB);
+	bool IntersectAABB(AABB AABBobjA, AABB AABBobjB);
 
 };
 

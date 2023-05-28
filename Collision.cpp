@@ -127,8 +127,6 @@ CollisionType Collision::IntersectSAT(GameObject* objA, GameObject* objB) {
 	result.depth = depth;
 	result.CollidingAxis = result_normal;
 
-	
-
 
 	// Check Collision Mode
 	
@@ -156,27 +154,16 @@ ContactType Collision::FindContactPoints(GameObject* objA, GameObject* objB) {
 	Vector2f contact1 = Vector2f(0, 0);
 	Vector2f contact2 = Vector2f(0, 0);
 	int contactsNumber = 0;
-	std::array <Vector2f, 4> verticesA;
-
-	verticesA = objA->getVertices();
-	
-	std::array <Vector2f, 4> verticesB;
-
-	verticesB = objB->getVertices();
-	
 
 	float minDistSq = INFINITY;
-	
 
-	for (int i = 0; i < verticesA.size(); i++) {
-		Vector2f p = verticesA[i];
-		for (int j = 0; j < verticesB.size(); j++) {
-			Vector2f va = verticesB[j];
-			Vector2f vb = verticesB[(j + 1) % verticesB.size()];
+	for (int i = 0; i < objA->getVertices().size(); i++) {
+		Vector2f p = objA->getVertices()[i];
+		for (int j = 0; j < objB->getVertices().size(); j++) {
+			Vector2f va = objB->getVertices()[j];
+			Vector2f vb = objB->getVertices()[(j + 1) % objB->getVertices().size()];
 
 			PointToSegmentType p2s = PointToSegmentDistance(p, va, vb);
-
-			
 
 			if (Math::NearlyEqual(p2s.distSq, minDistSq)) {
 				if (!Math::NearlyEqual(p2s.closestPoint, contact1) &&
@@ -197,11 +184,11 @@ ContactType Collision::FindContactPoints(GameObject* objA, GameObject* objB) {
 		}
 	}
 	/******************************************************/
-	for (int i = 0; i < verticesB.size(); i++) {
-		Vector2f p = verticesB[i];
-		for (int j = 0; j < verticesA.size(); j++) {
-			Vector2f va = verticesA[j];
-			Vector2f vb = verticesA[(j + 1) % verticesA.size()];
+	for (int i = 0; i < objB->getVertices().size(); i++) {
+		Vector2f p = objB->getVertices()[i];
+		for (int j = 0; j < objA->getVertices().size(); j++) {
+			Vector2f va = objA->getVertices()[j];
+			Vector2f vb = objA->getVertices()[(j + 1) % objA->getVertices().size()];
 
 			PointToSegmentType p2s = PointToSegmentDistance(p, va, vb);
 
@@ -211,8 +198,6 @@ ContactType Collision::FindContactPoints(GameObject* objA, GameObject* objB) {
 					contact2 = p2s.closestPoint;
 
 					contactsNumber = 2;
-
-					
 				}
 			}
 
@@ -226,13 +211,11 @@ ContactType Collision::FindContactPoints(GameObject* objA, GameObject* objB) {
 		}
 	}
 
-
 	return ContactType(contact1, contact2, contactsNumber);
 }
 
 
-
-bool Collision::IntersectAABB(SDL_FRect AABBobjA, SDL_FRect AABBobjB) {
+bool Collision::IntersectAABB(AABB AABBobjA, AABB AABBobjB) {
 	return (AABBobjA.x < AABBobjB.x + AABBobjB.w &&
 		AABBobjA.x + AABBobjA.w > AABBobjB.x &&
 		AABBobjA.y < AABBobjA.y + AABBobjA.h &&

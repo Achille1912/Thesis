@@ -7,6 +7,7 @@
 #include <array>
 
 #include "Vector2.h"
+#include "AABB.h"
 
 class GameObject {
 public:
@@ -34,10 +35,11 @@ public:
 	std::array <Vector2f, 4> getVertices() { return m_vertices; }
 	float getRestitution() { return m_restitution; }
 	float getInvMass() { return m_invMass; }
+	AABB GetAABB() { return m_aabb; }
+	void CalculateAABB();
 
 	// Functions
 	void CalculateVertices();
-	SDL_FRect GetAABB();
 	void render();
 
 protected:
@@ -47,6 +49,7 @@ protected:
 	float m_invMass;
 	float m_momentOfInertia;
 	float m_theta = 0;
+	AABB m_aabb;
 	float m_restitution;
 	std::array <Vector2f, 4> m_vertices;
 

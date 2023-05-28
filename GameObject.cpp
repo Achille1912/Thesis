@@ -36,21 +36,12 @@ GameObject::GameObject(const char* t_textureSheet, SDL_Renderer* t_renderer, flo
 	m_dstRect.y = m_ypos;
 
 	CalculateVertices();
+	CalculateAABB();
 }
 
 void GameObject::render() {
-	if (Graphics::debug) {
-		SDL_FRect tmpRect = GetAABB();
-		SDL_SetRenderDrawColor(m_renderer, 255, 0, 0, 0);
-		SDL_RenderFillRectF(m_renderer, &tmpRect);
-		SDL_SetRenderDrawColor(m_renderer, 255, 255, 255, 255);
-	}
-	
 	SDL_RenderCopyExF(m_renderer, m_objectTexture, NULL, &m_dstRect, m_theta, NULL, SDL_FLIP_NONE);
 	SDL_SetRenderDrawColor(m_renderer, 255, 0, 0, 0);
-	
-
-	if (Graphics::debug) Graphics::DrawCenterPoint(dynamic_cast<GameObject*>(this), 5, 5, Color(0, 0, 255, 0));
 }
 
 
@@ -75,9 +66,7 @@ void GameObject::CalculateVertices() {
 }
 
 
-SDL_FRect GameObject::GetAABB() {
-
-	SDL_FRect res;
+void GameObject::CalculateAABB() {
 	float minX = INFINITY;
 	float minY = INFINITY;
 	float maxX = -INFINITY;
@@ -92,10 +81,9 @@ SDL_FRect GameObject::GetAABB() {
 			if (v.y > maxY) { maxY = v.y; }
 		}
 	
-	res.x = minX;
-	res.y = minY;
-	res.w = maxX - minX;
-	res.h = maxY - minY;
+	m_aabb.x = minX;
+	m_aabb.y = minY;
+	m_aabb.w = maxX - minX;
+	m_aabb.h = maxY - minY;
 
-	return res;
 }

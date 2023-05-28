@@ -48,58 +48,57 @@ void World::CheckCollisions() {
 			if (Utils::isInstanceOf(m_objects[i], typeid(StaticBody)) && Utils::isInstanceOf(m_objects[j], typeid(StaticBody))) {
 				continue;
 			}
+			// If AABBs don't intersect, jump to the next check
 			if (m_collisionManager->IntersectAABB(m_objects[i]->GetAABB(), m_objects[j]->GetAABB())) {
-				CollisionType check = m_collisionManager->IntersectSAT(m_objects[i], m_objects[j]);
-				if (check.areColliding) {
-					// Evidence the Hitting Boxes
-					if (Graphics::debug) {
-						SDL_SetTextureColorMod(m_objects[i]->getTex(), 255, 0, 0);
-						SDL_SetTextureColorMod(m_objects[j]->getTex(), 255, 0, 0);
+				continue;
+			}
+			CollisionType check = m_collisionManager->IntersectSAT(m_objects[i], m_objects[j]);
+			if (check.areColliding) {
+				switch (check.mode) {
+					case DynVsDyn: {
+						DynamicBody* objA = dynamic_cast<DynamicBody*>(m_objects[i]);
+						DynamicBody* objB = dynamic_cast<DynamicBody*>(m_objects[j]);
+
+						// Move the Rectangles by the depth collision
+						objA->moveBy(-check.CollidingAxis.x * check.depth / 2, -check.CollidingAxis.y * check.depth / 2);
+						objB->moveBy(check.CollidingAxis.x * check.depth / 2, check.CollidingAxis.y * check.depth / 2);
+
+						// Resolve Collision
+						if (m_basic) SolveDynVsDynCollisionBasic(objA, objB, check);
+						else SolveDynVsDynCollisionRotation(objA, objB, check);
+
+						break;
 					}
-					switch (check.mode) {
-						case DynVsDyn: {
-							DynamicBody* objA = dynamic_cast<DynamicBody*>(m_objects[i]);
-							DynamicBody* objB = dynamic_cast<DynamicBody*>(m_objects[j]);
+					case DynVsStatic: {
+						DynamicBody* objA = dynamic_cast<DynamicBody*>(m_objects[i]);
+						StaticBody* objB = dynamic_cast<StaticBody*>(m_objects[j]);
 
-							// Move the Rectangles by the depth collision
-							objA->moveBy(-check.CollidingAxis.x * check.depth / 2, -check.CollidingAxis.y * check.depth / 2);
-							objB->moveBy(check.CollidingAxis.x * check.depth / 2, check.CollidingAxis.y * check.depth / 2);
-							if (m_basic) SolveDynVsDynCollisionBasic(objA, objB, check);
-							else SolveDynVsDynCollisionRotation(objA, objB, check);
+						// Move the Rectangles by the depth collision
+						objA->moveBy(-check.CollidingAxis.x * check.depth, -check.CollidingAxis.y * check.depth);
 
-							break;
-						}
-						case DynVsStatic: {
-							DynamicBody* objA = dynamic_cast<DynamicBody*>(m_objects[i]);
-							StaticBody* objB = dynamic_cast<StaticBody*>(m_objects[j]);
+						// Resolve Collision
+						if (m_basic) SolveDynVsStaticCollisionBasic(objA, objB, check);
+						else SolveDynVsStaticCollisionRotation(objA, objB, check);
 
-							// Move the Rectangles by the depth collision
-							objA->moveBy(-check.CollidingAxis.x * check.depth, -check.CollidingAxis.y * check.depth);
+						break;
+					}
+					case StaticVsDyn: {
+						StaticBody* objA = dynamic_cast<StaticBody*>(m_objects[i]);
+						DynamicBody* objB = dynamic_cast<DynamicBody*>(m_objects[j]);
 
-	
-							if (m_basic) SolveDynVsStaticCollisionBasic(objA, objB, check);
-							else SolveDynVsStaticCollisionRotation(objA, objB, check);
+						// Move the Rectangles by the depth collision
+						objB->moveBy(check.CollidingAxis.x * check.depth, check.CollidingAxis.y * check.depth);
 
-							break;
-						}
-						case StaticVsDyn: {
-							StaticBody* objA = dynamic_cast<StaticBody*>(m_objects[i]);
-							DynamicBody* objB = dynamic_cast<DynamicBody*>(m_objects[j]);
+						// Resolve Collision
+						if (m_basic) SolveDynVsStaticCollisionBasic(objB, objA, check);
+						else SolveDynVsStaticCollisionRotation(objB, objA, check);
 
-							// Move the Rectangles by the depth collision
-							objB->moveBy(check.CollidingAxis.x * check.depth, check.CollidingAxis.y * check.depth);
-
-
-							if (m_basic) SolveDynVsStaticCollisionBasic(objB, objA, check);
-							else SolveDynVsStaticCollisionRotation(objB, objA, check);
-
-							break;
-						}
-						default:
-							break;
+						break;
+					}
+					default:
+					break;
 					}
 				}
-			}
 		}
 	}
 }
@@ -109,20 +108,12 @@ void World::SolveDynVsDynCollisionRotation(DynamicBody* t_objA, DynamicBody* t_o
 
 	ContactType result = m_collisionManager->FindContactPoints(t_objA, t_objB);
 
-	if (Graphics::debug) {
-		SDL_SetRenderDrawColor(Graphics::renderer, 255, 0, 0, 255);
-		Graphics::SDL_RenderDrawCircle(Graphics::renderer, result.contact1.x, result.contact1.y, 5);
-		Graphics::SDL_RenderDrawCircle(Graphics::renderer, result.contact2.x, result.contact2.y, 5);
-		Graphics::RenderFrame();
-	}
-
 	Vector2f normal = t_check.CollidingAxis;
 
 	float e =  std::min(t_objA->getRestitution(), t_objB->getRestitution());
 
 	m_contactList[0] = (result.contact1);
 	m_contactList[1] = (result.contact2);
-
 
 	// Calculate Impulses
 	for (int i = 0; i < result.contactNumber; i++) {

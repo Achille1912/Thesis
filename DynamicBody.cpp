@@ -42,6 +42,8 @@ void DynamicBody::update(float t_dt, float t_gravity, int t_iterations) {
 
 	// Calculate New Vertices
 	CalculateVertices();
+	// Calculate New AABB
+	CalculateAABB();
 }
 
 void DynamicBody::move(Vector2f t_direction) {
