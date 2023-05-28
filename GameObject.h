@@ -36,11 +36,13 @@ public:
 	float getRestitution() { return m_restitution; }
 	float getInvMass() { return m_invMass; }
 	AABB GetAABB() { return m_aabb; }
-	void CalculateAABB();
+	
 
 	// Functions
 	void CalculateVertices();
+	void CalculateAABB();
 	void render();
+
 
 protected:
 	// Physics

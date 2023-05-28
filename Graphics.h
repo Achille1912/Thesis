@@ -17,7 +17,6 @@ struct Graphics {
     static int windowHeight;
     static SDL_Window* window;
     static SDL_Renderer* renderer;
-    static bool debug;
     static float scale;
     static SDL_Texture* background_texture;
 

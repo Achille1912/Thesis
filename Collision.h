@@ -58,13 +58,13 @@ public:
 
 
 
-class Collision {
-public:
-	CollisionType IntersectSAT(GameObject* objA, GameObject* objB);
+struct Collision {
+	
+	static CollisionType IntersectSAT(GameObject* objA, GameObject* objB);
 
-	ContactType FindContactPoints(GameObject* objA, GameObject* objB);
+	static ContactType FindContactPoints(GameObject* objA, GameObject* objB);
 
-	bool IntersectAABB(AABB AABBobjA, AABB AABBobjB);
+	static bool IntersectAABB(AABB AABBobjA, AABB AABBobjB);
 
 };
 

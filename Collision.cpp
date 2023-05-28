@@ -30,7 +30,7 @@ PointToSegmentType PointToSegmentDistance(Vector2f p, Vector2f va, Vector2f vb) 
 
 	else result.closestPoint = va + ab * d;
 	
-	result.distSq = Math::getDistanceSquared(p,result.closestPoint);
+	result.distSq = Math::getDistanceSquared(p, result.closestPoint);
 
 	return result;
 }

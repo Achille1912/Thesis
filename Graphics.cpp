@@ -11,7 +11,6 @@ SDL_Window* Graphics::window = NULL;
 SDL_Renderer* Graphics::renderer = NULL;
 int Graphics::windowWidth = 0;
 int Graphics::windowHeight = 0;
-bool Graphics::debug = false;
 float Graphics::scale = 1.0;
 SDL_Texture* Graphics::background_texture;
 

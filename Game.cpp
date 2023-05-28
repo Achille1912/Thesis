@@ -92,13 +92,6 @@ void Game::handleEvents() {
 		break;
 	case SDL_KEYDOWN:
 		switch (event.key.keysym.sym) {
-		case SDLK_f:
-			if(!Graphics::debug)
-				Graphics::debug = true;
-			else
-				Graphics::debug = false;
-			break;
-
 		case SDLK_UP:
 			player->move(Vector2f(0, -step*2));
 			break;

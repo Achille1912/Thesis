@@ -14,7 +14,6 @@
 World::World(float t_gravity, bool t_basic) {
 	m_G = -t_gravity * PIXELS_PER_METER;
 	m_basic = t_basic;
-	m_collisionManager = new Collision();
 }
 
 World::~World() {
@@ -49,10 +48,10 @@ void World::CheckCollisions() {
 				continue;
 			}
 			// If AABBs don't intersect, jump to the next check
-			if (m_collisionManager->IntersectAABB(m_objects[i]->GetAABB(), m_objects[j]->GetAABB())) {
+			if (!Collision::IntersectAABB(m_objects[i]->GetAABB(), m_objects[j]->GetAABB())) {
 				continue;
 			}
-			CollisionType check = m_collisionManager->IntersectSAT(m_objects[i], m_objects[j]);
+			CollisionType check = Collision::IntersectSAT(m_objects[i], m_objects[j]);
 			if (check.areColliding) {
 				switch (check.mode) {
 					case DynVsDyn: {
@@ -106,7 +105,7 @@ void World::CheckCollisions() {
 
 void World::SolveDynVsDynCollisionRotation(DynamicBody* t_objA, DynamicBody* t_objB, CollisionType t_check) {
 
-	ContactType result = m_collisionManager->FindContactPoints(t_objA, t_objB);
+	ContactType result = Collision::FindContactPoints(t_objA, t_objB);
 
 	Vector2f normal = t_check.CollidingAxis;
 
@@ -182,14 +181,7 @@ void World::SolveDynVsDynCollisionRotation(DynamicBody* t_objA, DynamicBody* t_o
 
 void World::SolveDynVsStaticCollisionRotation(DynamicBody* t_objA, StaticBody* t_objB, CollisionType t_check) {
 	
-	ContactType result = m_collisionManager->FindContactPoints(t_objA, t_objB);
-
-	if (Graphics::debug) {
-		SDL_SetRenderDrawColor(Graphics::renderer, 255, 0, 0, 255);
-		Graphics::SDL_RenderDrawCircle(Graphics::renderer, result.contact1.x, result.contact1.y, 5);
-		Graphics::SDL_RenderDrawCircle(Graphics::renderer, result.contact2.x, result.contact2.y, 5);
-		Graphics::RenderFrame();
-	}
+	ContactType result = Collision::FindContactPoints(t_objA, t_objB);
 
 	Vector2f normal = t_check.CollidingAxis;
 	float e = std::min(t_objA->getRestitution(), t_objB->getRestitution());

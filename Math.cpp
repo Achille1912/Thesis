@@ -26,9 +26,8 @@ Vector2f Math::VectorRotation(Vector2f point, Vector2f center, float rotation_de
 
     Vector2f rot_centered_point = Vector2f(cos(angle) * centered_point.x - sin(angle) * centered_point.y, sin(angle) * centered_point.x + cos(angle) * centered_point.y);
 
-    Vector2f result = rot_centered_point - center;
+    return (rot_centered_point - center);
 
-    return result;
 }
 
 float Math::getDistanceSquared(Vector2f t_vectorA, Vector2f t_vectorB) {

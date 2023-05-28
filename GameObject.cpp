@@ -46,23 +46,14 @@ void GameObject::render() {
 
 
 void GameObject::CalculateVertices() {
-
-	float angle = this->getRotation();
-
-	Vector2f up_left_final = Math::VectorRotation(Vector2f(this->getX(), this->getY()), this->getCenter(), angle);
-
-	Vector2f up_right_final = Math::VectorRotation(Vector2f(this->getX() + this->getW(), this->getY()), this->getCenter(), angle);
-
-	Vector2f down_right_final = Math::VectorRotation(Vector2f(this->getX() + this->getW(), this->getY() + this->getH()), this->getCenter(), angle);
-
-	Vector2f down_left_final = Math::VectorRotation(Vector2f(this->getX(), this->getY() + this->getH()), this->getCenter(), angle);
-
-	m_vertices[0] = (Vector2f(-up_left_final.x, -up_left_final.y));
-	m_vertices[1] = (Vector2f(-up_right_final.x, -up_right_final.y));
-	m_vertices[2] = (Vector2f(-down_right_final.x, -down_right_final.y));
-	m_vertices[3] = (Vector2f(-down_left_final.x, -down_left_final.y));
-
-
+	// Top-Left
+	m_vertices[0] = -Math::VectorRotation(Vector2f(m_xpos, m_ypos), getCenter(), m_theta);
+	// Top-Right
+	m_vertices[1] = -Math::VectorRotation(Vector2f(m_xpos + m_width, m_ypos), getCenter(), m_theta);
+	// Bottom-Right
+	m_vertices[2] = -Math::VectorRotation(Vector2f(m_xpos + m_width, m_ypos + m_height), getCenter(), m_theta);
+	// Bottom-Left
+	m_vertices[3] = -Math::VectorRotation(Vector2f(m_xpos, m_ypos + m_height), getCenter(), m_theta);
 }
 
 

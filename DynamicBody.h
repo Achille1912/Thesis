@@ -50,7 +50,7 @@ public:
 	void moveTo(Vector2f t_pos);
 	void moveBy(float t_xpos, float t_ypos);
 	void AddVel(Vector2f t_value) { m_velocity += t_value; }
-	
+
 private:
 	// Physics
 	Vector2f m_velocity;

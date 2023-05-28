@@ -38,8 +38,6 @@ public:
 
 	void SolveDynVsStaticCollisionRotation(DynamicBody* t_objA, StaticBody* t_objB, CollisionType t_check);
 
-	Collision* m_collisionManager;
-
 	bool m_basic;
 
 	std::array <Vector2f, 2> m_contactList;
