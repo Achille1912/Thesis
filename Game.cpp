@@ -26,6 +26,16 @@ Game* Game::instance() {
 	return m_uniqueInstance;
 }
 
+/**
+ * @brief Create Game Object
+ * 
+ * @param t_title 
+ * @param t_xpos 
+ * @param t_ypos 
+ * @param t_width 
+ * @param t_height 
+ * @param t_fullscreen 
+ */
 void Game::init(const char* t_title, int t_xpos, int t_ypos, int t_width, int t_height, bool t_fullscreen) {
 	// INITIAL STUFF
 	m_isRunning = Graphics::OpenWindow(t_title, t_xpos, t_ypos, t_width, t_height, t_fullscreen);
@@ -45,6 +55,7 @@ void Game::init(const char* t_title, int t_xpos, int t_ypos, int t_width, int t_
 		player = dynamic_cast<DynamicBody*>(m_world->GetGameObjects()[0]);
 	}
 	else {
+	// Angry Birds Building
 		m_world->AddGameObject(new DynamicBody("./gfx/bird.png", Graphics::renderer, 10, 490-70, Vector2f(0, 0), 46, 46, mass2, 0));
 		m_world->AddGameObject(new DynamicBody("./gfx/woodBox.jpg", Graphics::renderer, 400, 390-70, Vector2f(0, 0), 26, 200, mass2, 0.4f));
 		m_world->AddGameObject(new DynamicBody("./gfx/woodBox.jpg", Graphics::renderer, 600, 390-70, Vector2f(0, 0), 26, 200, mass2, 0.4f));
@@ -59,6 +70,10 @@ void Game::init(const char* t_title, int t_xpos, int t_ypos, int t_width, int t_
 	}
 }
 
+/**
+ * @brief Handle Game Events
+ * 
+ */
 void Game::handleEvents() {
 	Vector2f dir(0,0);
 	float step = 8;
@@ -133,10 +148,21 @@ void Game::handleEvents() {
 	player->move(dir);
 }
 
+
+/**
+ * @brief Update World
+ * 
+ * @param dt 
+ */
 void Game::update(float dt) {
 	m_world->Update(dt, 80);
 }
 
+
+/**
+ * @brief Render Graphics
+ * 
+ */
 void Game::render(){
 	Graphics::ClearScreen();
 	
@@ -144,11 +170,8 @@ void Game::render(){
 
 	for (int i = 0; i < m_world->GetGameObjects().size(); i++) {
 		m_world->GetGameObjects()[i]->render();
-		
-		SDL_SetTextureColorMod(m_world->GetGameObjects()[i]->getTex(), 255, 255, 255);
 	}
 
-	// This code decreases FPS from 2000 to 600
 	//
 	TTF_Font* font = TTF_OpenFont("./Roboto-Black.ttf", 14); 
 	SDL_Color color = { 0, 0, 0 }; 
@@ -173,6 +196,10 @@ void Game::render(){
 
 }
 
+/**
+ * @brief Close the Window
+ * 
+ */
 void Game::clean() {
 	Graphics::CloseWindow();
 }

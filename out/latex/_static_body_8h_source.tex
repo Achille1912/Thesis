@@ -1,0 +1,47 @@
+\doxysection{Static\+Body.\+h}
+\hypertarget{_static_body_8h_source}{}\label{_static_body_8h_source}\mbox{\hyperlink{_static_body_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#ifndef\ STATICBODY\_H}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#define\ STATICBODY\_H}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <SDL\_render.h>}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <array>}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_game_object_8h}{GameObject.h}}"{}}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_vector2_8h}{Vector2.h}}"{}}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_static_body}{StaticBody}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_game_object}{GameObject}}\ \{}
+\DoxyCodeLine{00013\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00014\ \ \ \ \ \mbox{\hyperlink{class_static_body}{StaticBody}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ t\_textureSheet,\ SDL\_Renderer*\ t\_renderer,\ \textcolor{keywordtype}{float}\ t\_xpos,\ \textcolor{keywordtype}{float}\ t\_ypos,\ \textcolor{keywordtype}{float}\ t\_width,}
+\DoxyCodeLine{00015\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ t\_height,\ \textcolor{keywordtype}{double}\ t\_mass,\ \textcolor{keywordtype}{float}\ t\_friction,\ \textcolor{keywordtype}{float}\ t\_angle,\ \textcolor{keywordtype}{float}\ t\_restitution);}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \ \ \ \ \textcolor{comment}{//\ SETTERS}}
+\DoxyCodeLine{00018\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_static_body_afb3ff770e16f2416c5f0a87224b5fa47}{setCenterPosition}}(\textcolor{keywordtype}{float}\ t\_xpos,\ \textcolor{keywordtype}{float}\ t\_ypos)\ \{\ \mbox{\hyperlink{class_game_object_a3640a84ccf501b931b45dd103b52f6cd}{m\_xpos}}\ =\ t\_xpos\ -\/\ \mbox{\hyperlink{class_game_object_ad0c2207d47368e29604295db23179417}{m\_width}};\ \mbox{\hyperlink{class_game_object_a6d47715d3dd4a75edadcd64bf821ca01}{m\_ypos}}\ =\ t\_ypos\ -\/\ \mbox{\hyperlink{class_game_object_ab4e3206181e3a3e70e7de6ca0f5f0f5d}{m\_height}};\ \}}
+\DoxyCodeLine{00019\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_static_body_a38ee18b4b7cb32bd4e1c78190a30d803}{setPosition}}(\mbox{\hyperlink{class_point}{Point}}\ t\_pos)\ \{\ \mbox{\hyperlink{class_game_object_a3640a84ccf501b931b45dd103b52f6cd}{m\_xpos}}\ =\ t\_pos.\mbox{\hyperlink{class_point_a05dfe2dfbde813ad234b514f30e662f1}{x}};\ \mbox{\hyperlink{class_game_object_a6d47715d3dd4a75edadcd64bf821ca01}{m\_ypos}}\ =\ t\_pos.\mbox{\hyperlink{class_point_a6101960c8d2d4e8ea1d32c9234bbeb8d}{y}};\ \}}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{comment}{//\ GETTERS}}
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_static_body_a47569a5c215dde756c5a03b0f099cc12}{getX}}()\ \{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_game_object_a3640a84ccf501b931b45dd103b52f6cd}{m\_xpos}};\ \}}
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_static_body_a4cc6c77c4c5a851ed447119012cec063}{getY}}()\ \{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_game_object_a6d47715d3dd4a75edadcd64bf821ca01}{m\_ypos}};\ \}}
+\DoxyCodeLine{00025\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_static_body_a7e12be710c5b128dc4ff020320bbdd4e}{getW}}()\ \{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_game_object_ad0c2207d47368e29604295db23179417}{m\_width}};\ \}}
+\DoxyCodeLine{00026\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_static_body_a94b9e098cf739595e68e171ca745a4b3}{getH}}()\ \{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_game_object_ab4e3206181e3a3e70e7de6ca0f5f0f5d}{m\_height}};\ \}}
+\DoxyCodeLine{00027\ \ \ \ \ \mbox{\hyperlink{class_point}{Point}}\ \mbox{\hyperlink{class_static_body_ac2a8b7cf1a11dc759826ffa226f0529d}{getPos}}()\ \{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_point}{Point}}(\mbox{\hyperlink{class_game_object_a3640a84ccf501b931b45dd103b52f6cd}{m\_xpos}},\ \mbox{\hyperlink{class_game_object_a6d47715d3dd4a75edadcd64bf821ca01}{m\_ypos}});\ \}}
+\DoxyCodeLine{00028\ \ \ \ \ \mbox{\hyperlink{struct_vector2f}{Vector2f}}\ \mbox{\hyperlink{class_static_body_a02dcf3e036273ecfb3fbf0c5ce0f1589}{getCenter}}()\ \{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{struct_vector2f}{Vector2f}}(\mbox{\hyperlink{class_game_object_a3640a84ccf501b931b45dd103b52f6cd}{m\_xpos}}\ +\ \mbox{\hyperlink{class_game_object_ad0c2207d47368e29604295db23179417}{m\_width}}/2,\ \mbox{\hyperlink{class_game_object_a6d47715d3dd4a75edadcd64bf821ca01}{m\_ypos}}\ +\ \mbox{\hyperlink{class_game_object_ab4e3206181e3a3e70e7de6ca0f5f0f5d}{m\_height}}/2);\ \}}
+\DoxyCodeLine{00029\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_static_body_ab4d0ac7e6dc7a7448025a27996378649}{getMass}}()\ \{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_game_object_aa150bfe3557263637a409ba5afc7ccfe}{m\_mass}};\ \}}
+\DoxyCodeLine{00030\ \ \ \ \ SDL\_FRect*\ \mbox{\hyperlink{class_static_body_a419feeae8b66cc2a052b098cb5ac270d}{getRect}}()\ \{\ \textcolor{keywordflow}{return}\ \&m\_dstRect;\ \}}
+\DoxyCodeLine{00031\ \ \ \ \ SDL\_Texture*\ \mbox{\hyperlink{class_static_body_a7bff4049e52df387600e19cd4d1436a7}{getTex}}()\ \{\ \textcolor{keywordflow}{return}\ m\_objectTexture;\ \}}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00033\ \ \ \ \ std::array\ <Vector2f,\ 4>\ \mbox{\hyperlink{class_static_body_a2e256139fe8691d9dc7d7b0613d6bbc3}{m\_vertices}};}
+\DoxyCodeLine{00034\ \ \ \ \ }
+\DoxyCodeLine{00035\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00036\ \ \ \ \ \textcolor{comment}{//\ Rendering}}
+\DoxyCodeLine{00037\ \ \ \ \ SDL\_Texture*\ m\_objectTexture;}
+\DoxyCodeLine{00038\ \ \ \ \ SDL\_FRect\ m\_dstRect;}
+\DoxyCodeLine{00039\ \ \ \ \ SDL\_Renderer*\ m\_renderer;}
+\DoxyCodeLine{00040\ \};}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00042\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

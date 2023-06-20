@@ -56,7 +56,7 @@ std::array <Vector2f, 4> CalculateNormals(std::array <Vector2f, 4>& vertices) {
 CollisionType Collision::IntersectSAT(GameObject* objA, GameObject* objB) {
 
 	CollisionType result;
-	Vector2f result_normal = Vector2f(0, 0);
+	Vector2f result_normal (0, 0);
 	float depth = INFINITY;
 
 	std::array <Vector2f, 4> verticesA;
@@ -151,8 +151,8 @@ CollisionType Collision::IntersectSAT(GameObject* objA, GameObject* objB) {
 
 
 ContactType Collision::FindContactPoints(GameObject* objA, GameObject* objB) {
-	Vector2f contact1 = Vector2f(0, 0);
-	Vector2f contact2 = Vector2f(0, 0);
+	Vector2f contact1 (0, 0);
+	Vector2f contact2 (0, 0);
 	int contactsNumber = 0;
 
 	float minDistSq = INFINITY;

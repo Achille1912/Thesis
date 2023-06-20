@@ -7,27 +7,27 @@
 
 struct Math {
 
-    static float Dot(Vector2f a, Vector2f b);
+    static float Dot(const Vector2f& a, const Vector2f& b);
 
-    static float Cross(Vector2f a, Vector2f b);
+    static float Cross(const Vector2f& a, const Vector2f& b);
 
     static float Rad(float deg);
 
     static float Deg(float rad);
 
-    static float getDistanceSquared(Vector2f t_vectorA, Vector2f t_vectorB);
+    static float getDistanceSquared(const Vector2f& t_vectorA, const Vector2f& t_vectorB);
 
-    static Vector2f VectorRotation(Vector2f point, Vector2f center, float rotation_deg);
+    static Vector2f VectorRotation(const Vector2f& point, const Vector2f& center, float rotation_deg);
 
-    static Vector2f FindArithmeticMean(std::array <Vector2f, 4> vertices) ;
+    static Vector2f FindArithmeticMean(const std::array <Vector2f, 4>& vertices);
 
-    static bool NearlyEqual(float a, float b) ;
+    static bool NearlyEqual(float a, float b);
 
-    static bool NearlyEqual(Vector2f a, Vector2f b) ;
+    static bool NearlyEqual(const Vector2f& a, const Vector2f& b);
 
-    static float DistanceSquared(Vector2f a, Vector2f b);
+    static float DistanceSquared(const Vector2f& a, const Vector2f& b);
 
-    static Vector2f BasicResponseImpulse(float restitution, Vector2f vrel, Vector2f normal, float invMassA, float invMassB);
+    static Vector2f BasicResponseImpulse(float restitution, const Vector2f& vrel, const Vector2f& normal, float invMassA, float invMassB);
 
 };
 

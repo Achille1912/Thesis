@@ -1,0 +1,41 @@
+\doxysection{Graphics.\+h}
+\hypertarget{_graphics_8h_source}{}\label{_graphics_8h_source}\mbox{\hyperlink{_graphics_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#ifndef\ GRAPHICS\_H}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#define\ GRAPHICS\_H}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <SDL.h>}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <SDL\_image.h>}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <array>}}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_vector2_8h}{Vector2.h}}"{}}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_game_object_8h}{GameObject.h}}"{}}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_utils_8h}{Utils.h}}"{}}}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_graphics}{Graphics}}\ \{}
+\DoxyCodeLine{00016\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{struct_graphics_a079d177d26cab456116b991b6d413ddb}{windowWidth}};}
+\DoxyCodeLine{00017\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{struct_graphics_a0e51ace3344d29dbc6230a123c119f4f}{windowHeight}};}
+\DoxyCodeLine{00018\ \ \ \ \ \textcolor{keyword}{static}\ SDL\_Window*\ \mbox{\hyperlink{struct_graphics_aa170d8180a55b107379b53f511d8c7c7}{window}};}
+\DoxyCodeLine{00019\ \ \ \ \ \textcolor{keyword}{static}\ SDL\_Renderer*\ \mbox{\hyperlink{struct_graphics_a9716531e6cd716fdea70e2e6975d5a02}{renderer}};}
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{struct_graphics_a2777b32f4506137e5ac0a11055d46859}{scale}};}
+\DoxyCodeLine{00021\ \ \ \ \ \textcolor{keyword}{static}\ SDL\_Texture*\ \mbox{\hyperlink{struct_graphics_aea35a44fb468b660c233a4e4b75b229f}{background\_texture}};}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{struct_graphics_a46a9049e3ae04268e7173c697ebe8a0c}{Width}}();}
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{struct_graphics_a2a47f640bfc38d48e92c0b69b00aaacf}{Height}}();}
+\DoxyCodeLine{00025\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{struct_graphics_adb00cee574c60dbede1c0980510a1c76}{OpenWindow}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ t\_title,\ \textcolor{keywordtype}{int}\ t\_xpos,\ \textcolor{keywordtype}{int}\ t\_ypos,\ \textcolor{keywordtype}{int}\ t\_width,\ \textcolor{keywordtype}{int}\ t\_height,\ \textcolor{keywordtype}{bool}\ t\_fullscreen);}
+\DoxyCodeLine{00026\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{struct_graphics_af46a3fb509bc1999e4710ead3edf8acb}{CloseWindow}}();}
+\DoxyCodeLine{00027\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{struct_graphics_ac8545dc7e80c28157dde0d0cb7a6d326}{ClearScreen}}();}
+\DoxyCodeLine{00028\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{struct_graphics_a9d589a34b24b3c6e291cc676a0714d79}{RenderFrame}}();}
+\DoxyCodeLine{00029\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{struct_graphics_acd0bfa7cb968047fa12a137a3b320f47}{RenderScale}}();}
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{struct_graphics_aa72c24d908e4b5f935119b855b74672c}{SDL\_RenderDrawRect}}(SDL\_Renderer*\ t\_renderer,\ \textcolor{keywordtype}{float}\ t\_xpos,\ \textcolor{keywordtype}{float}\ t\_ypos,\ \textcolor{keywordtype}{float}\ t\_width,\ \textcolor{keywordtype}{float}\ t\_height,\ \mbox{\hyperlink{struct_color}{Color}}\ t\_color);}
+\DoxyCodeLine{00031\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{struct_graphics_a25209be3bdb1ea026024d3569a4af8fb}{SDL\_RenderDrawCircle}}(SDL\_Renderer*\ t\_renderer,\ \textcolor{keywordtype}{int}\ t\_xpos,\ \textcolor{keywordtype}{int}\ t\_ypos,\ \textcolor{keywordtype}{int}\ t\_radius);}
+\DoxyCodeLine{00032\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{struct_graphics_a7dc4dce6712322074e686658b1a6f624}{DrawCenterPoint}}(\ \mbox{\hyperlink{class_game_object}{GameObject}}*\ t\_obj,\ \textcolor{keywordtype}{int}\ t\_width,\ \textcolor{keywordtype}{int}\ t\_height,\ \mbox{\hyperlink{struct_color}{Color}}\ t\_color);}
+\DoxyCodeLine{00033\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{struct_graphics_aace8aaad747c7a06dd7ae0765ee35ba5}{DrawVertices}}(SDL\_Renderer*\ t\_renderer,\ std::array\ <Vector2f,\ 4>\ t\_vertices,\ \mbox{\hyperlink{struct_color}{Color}}\ t\_color);}
+\DoxyCodeLine{00034\ \};}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00036\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

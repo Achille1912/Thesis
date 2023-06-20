@@ -1,0 +1,340 @@
+\doxysection{Dynamic\+Body Class Reference}
+\hypertarget{class_dynamic_body}{}\label{class_dynamic_body}\index{DynamicBody@{DynamicBody}}
+
+
+{\ttfamily \#include $<$Dynamic\+Body.\+h$>$}
+
+Inheritance diagram for Dynamic\+Body\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_dynamic_body}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_dynamic_body_a4ff6db210d0dcde17cda7651d9e84171}{Dynamic\+Body}} (const char \texorpdfstring{$\ast$}{*}t\+\_\+texture\+Sheet, SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}t\+\_\+renderer, float t\+\_\+xpos, float t\+\_\+ypos, \mbox{\hyperlink{struct_vector2f}{Vector2f}} t\+\_\+velocity, float t\+\_\+width, float t\+\_\+height, float t\+\_\+mass, float t\+\_\+restitution)
+\item 
+void \mbox{\hyperlink{class_dynamic_body_ac80b980f985180e7c9d34c6521c03304}{set\+Velocity}} (\mbox{\hyperlink{struct_vector2f}{Vector2f}} t\+\_\+velocity)
+\item 
+void \mbox{\hyperlink{class_dynamic_body_a6aff6bc6e5c0f0df82fde3e693faf204}{set\+VelocityX}} (float t\+\_\+x)
+\item 
+void \mbox{\hyperlink{class_dynamic_body_ae8f7057386b5a28eb26037e24d411fb1}{set\+VelocityY}} (float t\+\_\+y)
+\item 
+void \mbox{\hyperlink{class_dynamic_body_a95d2cefde7fb93a43e2d2e1e76b01e6d}{set\+Moving}} (bool t\+\_\+m)
+\item 
+void \mbox{\hyperlink{class_dynamic_body_a6b259ae2e9dafb975f65c3b38ffe89de}{set\+Center\+Position}} (float t\+\_\+xpos, float t\+\_\+ypos)
+\item 
+void \mbox{\hyperlink{class_dynamic_body_ac48a350813cbbb24814e1ddffc5e0226}{set\+Position}} (\mbox{\hyperlink{class_point}{Point}} t\+\_\+pos)
+\item 
+void \mbox{\hyperlink{class_dynamic_body_aaf8145406bc90367774c30bc500094c7}{set\+Omega}} (float t\+\_\+omega)
+\item 
+void \mbox{\hyperlink{class_dynamic_body_a1c591642ec6d0a3f5f9a63a15e87b4c6}{set\+Angular\+Velocity}} (float t\+\_\+angular\+Velocity)
+\item 
+\mbox{\hyperlink{struct_vector2f}{Vector2f}} \mbox{\hyperlink{class_dynamic_body_a37d68dc412cabf7cc8870b852199e632}{get\+Velocity}} ()
+\item 
+float \mbox{\hyperlink{class_dynamic_body_a0ed68d0a06754a7e8694a840fac23075}{getX}} ()
+\item 
+float \mbox{\hyperlink{class_dynamic_body_a6b437b0d4657ab72867a827140d6213a}{getY}} ()
+\item 
+float \mbox{\hyperlink{class_dynamic_body_afbd9f8f0a80c136cded3e757f620aaa4}{getW}} ()
+\item 
+float \mbox{\hyperlink{class_dynamic_body_a3461f33112aa04db1c68f13d5fe72630}{getH}} ()
+\item 
+bool \mbox{\hyperlink{class_dynamic_body_af72c4689caf259712c372b1e0fdfb2da}{get\+Moving}} ()
+\item 
+\mbox{\hyperlink{class_point}{Point}} \mbox{\hyperlink{class_dynamic_body_a0834eebb5bd6d76f42d3d3af387cae58}{get\+Pos}} ()
+\item 
+\mbox{\hyperlink{struct_vector2f}{Vector2f}} \mbox{\hyperlink{class_dynamic_body_a5565f1575c929abb051980ec69298881}{get\+Center}} ()
+\item 
+double \mbox{\hyperlink{class_dynamic_body_a8a1addf66756f581a8b4d1d09d6f9aee}{get\+Mass}} ()
+\item 
+SDL\+\_\+\+FRect \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_dynamic_body_a332641573b62b031a66c66761aad45da}{get\+Rect}} ()
+\item 
+SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_dynamic_body_ac5b10ff4ffbb54b5a34bf633cc6dfd9c}{get\+Tex}} ()
+\item 
+float \mbox{\hyperlink{class_dynamic_body_aea0d28bfb8559b8e2cbbb82981181a0c}{get\+Rotation}} ()
+\item 
+float \mbox{\hyperlink{class_dynamic_body_acd33f5ec45206d5410d7eca600051d55}{get\+Omega}} ()
+\item 
+float \mbox{\hyperlink{class_dynamic_body_a107eeaddf4a744c017ab261951c9e3eb}{get\+Angular\+Velocity}} ()
+\item 
+void \mbox{\hyperlink{class_dynamic_body_a7c6c546245e09c432967affe38313b34}{update}} (float t\+\_\+dt, float t\+\_\+gravity, int t\+\_\+iterations)
+\item 
+void \mbox{\hyperlink{class_dynamic_body_a22583d6c9cd6ad7c95bafadb14f66af1}{move}} (\mbox{\hyperlink{struct_vector2f}{Vector2f}} t\+\_\+dir)
+\item 
+void \mbox{\hyperlink{class_dynamic_body_ab6ae2a7210095f0b58579d4cfe5ca20c}{rotate}} ()
+\item 
+void \mbox{\hyperlink{class_dynamic_body_aea463eb7d079a7c468b5b8dde3c533a0}{move\+To}} (\mbox{\hyperlink{struct_vector2f}{Vector2f}} t\+\_\+pos)
+\item 
+void \mbox{\hyperlink{class_dynamic_body_a52720c0c0b5c319f52671fccdb1e858c}{move\+By}} (float t\+\_\+xpos, float t\+\_\+ypos)
+\item 
+void \mbox{\hyperlink{class_dynamic_body_ae9b6afb24c77f4b0635bdc27509449d8}{Add\+Vel}} (\mbox{\hyperlink{struct_vector2f}{Vector2f}} t\+\_\+value)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_game_object}{Game\+Object}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_game_object_ac4681f65f2951fd52f96cfe682fbc40e}{Game\+Object}} (const char \texorpdfstring{$\ast$}{*}t\+\_\+texture\+Sheet, SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}t\+\_\+renderer, float t\+\_\+xpos, float t\+\_\+ypos, float t\+\_\+width, float t\+\_\+height, float t\+\_\+mass, float t\+\_\+theta, float t\+\_\+restitution, float t\+\_\+inv\+Mass)
+\item 
+virtual \mbox{\hyperlink{class_game_object_a224d4f6d9dd75c8a6f9d022eaf586fd9}{\texorpdfstring{$\sim$}{\string~}\+Game\+Object}} ()
+\item 
+void \mbox{\hyperlink{class_game_object_a68820e6855325ee23ee06fc52d8a1c82}{set\+Center\+Position}} (float t\+\_\+xpos, float t\+\_\+ypos)
+\item 
+void \mbox{\hyperlink{class_game_object_afacd722ba3b4d7d50126380974525fbd}{set\+Position}} (\mbox{\hyperlink{class_point}{Point}} t\+\_\+pos)
+\item 
+float \mbox{\hyperlink{class_game_object_a4e944ae43980e9ada64b6745ab625648}{getX}} ()
+\item 
+float \mbox{\hyperlink{class_game_object_a6fcc29a31729e1bd7bfa24795a99f7f7}{getY}} ()
+\item 
+float \mbox{\hyperlink{class_game_object_af4cc2b536a5b64cf47e8175df0480077}{getW}} ()
+\item 
+float \mbox{\hyperlink{class_game_object_a4040f8ab31225c444a301f15cfef7d31}{getH}} ()
+\item 
+\mbox{\hyperlink{class_point}{Point}} \mbox{\hyperlink{class_game_object_a66b5a9a0dc145a0919ac1756ff2c7e1f}{get\+Pos}} ()
+\item 
+\mbox{\hyperlink{struct_vector2f}{Vector2f}} \mbox{\hyperlink{class_game_object_a0fb83c40ff97eeecf47710449ae2ab7a}{get\+Center}} ()
+\item 
+float \mbox{\hyperlink{class_game_object_acb377b485652244e2558128575fb532e}{get\+Mass}} ()
+\item 
+SDL\+\_\+\+FRect \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_game_object_a9142701db65607f920bcdfcffa9bd0ec}{get\+Rect}} ()
+\item 
+SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_game_object_ae3cf3122c98602a53c2005fdb6e6af54}{get\+Renderer}} ()
+\item 
+float \mbox{\hyperlink{class_game_object_a8f8dfc676e40324d0bf29ea4b3e61588}{get\+Moment\+Of\+Inertia}} ()
+\item 
+SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_game_object_adc19e7324b432d6773ea209f86442023}{get\+Tex}} ()
+\item 
+float \mbox{\hyperlink{class_game_object_a475fb0bf4b62321c40d0a94c8c7c4f74}{get\+Rotation}} ()
+\item 
+std\+::array$<$ \mbox{\hyperlink{struct_vector2f}{Vector2f}}, 4 $>$ \mbox{\hyperlink{class_game_object_a7d54e1cd91716002683ce33ff1a3202e}{get\+Vertices}} ()
+\item 
+float \mbox{\hyperlink{class_game_object_a777d1400822b3a1bcde1030c1594d14f}{get\+Restitution}} ()
+\item 
+float \mbox{\hyperlink{class_game_object_a9ecbf7c7c20ba11f40d5c6d205381157}{get\+Inv\+Mass}} ()
+\item 
+\mbox{\hyperlink{struct_a_a_b_b}{AABB}} \mbox{\hyperlink{class_game_object_ada6c17e1a1b6b37f1588602cf99db1ee}{Get\+AABB}} ()
+\item 
+void \mbox{\hyperlink{class_game_object_aef3f7798f3668b991a0c3830c34ca9be}{Calculate\+Vertices}} ()
+\item 
+void \mbox{\hyperlink{class_game_object_a7126c9058f2b3944ec1324460ecfda0d}{Calculate\+AABB}} ()
+\item 
+void \mbox{\hyperlink{class_game_object_a371c9d8d79ba2f0a61ab979a51aed38b}{render}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{class_game_object}{Game\+Object}}}
+\begin{DoxyCompactItemize}
+\item 
+float \mbox{\hyperlink{class_game_object_a3640a84ccf501b931b45dd103b52f6cd}{m\+\_\+xpos}}
+\item 
+float \mbox{\hyperlink{class_game_object_a6d47715d3dd4a75edadcd64bf821ca01}{m\+\_\+ypos}}
+\item 
+float \mbox{\hyperlink{class_game_object_ad0c2207d47368e29604295db23179417}{m\+\_\+width}}
+\item 
+float \mbox{\hyperlink{class_game_object_ab4e3206181e3a3e70e7de6ca0f5f0f5d}{m\+\_\+height}}
+\item 
+float \mbox{\hyperlink{class_game_object_aa150bfe3557263637a409ba5afc7ccfe}{m\+\_\+mass}}
+\item 
+float \mbox{\hyperlink{class_game_object_a6560cfd9085adcc9037a6fbf674c7140}{m\+\_\+inv\+Mass}}
+\item 
+float \mbox{\hyperlink{class_game_object_a2174cf787a5493aacd3a5b194968df77}{m\+\_\+moment\+Of\+Inertia}}
+\item 
+float \mbox{\hyperlink{class_game_object_a76f1451d472cafac2520a1221862e47d}{m\+\_\+theta}} = 0
+\item 
+\mbox{\hyperlink{struct_a_a_b_b}{AABB}} \mbox{\hyperlink{class_game_object_a1839977f1a4422a649756783eff54bfd}{m\+\_\+aabb}}
+\item 
+float \mbox{\hyperlink{class_game_object_abb99a1179f1cb7e337e59b77a60f2ade}{m\+\_\+restitution}}
+\item 
+std\+::array$<$ \mbox{\hyperlink{struct_vector2f}{Vector2f}}, 4 $>$ \mbox{\hyperlink{class_game_object_ae2fa68edfcafceda6e429c8ab28cfc7f}{m\+\_\+vertices}}
+\item 
+SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_game_object_a3e8a8e1461d72aaac7fde0b38b81168b}{m\+\_\+object\+Texture}}
+\item 
+SDL\+\_\+\+FRect \mbox{\hyperlink{class_game_object_ae7c739762ef8b8cc7add9d0d380de3d0}{m\+\_\+dst\+Rect}}
+\item 
+SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_game_object_a2be93417ea72201ce5edc093167b2f68}{m\+\_\+renderer}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_dynamic_body_a4ff6db210d0dcde17cda7651d9e84171}\label{class_dynamic_body_a4ff6db210d0dcde17cda7651d9e84171} 
+\index{DynamicBody@{DynamicBody}!DynamicBody@{DynamicBody}}
+\index{DynamicBody@{DynamicBody}!DynamicBody@{DynamicBody}}
+\doxysubsubsection{\texorpdfstring{DynamicBody()}{DynamicBody()}}
+{\footnotesize\ttfamily Dynamic\+Body\+::\+Dynamic\+Body (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{t\+\_\+texture\+Sheet,  }\item[{SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}}]{t\+\_\+renderer,  }\item[{float}]{t\+\_\+xpos,  }\item[{float}]{t\+\_\+ypos,  }\item[{\mbox{\hyperlink{struct_vector2f}{Vector2f}}}]{t\+\_\+velocity,  }\item[{float}]{t\+\_\+width,  }\item[{float}]{t\+\_\+height,  }\item[{float}]{t\+\_\+mass,  }\item[{float}]{t\+\_\+restitution }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_dynamic_body_ae9b6afb24c77f4b0635bdc27509449d8}\label{class_dynamic_body_ae9b6afb24c77f4b0635bdc27509449d8} 
+\index{DynamicBody@{DynamicBody}!AddVel@{AddVel}}
+\index{AddVel@{AddVel}!DynamicBody@{DynamicBody}}
+\doxysubsubsection{\texorpdfstring{AddVel()}{AddVel()}}
+{\footnotesize\ttfamily void Dynamic\+Body\+::\+Add\+Vel (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_vector2f}{Vector2f}}}]{t\+\_\+value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_dynamic_body_a107eeaddf4a744c017ab261951c9e3eb}\label{class_dynamic_body_a107eeaddf4a744c017ab261951c9e3eb} 
+\index{DynamicBody@{DynamicBody}!getAngularVelocity@{getAngularVelocity}}
+\index{getAngularVelocity@{getAngularVelocity}!DynamicBody@{DynamicBody}}
+\doxysubsubsection{\texorpdfstring{getAngularVelocity()}{getAngularVelocity()}}
+{\footnotesize\ttfamily float Dynamic\+Body\+::get\+Angular\+Velocity (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_dynamic_body_a5565f1575c929abb051980ec69298881}\label{class_dynamic_body_a5565f1575c929abb051980ec69298881} 
+\index{DynamicBody@{DynamicBody}!getCenter@{getCenter}}
+\index{getCenter@{getCenter}!DynamicBody@{DynamicBody}}
+\doxysubsubsection{\texorpdfstring{getCenter()}{getCenter()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_vector2f}{Vector2f}} Dynamic\+Body\+::get\+Center (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_dynamic_body_a3461f33112aa04db1c68f13d5fe72630}\label{class_dynamic_body_a3461f33112aa04db1c68f13d5fe72630} 
+\index{DynamicBody@{DynamicBody}!getH@{getH}}
+\index{getH@{getH}!DynamicBody@{DynamicBody}}
+\doxysubsubsection{\texorpdfstring{getH()}{getH()}}
+{\footnotesize\ttfamily float Dynamic\+Body\+::getH (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_dynamic_body_a8a1addf66756f581a8b4d1d09d6f9aee}\label{class_dynamic_body_a8a1addf66756f581a8b4d1d09d6f9aee} 
+\index{DynamicBody@{DynamicBody}!getMass@{getMass}}
+\index{getMass@{getMass}!DynamicBody@{DynamicBody}}
+\doxysubsubsection{\texorpdfstring{getMass()}{getMass()}}
+{\footnotesize\ttfamily double Dynamic\+Body\+::get\+Mass (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_dynamic_body_af72c4689caf259712c372b1e0fdfb2da}\label{class_dynamic_body_af72c4689caf259712c372b1e0fdfb2da} 
+\index{DynamicBody@{DynamicBody}!getMoving@{getMoving}}
+\index{getMoving@{getMoving}!DynamicBody@{DynamicBody}}
+\doxysubsubsection{\texorpdfstring{getMoving()}{getMoving()}}
+{\footnotesize\ttfamily bool Dynamic\+Body\+::get\+Moving (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_dynamic_body_acd33f5ec45206d5410d7eca600051d55}\label{class_dynamic_body_acd33f5ec45206d5410d7eca600051d55} 
+\index{DynamicBody@{DynamicBody}!getOmega@{getOmega}}
+\index{getOmega@{getOmega}!DynamicBody@{DynamicBody}}
+\doxysubsubsection{\texorpdfstring{getOmega()}{getOmega()}}
+{\footnotesize\ttfamily float Dynamic\+Body\+::get\+Omega (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_dynamic_body_a0834eebb5bd6d76f42d3d3af387cae58}\label{class_dynamic_body_a0834eebb5bd6d76f42d3d3af387cae58} 
+\index{DynamicBody@{DynamicBody}!getPos@{getPos}}
+\index{getPos@{getPos}!DynamicBody@{DynamicBody}}
+\doxysubsubsection{\texorpdfstring{getPos()}{getPos()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_point}{Point}} Dynamic\+Body\+::get\+Pos (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_dynamic_body_a332641573b62b031a66c66761aad45da}\label{class_dynamic_body_a332641573b62b031a66c66761aad45da} 
+\index{DynamicBody@{DynamicBody}!getRect@{getRect}}
+\index{getRect@{getRect}!DynamicBody@{DynamicBody}}
+\doxysubsubsection{\texorpdfstring{getRect()}{getRect()}}
+{\footnotesize\ttfamily SDL\+\_\+\+FRect \texorpdfstring{$\ast$}{*} Dynamic\+Body\+::get\+Rect (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_dynamic_body_aea0d28bfb8559b8e2cbbb82981181a0c}\label{class_dynamic_body_aea0d28bfb8559b8e2cbbb82981181a0c} 
+\index{DynamicBody@{DynamicBody}!getRotation@{getRotation}}
+\index{getRotation@{getRotation}!DynamicBody@{DynamicBody}}
+\doxysubsubsection{\texorpdfstring{getRotation()}{getRotation()}}
+{\footnotesize\ttfamily float Dynamic\+Body\+::get\+Rotation (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_dynamic_body_ac5b10ff4ffbb54b5a34bf633cc6dfd9c}\label{class_dynamic_body_ac5b10ff4ffbb54b5a34bf633cc6dfd9c} 
+\index{DynamicBody@{DynamicBody}!getTex@{getTex}}
+\index{getTex@{getTex}!DynamicBody@{DynamicBody}}
+\doxysubsubsection{\texorpdfstring{getTex()}{getTex()}}
+{\footnotesize\ttfamily SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*} Dynamic\+Body\+::get\+Tex (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_dynamic_body_a37d68dc412cabf7cc8870b852199e632}\label{class_dynamic_body_a37d68dc412cabf7cc8870b852199e632} 
+\index{DynamicBody@{DynamicBody}!getVelocity@{getVelocity}}
+\index{getVelocity@{getVelocity}!DynamicBody@{DynamicBody}}
+\doxysubsubsection{\texorpdfstring{getVelocity()}{getVelocity()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_vector2f}{Vector2f}} Dynamic\+Body\+::get\+Velocity (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_dynamic_body_afbd9f8f0a80c136cded3e757f620aaa4}\label{class_dynamic_body_afbd9f8f0a80c136cded3e757f620aaa4} 
+\index{DynamicBody@{DynamicBody}!getW@{getW}}
+\index{getW@{getW}!DynamicBody@{DynamicBody}}
+\doxysubsubsection{\texorpdfstring{getW()}{getW()}}
+{\footnotesize\ttfamily float Dynamic\+Body\+::getW (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_dynamic_body_a0ed68d0a06754a7e8694a840fac23075}\label{class_dynamic_body_a0ed68d0a06754a7e8694a840fac23075} 
+\index{DynamicBody@{DynamicBody}!getX@{getX}}
+\index{getX@{getX}!DynamicBody@{DynamicBody}}
+\doxysubsubsection{\texorpdfstring{getX()}{getX()}}
+{\footnotesize\ttfamily float Dynamic\+Body\+::getX (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_dynamic_body_a6b437b0d4657ab72867a827140d6213a}\label{class_dynamic_body_a6b437b0d4657ab72867a827140d6213a} 
+\index{DynamicBody@{DynamicBody}!getY@{getY}}
+\index{getY@{getY}!DynamicBody@{DynamicBody}}
+\doxysubsubsection{\texorpdfstring{getY()}{getY()}}
+{\footnotesize\ttfamily float Dynamic\+Body\+::getY (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_dynamic_body_a22583d6c9cd6ad7c95bafadb14f66af1}\label{class_dynamic_body_a22583d6c9cd6ad7c95bafadb14f66af1} 
+\index{DynamicBody@{DynamicBody}!move@{move}}
+\index{move@{move}!DynamicBody@{DynamicBody}}
+\doxysubsubsection{\texorpdfstring{move()}{move()}}
+{\footnotesize\ttfamily void Dynamic\+Body\+::move (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_vector2f}{Vector2f}}}]{t\+\_\+dir }\end{DoxyParamCaption})}
+
+\Hypertarget{class_dynamic_body_a52720c0c0b5c319f52671fccdb1e858c}\label{class_dynamic_body_a52720c0c0b5c319f52671fccdb1e858c} 
+\index{DynamicBody@{DynamicBody}!moveBy@{moveBy}}
+\index{moveBy@{moveBy}!DynamicBody@{DynamicBody}}
+\doxysubsubsection{\texorpdfstring{moveBy()}{moveBy()}}
+{\footnotesize\ttfamily void Dynamic\+Body\+::move\+By (\begin{DoxyParamCaption}\item[{float}]{t\+\_\+xpos,  }\item[{float}]{t\+\_\+ypos }\end{DoxyParamCaption})}
+
+\Hypertarget{class_dynamic_body_aea463eb7d079a7c468b5b8dde3c533a0}\label{class_dynamic_body_aea463eb7d079a7c468b5b8dde3c533a0} 
+\index{DynamicBody@{DynamicBody}!moveTo@{moveTo}}
+\index{moveTo@{moveTo}!DynamicBody@{DynamicBody}}
+\doxysubsubsection{\texorpdfstring{moveTo()}{moveTo()}}
+{\footnotesize\ttfamily void Dynamic\+Body\+::move\+To (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_vector2f}{Vector2f}}}]{t\+\_\+pos }\end{DoxyParamCaption})}
+
+\Hypertarget{class_dynamic_body_ab6ae2a7210095f0b58579d4cfe5ca20c}\label{class_dynamic_body_ab6ae2a7210095f0b58579d4cfe5ca20c} 
+\index{DynamicBody@{DynamicBody}!rotate@{rotate}}
+\index{rotate@{rotate}!DynamicBody@{DynamicBody}}
+\doxysubsubsection{\texorpdfstring{rotate()}{rotate()}}
+{\footnotesize\ttfamily void Dynamic\+Body\+::rotate (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\Hypertarget{class_dynamic_body_a1c591642ec6d0a3f5f9a63a15e87b4c6}\label{class_dynamic_body_a1c591642ec6d0a3f5f9a63a15e87b4c6} 
+\index{DynamicBody@{DynamicBody}!setAngularVelocity@{setAngularVelocity}}
+\index{setAngularVelocity@{setAngularVelocity}!DynamicBody@{DynamicBody}}
+\doxysubsubsection{\texorpdfstring{setAngularVelocity()}{setAngularVelocity()}}
+{\footnotesize\ttfamily void Dynamic\+Body\+::set\+Angular\+Velocity (\begin{DoxyParamCaption}\item[{float}]{t\+\_\+angular\+Velocity }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_dynamic_body_a6b259ae2e9dafb975f65c3b38ffe89de}\label{class_dynamic_body_a6b259ae2e9dafb975f65c3b38ffe89de} 
+\index{DynamicBody@{DynamicBody}!setCenterPosition@{setCenterPosition}}
+\index{setCenterPosition@{setCenterPosition}!DynamicBody@{DynamicBody}}
+\doxysubsubsection{\texorpdfstring{setCenterPosition()}{setCenterPosition()}}
+{\footnotesize\ttfamily void Dynamic\+Body\+::set\+Center\+Position (\begin{DoxyParamCaption}\item[{float}]{t\+\_\+xpos,  }\item[{float}]{t\+\_\+ypos }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_dynamic_body_a95d2cefde7fb93a43e2d2e1e76b01e6d}\label{class_dynamic_body_a95d2cefde7fb93a43e2d2e1e76b01e6d} 
+\index{DynamicBody@{DynamicBody}!setMoving@{setMoving}}
+\index{setMoving@{setMoving}!DynamicBody@{DynamicBody}}
+\doxysubsubsection{\texorpdfstring{setMoving()}{setMoving()}}
+{\footnotesize\ttfamily void Dynamic\+Body\+::set\+Moving (\begin{DoxyParamCaption}\item[{bool}]{t\+\_\+m }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_dynamic_body_aaf8145406bc90367774c30bc500094c7}\label{class_dynamic_body_aaf8145406bc90367774c30bc500094c7} 
+\index{DynamicBody@{DynamicBody}!setOmega@{setOmega}}
+\index{setOmega@{setOmega}!DynamicBody@{DynamicBody}}
+\doxysubsubsection{\texorpdfstring{setOmega()}{setOmega()}}
+{\footnotesize\ttfamily void Dynamic\+Body\+::set\+Omega (\begin{DoxyParamCaption}\item[{float}]{t\+\_\+omega }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_dynamic_body_ac48a350813cbbb24814e1ddffc5e0226}\label{class_dynamic_body_ac48a350813cbbb24814e1ddffc5e0226} 
+\index{DynamicBody@{DynamicBody}!setPosition@{setPosition}}
+\index{setPosition@{setPosition}!DynamicBody@{DynamicBody}}
+\doxysubsubsection{\texorpdfstring{setPosition()}{setPosition()}}
+{\footnotesize\ttfamily void Dynamic\+Body\+::set\+Position (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_point}{Point}}}]{t\+\_\+pos }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_dynamic_body_ac80b980f985180e7c9d34c6521c03304}\label{class_dynamic_body_ac80b980f985180e7c9d34c6521c03304} 
+\index{DynamicBody@{DynamicBody}!setVelocity@{setVelocity}}
+\index{setVelocity@{setVelocity}!DynamicBody@{DynamicBody}}
+\doxysubsubsection{\texorpdfstring{setVelocity()}{setVelocity()}}
+{\footnotesize\ttfamily void Dynamic\+Body\+::set\+Velocity (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_vector2f}{Vector2f}}}]{t\+\_\+velocity }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_dynamic_body_a6aff6bc6e5c0f0df82fde3e693faf204}\label{class_dynamic_body_a6aff6bc6e5c0f0df82fde3e693faf204} 
+\index{DynamicBody@{DynamicBody}!setVelocityX@{setVelocityX}}
+\index{setVelocityX@{setVelocityX}!DynamicBody@{DynamicBody}}
+\doxysubsubsection{\texorpdfstring{setVelocityX()}{setVelocityX()}}
+{\footnotesize\ttfamily void Dynamic\+Body\+::set\+VelocityX (\begin{DoxyParamCaption}\item[{float}]{t\+\_\+x }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_dynamic_body_ae8f7057386b5a28eb26037e24d411fb1}\label{class_dynamic_body_ae8f7057386b5a28eb26037e24d411fb1} 
+\index{DynamicBody@{DynamicBody}!setVelocityY@{setVelocityY}}
+\index{setVelocityY@{setVelocityY}!DynamicBody@{DynamicBody}}
+\doxysubsubsection{\texorpdfstring{setVelocityY()}{setVelocityY()}}
+{\footnotesize\ttfamily void Dynamic\+Body\+::set\+VelocityY (\begin{DoxyParamCaption}\item[{float}]{t\+\_\+y }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_dynamic_body_a7c6c546245e09c432967affe38313b34}\label{class_dynamic_body_a7c6c546245e09c432967affe38313b34} 
+\index{DynamicBody@{DynamicBody}!update@{update}}
+\index{update@{update}!DynamicBody@{DynamicBody}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily void Dynamic\+Body\+::update (\begin{DoxyParamCaption}\item[{float}]{t\+\_\+dt,  }\item[{float}]{t\+\_\+gravity,  }\item[{int}]{t\+\_\+iterations }\end{DoxyParamCaption})}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_dynamic_body_8h}{Dynamic\+Body.\+h}}\item 
+\mbox{\hyperlink{_dynamic_body_8cpp}{Dynamic\+Body.\+cpp}}\end{DoxyCompactItemize}

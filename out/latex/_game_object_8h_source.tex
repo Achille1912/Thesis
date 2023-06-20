@@ -1,0 +1,69 @@
+\doxysection{Game\+Object.\+h}
+\hypertarget{_game_object_8h_source}{}\label{_game_object_8h_source}\mbox{\hyperlink{_game_object_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#ifndef\ GAMEOBJECT\_H}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#define\ GAMEOBJECT\_H}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <SDL\_render.h>}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <array>}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_vector2_8h}{Vector2.h}}"{}}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_a_a_b_b_8h}{AABB.h}}"{}}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_game_object}{GameObject}}\ \{}
+\DoxyCodeLine{00013\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00014\ \ \ \ \ \mbox{\hyperlink{class_game_object}{GameObject}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ t\_textureSheet,\ SDL\_Renderer*\ t\_renderer,\ \textcolor{keywordtype}{float}\ t\_xpos,\ \textcolor{keywordtype}{float}\ t\_ypos,\ \textcolor{keywordtype}{float}\ t\_width,\ }
+\DoxyCodeLine{00015\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ t\_height,\ \textcolor{keywordtype}{float}\ t\_mass,\ \textcolor{keywordtype}{float}\ t\_theta,\ \textcolor{keywordtype}{float}\ t\_restitution,\ \textcolor{keywordtype}{float}\ t\_invMass);}
+\DoxyCodeLine{00016\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{class_game_object_a224d4f6d9dd75c8a6f9d022eaf586fd9}{\string~GameObject}}()\ \{\}}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \ \ \ \ \textcolor{comment}{//\ SETTERS}}
+\DoxyCodeLine{00019\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_game_object_a68820e6855325ee23ee06fc52d8a1c82}{setCenterPosition}}(\textcolor{keywordtype}{float}\ t\_xpos,\ \textcolor{keywordtype}{float}\ t\_ypos)\ \{\ \mbox{\hyperlink{class_game_object_a3640a84ccf501b931b45dd103b52f6cd}{m\_xpos}}\ =\ t\_xpos\ -\/\ \mbox{\hyperlink{class_game_object_ad0c2207d47368e29604295db23179417}{m\_width}};\ \mbox{\hyperlink{class_game_object_a6d47715d3dd4a75edadcd64bf821ca01}{m\_ypos}}\ =\ t\_ypos\ -\/\ \mbox{\hyperlink{class_game_object_ab4e3206181e3a3e70e7de6ca0f5f0f5d}{m\_height}};\ \}}
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_game_object_afacd722ba3b4d7d50126380974525fbd}{setPosition}}(\mbox{\hyperlink{class_point}{Point}}\ t\_pos)\ \{\ \mbox{\hyperlink{class_game_object_a3640a84ccf501b931b45dd103b52f6cd}{m\_xpos}}\ =\ t\_pos.\mbox{\hyperlink{class_point_a05dfe2dfbde813ad234b514f30e662f1}{x}};\ \mbox{\hyperlink{class_game_object_a6d47715d3dd4a75edadcd64bf821ca01}{m\_ypos}}\ =\ t\_pos.\mbox{\hyperlink{class_point_a6101960c8d2d4e8ea1d32c9234bbeb8d}{y}};\ \}}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{comment}{//\ GETTERS}}
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_game_object_a4e944ae43980e9ada64b6745ab625648}{getX}}()\ \{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_game_object_a3640a84ccf501b931b45dd103b52f6cd}{m\_xpos}};\ \}}
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_game_object_a6fcc29a31729e1bd7bfa24795a99f7f7}{getY}}()\ \{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_game_object_a6d47715d3dd4a75edadcd64bf821ca01}{m\_ypos}};\ \}}
+\DoxyCodeLine{00025\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_game_object_af4cc2b536a5b64cf47e8175df0480077}{getW}}()\ \{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_game_object_ad0c2207d47368e29604295db23179417}{m\_width}};\ \}}
+\DoxyCodeLine{00026\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_game_object_a4040f8ab31225c444a301f15cfef7d31}{getH}}()\ \{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_game_object_ab4e3206181e3a3e70e7de6ca0f5f0f5d}{m\_height}};\ \}}
+\DoxyCodeLine{00027\ \ \ \ \ \mbox{\hyperlink{class_point}{Point}}\ \mbox{\hyperlink{class_game_object_a66b5a9a0dc145a0919ac1756ff2c7e1f}{getPos}}()\ \{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_point}{Point}}(\mbox{\hyperlink{class_game_object_a3640a84ccf501b931b45dd103b52f6cd}{m\_xpos}},\ \mbox{\hyperlink{class_game_object_a6d47715d3dd4a75edadcd64bf821ca01}{m\_ypos}});\ \}}
+\DoxyCodeLine{00028\ \ \ \ \ \mbox{\hyperlink{struct_vector2f}{Vector2f}}\ \mbox{\hyperlink{class_game_object_a0fb83c40ff97eeecf47710449ae2ab7a}{getCenter}}()\ \{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{struct_vector2f}{Vector2f}}(\mbox{\hyperlink{class_game_object_a3640a84ccf501b931b45dd103b52f6cd}{m\_xpos}}\ +\ \mbox{\hyperlink{class_game_object_ad0c2207d47368e29604295db23179417}{m\_width}}\ /\ 2,\ \mbox{\hyperlink{class_game_object_a6d47715d3dd4a75edadcd64bf821ca01}{m\_ypos}}\ +\ \mbox{\hyperlink{class_game_object_ab4e3206181e3a3e70e7de6ca0f5f0f5d}{m\_height}}\ /\ 2);\ \}}
+\DoxyCodeLine{00029\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_game_object_acb377b485652244e2558128575fb532e}{getMass}}()\ \{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_game_object_aa150bfe3557263637a409ba5afc7ccfe}{m\_mass}};\ \}}
+\DoxyCodeLine{00030\ \ \ \ \ SDL\_FRect*\ \mbox{\hyperlink{class_game_object_a9142701db65607f920bcdfcffa9bd0ec}{getRect}}()\ \{\ \textcolor{keywordflow}{return}\ \&\mbox{\hyperlink{class_game_object_ae7c739762ef8b8cc7add9d0d380de3d0}{m\_dstRect}};\ \}}
+\DoxyCodeLine{00031\ \ \ \ \ SDL\_Renderer*\ \mbox{\hyperlink{class_game_object_ae3cf3122c98602a53c2005fdb6e6af54}{getRenderer}}()\ \{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_game_object_a2be93417ea72201ce5edc093167b2f68}{m\_renderer}};\ \}}
+\DoxyCodeLine{00032\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_game_object_a8f8dfc676e40324d0bf29ea4b3e61588}{getMomentOfInertia}}()\ \{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_game_object_a2174cf787a5493aacd3a5b194968df77}{m\_momentOfInertia}};\ \}}
+\DoxyCodeLine{00033\ \ \ \ \ SDL\_Texture*\ \mbox{\hyperlink{class_game_object_adc19e7324b432d6773ea209f86442023}{getTex}}()\ \{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_game_object_a3e8a8e1461d72aaac7fde0b38b81168b}{m\_objectTexture}};\ \}}
+\DoxyCodeLine{00034\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_game_object_a475fb0bf4b62321c40d0a94c8c7c4f74}{getRotation}}()\ \{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_game_object_a76f1451d472cafac2520a1221862e47d}{m\_theta}};\ \}}
+\DoxyCodeLine{00035\ \ \ \ \ std::array\ <Vector2f,\ 4>\ \mbox{\hyperlink{class_game_object_a7d54e1cd91716002683ce33ff1a3202e}{getVertices}}()\ \{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_game_object_ae2fa68edfcafceda6e429c8ab28cfc7f}{m\_vertices}};\ \}}
+\DoxyCodeLine{00036\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_game_object_a777d1400822b3a1bcde1030c1594d14f}{getRestitution}}()\ \{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_game_object_abb99a1179f1cb7e337e59b77a60f2ade}{m\_restitution}};\ \}}
+\DoxyCodeLine{00037\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_game_object_a9ecbf7c7c20ba11f40d5c6d205381157}{getInvMass}}()\ \{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_game_object_a6560cfd9085adcc9037a6fbf674c7140}{m\_invMass}};\ \}}
+\DoxyCodeLine{00038\ \ \ \ \ \mbox{\hyperlink{struct_a_a_b_b}{AABB}}\ \mbox{\hyperlink{class_game_object_ada6c17e1a1b6b37f1588602cf99db1ee}{GetAABB}}()\ \{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_game_object_a1839977f1a4422a649756783eff54bfd}{m\_aabb}};\ \}}
+\DoxyCodeLine{00039\ \ \ \ \ }
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00041\ \ \ \ \ \textcolor{comment}{//\ Functions}}
+\DoxyCodeLine{00042\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_game_object_aef3f7798f3668b991a0c3830c34ca9be}{CalculateVertices}}();}
+\DoxyCodeLine{00043\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_game_object_a7126c9058f2b3944ec1324460ecfda0d}{CalculateAABB}}();}
+\DoxyCodeLine{00044\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_game_object_a371c9d8d79ba2f0a61ab979a51aed38b}{render}}();}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00047\ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00048\ \ \ \ \ \textcolor{comment}{//\ Physics}}
+\DoxyCodeLine{00049\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_game_object_a3640a84ccf501b931b45dd103b52f6cd}{m\_xpos}},\ \mbox{\hyperlink{class_game_object_a6d47715d3dd4a75edadcd64bf821ca01}{m\_ypos}},\ \mbox{\hyperlink{class_game_object_ad0c2207d47368e29604295db23179417}{m\_width}},\ \mbox{\hyperlink{class_game_object_ab4e3206181e3a3e70e7de6ca0f5f0f5d}{m\_height}};}
+\DoxyCodeLine{00050\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_game_object_aa150bfe3557263637a409ba5afc7ccfe}{m\_mass}};}
+\DoxyCodeLine{00051\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_game_object_a6560cfd9085adcc9037a6fbf674c7140}{m\_invMass}};}
+\DoxyCodeLine{00052\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_game_object_a2174cf787a5493aacd3a5b194968df77}{m\_momentOfInertia}};}
+\DoxyCodeLine{00053\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_game_object_a76f1451d472cafac2520a1221862e47d}{m\_theta}}\ =\ 0;}
+\DoxyCodeLine{00054\ \ \ \ \ \mbox{\hyperlink{struct_a_a_b_b}{AABB}}\ \mbox{\hyperlink{class_game_object_a1839977f1a4422a649756783eff54bfd}{m\_aabb}};}
+\DoxyCodeLine{00055\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_game_object_abb99a1179f1cb7e337e59b77a60f2ade}{m\_restitution}};}
+\DoxyCodeLine{00056\ \ \ \ \ std::array\ <Vector2f,\ 4>\ \mbox{\hyperlink{class_game_object_ae2fa68edfcafceda6e429c8ab28cfc7f}{m\_vertices}};}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00058\ \ \ \ \ \textcolor{comment}{//\ Rendering}}
+\DoxyCodeLine{00059\ \ \ \ \ SDL\_Texture*\ \mbox{\hyperlink{class_game_object_a3e8a8e1461d72aaac7fde0b38b81168b}{m\_objectTexture}};}
+\DoxyCodeLine{00060\ \ \ \ \ SDL\_FRect\ \mbox{\hyperlink{class_game_object_ae7c739762ef8b8cc7add9d0d380de3d0}{m\_dstRect}};}
+\DoxyCodeLine{00061\ \ \ \ \ SDL\_Renderer*\ \mbox{\hyperlink{class_game_object_a2be93417ea72201ce5edc093167b2f68}{m\_renderer}};}
+\DoxyCodeLine{00062\ \};}
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00064\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

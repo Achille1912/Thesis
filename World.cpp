@@ -9,23 +9,41 @@
 #include "timeUtils.h"
 #include "array"
 
-
-
+/**
+ * @brief Create a new World
+ * 
+ * @param t_gravity 
+ * @param t_basic 
+ */
 World::World(float t_gravity, bool t_basic) {
 	m_G = -t_gravity * PIXELS_PER_METER;
 	m_basic = t_basic;
 }
 
+/**
+ * @brief Destroy the World
+ * 
+ */
 World::~World() {
 	for (auto obj : m_objects) {
 		delete obj;
 	}
 }
 
+/**
+ * @brief Add a Game Object in the World
+ * 
+ * @param obj 
+ */
 void World::AddGameObject(GameObject* obj) {
 	m_objects.push_back(obj);
 }
 
+/**
+ * @brief Delete a Game Object from the World
+ * 
+ * @param obj 
+ */
 void World::DeleteObject(GameObject* obj) {
 	auto it = std::find(m_objects.begin(), m_objects.end(), obj);
 	if (it != m_objects.end()) {
@@ -34,11 +52,20 @@ void World::DeleteObject(GameObject* obj) {
 	}
 }
 
+/**
+ * @brief Get the Objects Vector
+ * 
+ * @return std::vector<GameObject*>& 
+ */
 std::vector<GameObject*>& World::GetGameObjects() {
 	return m_objects;
 }
 
 
+/**
+ * @brief Check if there are Collisions
+ * 
+ */
 void World::CheckCollisions() {
 	/************SAT COLLISION DETECTION******************/
 	for (int i = 0; i < m_objects.size(); ++i) {
@@ -102,7 +129,13 @@ void World::CheckCollisions() {
 	}
 }
 
-
+/**
+ * @brief Solve Collisions between Dynamic Objects
+ * 
+ * @param t_objA 
+ * @param t_objB 
+ * @param t_check 
+ */
 void World::SolveDynVsDynCollisionRotation(DynamicBody* t_objA, DynamicBody* t_objB, CollisionType t_check) {
 
 	ContactType result = Collision::FindContactPoints(t_objA, t_objB);
@@ -114,16 +147,14 @@ void World::SolveDynVsDynCollisionRotation(DynamicBody* t_objA, DynamicBody* t_o
 	m_contactList[0] = (result.contact1);
 	m_contactList[1] = (result.contact2);
 
-	// Calculate Impulses
+	
 	for (int i = 0; i < result.contactNumber; i++) {
+		// Calculate Impulses
 		Vector2f ra = m_contactList[i] - t_objA->getCenter() ;
 		Vector2f rb = m_contactList[i] - t_objB->getCenter();
 
-		m_raList[i] = ra;
-		m_rbList[i] = rb;
-
-		Vector2f raPerp = Vector2f(-ra.y, ra.x);
-		Vector2f rbPerp = Vector2f(-rb.y, rb.x);
+		Vector2f raPerp (-ra.y, ra.x);
+		Vector2f rbPerp (-rb.y, rb.x);
 
 		Vector2f angularLinearVelocityA = raPerp * t_objA->getAngularVelocity();
 		Vector2f angularLinearVelocityB = rbPerp * t_objB->getAngularVelocity();
@@ -150,20 +181,7 @@ void World::SolveDynVsDynCollisionRotation(DynamicBody* t_objA, DynamicBody* t_o
 
 		Vector2f impulse =  normal * j;
 		
-		m_impulseList[i] =impulse;
-
-	}
-	
-	// Apply Impulses
-	for (int i = 0; i < result.contactNumber; i++) {
-		
-		Vector2f impulse = m_impulseList[i];
-		
-
-		Vector2f ra = m_raList[i];
-		Vector2f rb = m_rbList[i];
-
-
+		// Apply Impulses
 		t_objA->setVelocity(t_objA->getVelocity() + impulse * t_objA->getInvMass());
 
 		t_objA->setAngularVelocity(t_objA->getAngularVelocity() +
@@ -173,12 +191,17 @@ void World::SolveDynVsDynCollisionRotation(DynamicBody* t_objA, DynamicBody* t_o
 
 		t_objB->setAngularVelocity(t_objB->getAngularVelocity() +
 			Math::Cross(rb, -impulse) / t_objB->getMomentOfInertia());
-
 	}
 
 }
 
-
+/**
+ * @brief Solve Collisions between Dynamic and Static Objects
+ * 
+ * @param t_objA 
+ * @param t_objB 
+ * @param t_check 
+ */
 void World::SolveDynVsStaticCollisionRotation(DynamicBody* t_objA, StaticBody* t_objB, CollisionType t_check) {
 	
 	ContactType result = Collision::FindContactPoints(t_objA, t_objB);
@@ -190,16 +213,14 @@ void World::SolveDynVsStaticCollisionRotation(DynamicBody* t_objA, StaticBody* t
 	m_contactList[0] = (result.contact1);
 	m_contactList[1] = (result.contact2);
 
-	// Calculate Impulses
+	
 	for (int i = 0; i < result.contactNumber; i++) {
+		// Calculate Impulses
 		Vector2f ra = m_contactList[i] - t_objA->getCenter();
 		Vector2f rb = m_contactList[i] - t_objB->getCenter();
 
-		m_raList[i] = ra;
-		m_rbList[i] = rb;
-
-		Vector2f raPerp = Vector2f(-ra.y, ra.x);
-		Vector2f rbPerp = Vector2f(-rb.y, rb.x);
+		Vector2f raPerp (-ra.y, ra.x);
+		Vector2f rbPerp (-rb.y, rb.x);
 
 		Vector2f angularLinearVelocityA = raPerp * t_objA->getAngularVelocity();
 
@@ -221,28 +242,25 @@ void World::SolveDynVsStaticCollisionRotation(DynamicBody* t_objA, StaticBody* t
 
 		j /= result.contactNumber;
 
-		
 		Vector2f impulse = normal * j;
 
-		m_impulseList[i] = impulse;
-
-	}
-	
-	// Apply Impulses
-	for (int i = 0; i < result.contactNumber; i++) {
-
-		Vector2f impulse = m_impulseList[i];
-
-		Vector2f ra = m_raList[i];
-		Vector2f rb = m_rbList[i];
+		// Apply Impulses
 
 		t_objA->setVelocity(t_objA->getVelocity() + impulse * t_objA->getInvMass());
 
 		t_objA->setAngularVelocity(t_objA->getAngularVelocity() +
 			Math::Cross(ra, impulse) / t_objA->getMomentOfInertia());
+
 	}
+	
 }
 
+/**
+ * @brief Update the Physic of all World's Objects
+ * 
+ * @param t_dt 
+ * @param t_iterationNumber 
+ */
 void World::Update(float t_dt, int t_iterationNumber) {
 	for (int it = 0; it < t_iterationNumber; it++) {
 		for (auto obj : m_objects) {
@@ -258,7 +276,13 @@ void World::Update(float t_dt, int t_iterationNumber) {
 
 }
 
-
+/**
+ * @brief Solve Collisions between Dynamic Objects in a Basic Way
+ * 
+ * @param t_objA 
+ * @param t_objB 
+ * @param t_check 
+ */
 void World::SolveDynVsDynCollisionBasic(DynamicBody* t_objA, DynamicBody* t_objB, CollisionType t_check) {
 	Vector2f normal = t_check.CollidingAxis;
 
@@ -275,7 +299,12 @@ void World::SolveDynVsDynCollisionBasic(DynamicBody* t_objA, DynamicBody* t_objB
 
 }
 
-
+/**
+ * @brief  * @brief Solve Collisions between Dynamic and Static Objects in a Basic Way
+ * @param t_objA 
+ * @param t_objB 
+ * @param t_check 
+ */
 void World::SolveDynVsStaticCollisionBasic(DynamicBody* t_objA, StaticBody* t_objB, CollisionType t_check) {
 	Vector2f normal = t_check.CollidingAxis;
 

@@ -8,6 +8,20 @@
 #include "TextureManager.h"
 #include "Game.h"
 
+/**
+ * @brief Construct a new Game Object
+ * 
+ * @param t_textureSheet 
+ * @param t_renderer 
+ * @param t_xpos 
+ * @param t_ypos 
+ * @param t_width 
+ * @param t_height 
+ * @param t_mass 
+ * @param t_theta 
+ * @param t_restitution 
+ * @param t_invMass 
+ */
 GameObject::GameObject(const char* t_textureSheet, SDL_Renderer* t_renderer, float t_xpos, float t_ypos, 
 	float t_width, float t_height, float t_mass, float t_theta, float t_restitution, float t_invMass) {
 
@@ -39,12 +53,21 @@ GameObject::GameObject(const char* t_textureSheet, SDL_Renderer* t_renderer, flo
 	CalculateAABB();
 }
 
+
+/**
+ * @brief Render Game Object
+ * 
+ */
 void GameObject::render() {
 	SDL_RenderCopyExF(m_renderer, m_objectTexture, NULL, &m_dstRect, m_theta, NULL, SDL_FLIP_NONE);
 	SDL_SetRenderDrawColor(m_renderer, 255, 0, 0, 0);
 }
 
 
+/**
+ * @brief Calculate Body's Vertices
+ * 
+ */
 void GameObject::CalculateVertices() {
 	// Top-Left
 	m_vertices[0] = -Math::VectorRotation(Vector2f(m_xpos, m_ypos), getCenter(), m_theta);
@@ -56,21 +79,22 @@ void GameObject::CalculateVertices() {
 	m_vertices[3] = -Math::VectorRotation(Vector2f(m_xpos, m_ypos + m_height), getCenter(), m_theta);
 }
 
-
+/**
+ * @brief Calculate Body's AABB
+ * 
+ */
 void GameObject::CalculateAABB() {
 	float minX = INFINITY;
 	float minY = INFINITY;
 	float maxX = -INFINITY;
 	float maxY = -INFINITY;
 
-	for (int i = 0; i < m_vertices.size(); i++) {
-			Vector2f v = m_vertices[i];
-
-			if (v.x < minX) { minX = v.x; }
-			if (v.x > maxX) { maxX = v.x; }
-			if (v.y < minY) { minY = v.y; }
-			if (v.y > maxY) { maxY = v.y; }
-		}
+	for (const auto& v : m_vertices) {
+		minX = std::min(minX, v.x);
+		maxX = std::max(maxX, v.x);
+		minY = std::min(minY, v.y);
+		maxY = std::max(maxY, v.y);
+	}
 	
 	m_aabb.x = minX;
 	m_aabb.y = minY;

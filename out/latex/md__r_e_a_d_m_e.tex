@@ -1,0 +1,43 @@
+\chapter{2Dynamics}
+\hypertarget{md__r_e_a_d_m_e}{}\label{md__r_e_a_d_m_e}\index{2Dynamics@{2Dynamics}}
+\label{md__r_e_a_d_m_e_autotoc_md0}%
+\Hypertarget{md__r_e_a_d_m_e_autotoc_md0}%
+ 2Dynamics is a lightweight physics engine for 2D games. It provides an easy-\/to-\/use interface for simulating the real-\/world physics of objects in a 2D game environment.\hypertarget{md__r_e_a_d_m_e_autotoc_md1}{}\doxysubsection{\texorpdfstring{Features}{Features}}\label{md__r_e_a_d_m_e_autotoc_md1}
+
+\begin{DoxyItemize}
+\item Support for common 2D physics simulations, including gravity, momentum, and collision detection
+\item Flexible and customizable physics parameters, such as mass, velocity, and restitution
+\end{DoxyItemize}\hypertarget{md__r_e_a_d_m_e_autotoc_md2}{}\doxysubsection{\texorpdfstring{Getting Started}{Getting Started}}\label{md__r_e_a_d_m_e_autotoc_md2}
+To use 2Dynamics in your game project, first download the library and include the header file in your source code\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}2dynamics.h"{}}}
+
+\end{DoxyCode}
+
+
+Then, create a new 2Dynamics world object and add your game object to the world\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{comment}{//\ create\ a\ new\ 2Dynamics\ world\ with\ default\ parameters}}
+\DoxyCodeLine{\mbox{\hyperlink{class_world}{World}}*\ world\ =\ createWorld();}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ create\ a\ new\ game\ object\ with\ a\ rectangular\ shape\ and\ add\ it\ to\ the\ world}}
+\DoxyCodeLine{\mbox{\hyperlink{class_game_object}{GameObject}}*\ \textcolor{keywordtype}{object}\ =\ createGameObject(RectangleShape,\ 100,\ 100);}
+\DoxyCodeLine{addObjectToWorld(world,\ \textcolor{keywordtype}{object});}
+
+\end{DoxyCode}
+
+
+Finally, update the world every frame to simulate the physics of your game objects\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{comment}{//\ update\ the\ world\ to\ simulate\ physics\ for\ one\ frame}}
+\DoxyCodeLine{updateWorld(world,\ deltaTime);}
+
+\end{DoxyCode}
+\hypertarget{md__r_e_a_d_m_e_autotoc_md3}{}\doxysection{\texorpdfstring{Example}{Example}}\label{md__r_e_a_d_m_e_autotoc_md3}
+ 

@@ -1,0 +1,25 @@
+\doxysection{Render\+Window.\+h}
+\hypertarget{_render_window_8h_source}{}\label{_render_window_8h_source}\mbox{\hyperlink{_render_window_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ "{}SDL.h"{}}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}SDL\_image.h"{}}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_entity_8h}{Entity.h}}"{}}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_render_window}{RenderWindow}}\ \{}
+\DoxyCodeLine{00008\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00009\ \ \ \ \ \mbox{\hyperlink{class_render_window}{RenderWindow}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ p\_title,\ \textcolor{keywordtype}{int}\ p\_w,\ \textcolor{keywordtype}{int}\ p\_h);}
+\DoxyCodeLine{00010\ \ \ \ \ SDL\_Texture*\ \mbox{\hyperlink{class_render_window_aa29e35f78fe30510c68f9ace074fa01d}{loadTexture}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ p\_filePath);}
+\DoxyCodeLine{00011\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_render_window_a5e1d7c6aa5ca4493a32f37364409c737}{cleanUp}}();}
+\DoxyCodeLine{00012\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_render_window_a004b769350e13e34ce9f8272c934e061}{clear}}();}
+\DoxyCodeLine{00013\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_render_window_ad70d7f204ad9902bcb62b815b0da9be6}{render}}(\mbox{\hyperlink{class_entity}{Entity}}\&\ p\_ent);}
+\DoxyCodeLine{00014\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_render_window_a871b270a780d070750c901fe5ddc1c5a}{display}}();}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00018\ \ \ \ \ SDL\_Window*\ window;}
+\DoxyCodeLine{00019\ \ \ \ \ SDL\_Renderer*\ renderer;}
+\DoxyCodeLine{00020\ \};}
+
+\end{DoxyCode}

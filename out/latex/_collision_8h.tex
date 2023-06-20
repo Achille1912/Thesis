@@ -1,0 +1,64 @@
+\doxysection{Collision.\+h File Reference}
+\hypertarget{_collision_8h}{}\label{_collision_8h}\index{Collision.h@{Collision.h}}
+{\ttfamily \#include $<$SDL.\+h$>$}\newline
+{\ttfamily \#include $<$SDL\+\_\+image.\+h$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include \"{}Vector2.\+h\"{}}\newline
+{\ttfamily \#include \"{}Game\+Object.\+h\"{}}\newline
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_point_to_segment_type}{Point\+To\+Segment\+Type}}
+\item 
+struct \mbox{\hyperlink{struct_contact_type}{Contact\+Type}}
+\item 
+struct \mbox{\hyperlink{struct_collision_type}{Collision\+Type}}
+\item 
+struct \mbox{\hyperlink{struct_collision}{Collision}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{_collision_8h_a4867de64bd17c8a0b0b5e913f5a069eb}{COLLISION\+\_\+H}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{_collision_8h_ae02476299a39db82b81a9be17338b6e3}{Collision\+Mode}} \{ \mbox{\hyperlink{_collision_8h_ae02476299a39db82b81a9be17338b6e3a81286852a2223ecdf19f9ac62de7d2d9}{Dyn\+Vs\+Dyn}}
+, \mbox{\hyperlink{_collision_8h_ae02476299a39db82b81a9be17338b6e3ae503b7b34612a6d7a197793fa96797f0}{Dyn\+Vs\+Static}}
+, \mbox{\hyperlink{_collision_8h_ae02476299a39db82b81a9be17338b6e3a160fd645c64511ed6e926d9207003541}{Static\+Vs\+Dyn}}
+ \}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{_collision_8h_a4867de64bd17c8a0b0b5e913f5a069eb}\label{_collision_8h_a4867de64bd17c8a0b0b5e913f5a069eb} 
+\index{Collision.h@{Collision.h}!COLLISION\_H@{COLLISION\_H}}
+\index{COLLISION\_H@{COLLISION\_H}!Collision.h@{Collision.h}}
+\doxysubsubsection{\texorpdfstring{COLLISION\_H}{COLLISION\_H}}
+{\footnotesize\ttfamily \#define COLLISION\+\_\+H}
+
+
+
+\doxysubsection{Enumeration Type Documentation}
+\Hypertarget{_collision_8h_ae02476299a39db82b81a9be17338b6e3}\label{_collision_8h_ae02476299a39db82b81a9be17338b6e3} 
+\index{Collision.h@{Collision.h}!CollisionMode@{CollisionMode}}
+\index{CollisionMode@{CollisionMode}!Collision.h@{Collision.h}}
+\doxysubsubsection{\texorpdfstring{CollisionMode}{CollisionMode}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{_collision_8h_ae02476299a39db82b81a9be17338b6e3}{Collision\+Mode}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DynVsDyn@{DynVsDyn}!Collision.h@{Collision.h}}\index{Collision.h@{Collision.h}!DynVsDyn@{DynVsDyn}}}\Hypertarget{_collision_8h_ae02476299a39db82b81a9be17338b6e3a81286852a2223ecdf19f9ac62de7d2d9}\label{_collision_8h_ae02476299a39db82b81a9be17338b6e3a81286852a2223ecdf19f9ac62de7d2d9} 
+Dyn\+Vs\+Dyn&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DynVsStatic@{DynVsStatic}!Collision.h@{Collision.h}}\index{Collision.h@{Collision.h}!DynVsStatic@{DynVsStatic}}}\Hypertarget{_collision_8h_ae02476299a39db82b81a9be17338b6e3ae503b7b34612a6d7a197793fa96797f0}\label{_collision_8h_ae02476299a39db82b81a9be17338b6e3ae503b7b34612a6d7a197793fa96797f0} 
+Dyn\+Vs\+Static&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{StaticVsDyn@{StaticVsDyn}!Collision.h@{Collision.h}}\index{Collision.h@{Collision.h}!StaticVsDyn@{StaticVsDyn}}}\Hypertarget{_collision_8h_ae02476299a39db82b81a9be17338b6e3a160fd645c64511ed6e926d9207003541}\label{_collision_8h_ae02476299a39db82b81a9be17338b6e3a160fd645c64511ed6e926d9207003541} 
+Static\+Vs\+Dyn&\\
+\hline
+
+\end{DoxyEnumFields}

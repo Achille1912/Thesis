@@ -1,0 +1,49 @@
+\doxysection{Utils.\+h}
+\hypertarget{_utils_8h_source}{}\label{_utils_8h_source}\mbox{\hyperlink{_utils_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#ifndef\ UTILS\_H}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#define\ UTILS\_H}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_game_object_8h}{GameObject.h}}"{}}}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_utils}{Utils}}\ \{}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{struct_utils_a8e1855bf17656142732501440768f52a}{Print}}(std::string\ str)\ \{}
+\DoxyCodeLine{00013\ \ \ \ \ \ \ \ \ std::cout\ <<\ str\ <<\ std::endl;}
+\DoxyCodeLine{00014\ \ \ \ \ \}}
+\DoxyCodeLine{00015\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{struct_utils_a8c312110d74801a78c2a0f54ce314eea}{isInstanceOf}}(\mbox{\hyperlink{class_game_object}{GameObject}}*\ obj,\ \textcolor{keyword}{const}\ std::type\_info\&\ type)\{}
+\DoxyCodeLine{00016\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{typeid}(*obj)\ ==\ type;}
+\DoxyCodeLine{00017\ \ \ \ \ \}}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{struct_utils_adb12e3801a0b267d824a1298d2da3eae}{SetRectSizeAndPosition}}(SDL\_FRect\&t\_dstRect,\ \textcolor{keywordtype}{float}\ t\_x,\ \textcolor{keywordtype}{float}\ t\_y,\ \textcolor{keywordtype}{float}\ t\_w,\ \textcolor{keywordtype}{float}\ t\_h)\ \{}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ t\_dstRect.h\ =\ t\_h;}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ t\_dstRect.w\ =\ t\_w;}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ t\_dstRect.x\ =\ t\_x;}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ t\_dstRect.y\ =\ t\_y;}
+\DoxyCodeLine{00025\ \ \ \ \ \}}
+\DoxyCodeLine{00026\ \};}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_color}{Color}}\ \{}
+\DoxyCodeLine{00029\ \ \ \ \ \mbox{\hyperlink{struct_color_afc8dc29c7dd9cf7362ba76b5c0905820}{Color}}(\textcolor{keywordtype}{int}\ t\_r,\ \textcolor{keywordtype}{int}\ t\_g,\ \textcolor{keywordtype}{int}\ t\_b,\ \textcolor{keywordtype}{int}\ t\_a)\ \{}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_color_a4954bdc9772da2a610401b8a438125cb}{r}}\ =\ t\_r;}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_color_ab5656e995bddd43d286c7ff5629a31dd}{g}}\ =\ t\_g;}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_color_ae11f00d34bf3ecd8c8278f68876b82bf}{b}}\ =\ t\_b;}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_color_aa85f0a7c4980f26d7799dbbc8c1f7aa2}{a}}\ =\ t\_a;}
+\DoxyCodeLine{00034\ \ \ \ \ \}}
+\DoxyCodeLine{00035\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{struct_color_a4954bdc9772da2a610401b8a438125cb}{r}};}
+\DoxyCodeLine{00036\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{struct_color_ab5656e995bddd43d286c7ff5629a31dd}{g}};\ }
+\DoxyCodeLine{00037\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{struct_color_ae11f00d34bf3ecd8c8278f68876b82bf}{b}};}
+\DoxyCodeLine{00038\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{struct_color_aa85f0a7c4980f26d7799dbbc8c1f7aa2}{a}};}
+\DoxyCodeLine{00039\ \ \ \ \ }
+\DoxyCodeLine{00040\ \};}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00043\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00044\ }
+
+\end{DoxyCode}

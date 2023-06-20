@@ -1,0 +1,76 @@
+\doxysection{Collision.\+h}
+\hypertarget{_collision_8h_source}{}\label{_collision_8h_source}\mbox{\hyperlink{_collision_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#ifndef\ COLLISION\_H}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#define\ COLLISION\_H}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <SDL.h>}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <SDL\_image.h>}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_vector2_8h}{Vector2.h}}"{}}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_game_object_8h}{GameObject.h}}"{}}}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ \textcolor{keyword}{enum}\ \mbox{\hyperlink{_collision_8h_ae02476299a39db82b81a9be17338b6e3}{CollisionMode}}\ \{\ \mbox{\hyperlink{_collision_8h_ae02476299a39db82b81a9be17338b6e3a81286852a2223ecdf19f9ac62de7d2d9}{DynVsDyn}},\ \mbox{\hyperlink{_collision_8h_ae02476299a39db82b81a9be17338b6e3ae503b7b34612a6d7a197793fa96797f0}{DynVsStatic}},\ \mbox{\hyperlink{_collision_8h_ae02476299a39db82b81a9be17338b6e3a160fd645c64511ed6e926d9207003541}{StaticVsDyn}}\ \};}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_point_to_segment_type}{PointToSegmentType}}\ \{}
+\DoxyCodeLine{00018\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00019\ \ \ \ \ \mbox{\hyperlink{struct_point_to_segment_type_ae4c87fc5d8dc7bf303c2c9c43b1a2001}{PointToSegmentType}}()\ \{}
+\DoxyCodeLine{00020\ \ \ \ \ \}}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{struct_point_to_segment_type_a00c1b264b724fabecb97f7d6dc81fb39}{distSq}};}
+\DoxyCodeLine{00023\ \ \ \ \ \mbox{\hyperlink{struct_vector2f}{Vector2f}}\ \mbox{\hyperlink{struct_point_to_segment_type_a59a5426f9227bb5d3217de16964b4e9a}{closestPoint}};}
+\DoxyCodeLine{00024\ \};}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_contact_type}{ContactType}}\ \{}
+\DoxyCodeLine{00028\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00029\ \ \ \ \ \mbox{\hyperlink{struct_contact_type_afc46a8239d98ca537da7e2ea4b2afb7a}{ContactType}}(\mbox{\hyperlink{struct_vector2f}{Vector2f}}\ c1,\ \mbox{\hyperlink{struct_vector2f}{Vector2f}}\ c2,\ \textcolor{keywordtype}{int}\ cn)\ \{}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_contact_type_ab2bf350fd83d59e7ba83f29505be7588}{contact1}}\ =\ c1;}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_contact_type_ac38b5a9b7aa273442f8b4444bab75284}{contact2}}\ =\ c2;}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_contact_type_a9c4b8bf6a928f4165940d7dae72d350e}{contactNumber}}\ =\ cn;}
+\DoxyCodeLine{00033\ \ \ \ \ \}}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00035\ \ \ \ \ \mbox{\hyperlink{struct_vector2f}{Vector2f}}\ \mbox{\hyperlink{struct_contact_type_ab2bf350fd83d59e7ba83f29505be7588}{contact1}};}
+\DoxyCodeLine{00036\ \ \ \ \ \mbox{\hyperlink{struct_vector2f}{Vector2f}}\ \mbox{\hyperlink{struct_contact_type_ac38b5a9b7aa273442f8b4444bab75284}{contact2}};}
+\DoxyCodeLine{00037\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{struct_contact_type_a9c4b8bf6a928f4165940d7dae72d350e}{contactNumber}};}
+\DoxyCodeLine{00038\ \};}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00041\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_collision_type}{CollisionType}}\ \{}
+\DoxyCodeLine{00042\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00043\ \ \ \ \ \mbox{\hyperlink{struct_collision_type_a5824e06794a65358093b2c3b4693f5e7}{CollisionType}}()\ \{}
+\DoxyCodeLine{00044\ \ \ \ \ \}}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00046\ \ \ \ \ \mbox{\hyperlink{struct_collision_type_adeed14477f90477deb8893fcabb8894e}{CollisionType}}(\textcolor{keywordtype}{float}\ d,\ \mbox{\hyperlink{struct_vector2f}{Vector2f}}\ ax,\ \mbox{\hyperlink{_collision_8h_ae02476299a39db82b81a9be17338b6e3}{CollisionMode}}\ m)\ \{}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_collision_type_ab610329eed0868d8a8b73c7a36f1d9ea}{depth}}\ =\ d;}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_collision_type_ae22abc230a4d6b3f04381a9823463b0c}{CollidingAxis}}\ =\ \mbox{\hyperlink{struct_vector2f}{Vector2f}}(ax.\mbox{\hyperlink{struct_vector2f_add58d2378e3a3abdb76cf0ac51c9acfc}{x}},\ ax.\mbox{\hyperlink{struct_vector2f_a14874a72597fd358b15f8ba34b999c4d}{y}});}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_collision_type_a09d694a9e53f0103cb994bc5f3e86cba}{mode}}\ =\ m;}
+\DoxyCodeLine{00050\ \ \ \ \ \}}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00052\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{struct_collision_type_ab610329eed0868d8a8b73c7a36f1d9ea}{depth}};}
+\DoxyCodeLine{00053\ \ \ \ \ \mbox{\hyperlink{struct_vector2f}{Vector2f}}\ \mbox{\hyperlink{struct_collision_type_ae22abc230a4d6b3f04381a9823463b0c}{CollidingAxis}};}
+\DoxyCodeLine{00054\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{struct_collision_type_a0eeed7564083ef19551c8b2ce7084149}{areColliding}};}
+\DoxyCodeLine{00055\ \ \ \ \ \mbox{\hyperlink{_collision_8h_ae02476299a39db82b81a9be17338b6e3}{CollisionMode}}\ \mbox{\hyperlink{struct_collision_type_a09d694a9e53f0103cb994bc5f3e86cba}{mode}};}
+\DoxyCodeLine{00056\ \};}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00058\ }
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00061\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_collision}{Collision}}\ \{}
+\DoxyCodeLine{00062\ \ \ \ \ }
+\DoxyCodeLine{00063\ \ \ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{struct_collision_type}{CollisionType}}\ \mbox{\hyperlink{struct_collision_a3361400ca8f9ad8bbc8d96c5912bc4a2}{IntersectSAT}}(\mbox{\hyperlink{class_game_object}{GameObject}}*\ objA,\ \mbox{\hyperlink{class_game_object}{GameObject}}*\ objB);}
+\DoxyCodeLine{00064\ }
+\DoxyCodeLine{00065\ \ \ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{struct_contact_type}{ContactType}}\ \mbox{\hyperlink{struct_collision_ab64ef044fc86645245e298c338712c6d}{FindContactPoints}}(\mbox{\hyperlink{class_game_object}{GameObject}}*\ objA,\ \mbox{\hyperlink{class_game_object}{GameObject}}*\ objB);}
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00067\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{struct_collision_a6d64a24c59c240bd3aeaeedd80992e25}{IntersectAABB}}(\mbox{\hyperlink{struct_a_a_b_b}{AABB}}\ AABBobjA,\ \mbox{\hyperlink{struct_a_a_b_b}{AABB}}\ AABBobjB);}
+\DoxyCodeLine{00068\ }
+\DoxyCodeLine{00069\ \};}
+\DoxyCodeLine{00070\ }
+\DoxyCodeLine{00071\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}
