@@ -11,11 +11,12 @@
 #include "Collision.h"
 #include "Vector2.h"
 
-class DynamicBody: public GameObject {
+class DynamicBody : public GameObject
+{
 
 public:
-	DynamicBody(const char* t_textureSheet, SDL_Renderer* t_renderer, float t_xpos, float t_ypos, 
-		Vector2f t_velocity, float t_width, float t_height, float t_mass, float t_restitution);
+	DynamicBody(const char *t_textureSheet, SDL_Renderer *t_renderer, float t_xpos, float t_ypos,
+				Vector2f t_velocity, float t_width, float t_height, float t_mass, float t_restitution);
 
 	// SETTERS
 	void SetVelocity(Vector2f t_velocity) { m_velocity = t_velocity; }
@@ -44,6 +45,5 @@ private:
 	float m_angularAcceleration;
 	float m_angularVelocity;
 	bool m_moving;
-
 };
-#endif 
+#endif

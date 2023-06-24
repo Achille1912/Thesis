@@ -11,12 +11,18 @@
 #include "Vector2.h"
 #include "GameObject.h"
 
-enum CollisionMode { DynVsDyn, DynVsStatic, StaticVsDyn };
+enum CollisionMode
+{
+	DynVsDyn,
+	DynVsStatic,
+	StaticVsDyn
+};
 
-
-struct PointToSegmentType {
+struct PointToSegmentType
+{
 public:
-	PointToSegmentType() {
+	PointToSegmentType()
+	{
 		distSq = 0;
 		closestPoint = Vector2f(0, 0);
 	}
@@ -24,10 +30,11 @@ public:
 	Vector2f closestPoint;
 };
 
-
-struct ContactType {
+struct ContactType
+{
 public:
-	ContactType(Vector2f c1, Vector2f c2, int cn) {
+	ContactType(Vector2f c1, Vector2f c2, int cn)
+	{
 		contact1 = c1;
 		contact2 = c2;
 		contactNumber = cn;
@@ -38,11 +45,12 @@ public:
 	int contactNumber;
 };
 
-
-struct CollisionType {
+struct CollisionType
+{
 public:
-	CollisionType(){}
-	CollisionType(float d, Vector2f ax, CollisionMode m) {
+	CollisionType() {}
+	CollisionType(float d, Vector2f ax, CollisionMode m)
+	{
 		depth = d;
 		CollidingAxis = Vector2f(ax.x, ax.y);
 		mode = m;
@@ -54,17 +62,14 @@ public:
 	CollisionMode mode;
 };
 
+struct Collision
+{
 
+	static CollisionType IntersectSAT(GameObject *objA, GameObject *objB);
 
-
-struct Collision {
-	
-	static CollisionType IntersectSAT(GameObject* objA, GameObject* objB);
-
-	static ContactType FindContactPoints(GameObject* objA, GameObject* objB);
+	static ContactType FindContactPoints(GameObject *objA, GameObject *objB);
 
 	static bool IntersectAABB(AABB AABBobjA, AABB AABBobjB);
-
 };
 
 #endif

@@ -5,10 +5,10 @@
 
 #include "Game.h"
 
-class TextureManager {
+class TextureManager
+{
 public:
-	static SDL_Texture* LoadTexture(const char* t_fileName, SDL_Renderer* t_renderer);
+	static SDL_Texture *LoadTexture(const char *t_fileName, SDL_Renderer *t_renderer);
 };
-
 
 #endif

@@ -14,13 +14,13 @@
 #include "Collision.h"
 #include "LevelBuilder.h"
 
-
-class Game {
+class Game
+{
 
 public:
-	static Game* instance();
-	World* GetWorld() { return m_world; }
-	void Init(const char* t_title, int t_xpos, int t_ypos, int t_width, int t_height, bool t_fullscreen);
+	static Game *instance();
+	World *GetWorld() { return m_world; }
+	void Init(const char *t_title, int t_xpos, int t_ypos, int t_width, int t_height, bool t_fullscreen);
 	void HandleEvents();
 	void Update(float t_dt);
 	void Render();
@@ -30,13 +30,12 @@ public:
 	bool Running() { return m_isRunning; }
 
 private:
-	World* m_world;
-	LevelBuilder* m_level_builder;
+	World *m_world;
+	LevelBuilder *m_level_builder;
 	bool m_isRunning;
 
 	// singleton
-	static Game* m_uniqueInstance;
-	
+	static Game *m_uniqueInstance;
 };
 
 #endif

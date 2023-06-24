@@ -4,13 +4,14 @@
 #include "Constants.h"
 #include "Graphics.h"
 
-class LevelBuilder {
+class LevelBuilder
+{
 public:
-	LevelBuilder (World* t_world);
+	LevelBuilder(World *t_world);
 
 	// Functions
-	DynamicBody* LoadLevel(Levels t_level_name);
+	DynamicBody *LoadLevel(Levels t_level_name);
 
 private:
-	World* m_world;
+	World *m_world;
 };
