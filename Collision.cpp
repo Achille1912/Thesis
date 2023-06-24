@@ -30,7 +30,7 @@ PointToSegmentType PointToSegmentDistance(Vector2f p, Vector2f va, Vector2f vb) 
 
 	else result.closestPoint = va + ab * d;
 	
-	result.distSq = Math::getDistanceSquared(p, result.closestPoint);
+	result.distSq = Math::GetDistanceSquared(p, result.closestPoint);
 
 	return result;
 }
@@ -63,9 +63,9 @@ CollisionType Collision::IntersectSAT(GameObject* objA, GameObject* objB) {
 	
 	std::array <Vector2f, 4> verticesB;
 
-	verticesA = objA->getVertices();	
+	verticesA = objA->GetVertices();	
 
-	verticesB = objB->getVertices();
+	verticesB = objB->GetVertices();
 	
 
 	std::array <Vector2f, 4> normalsA = CalculateNormals(verticesA);
@@ -110,8 +110,8 @@ CollisionType Collision::IntersectSAT(GameObject* objA, GameObject* objB) {
 			result_normal = normal;
 		}
 	}
-	depth = depth / result_normal.len();
-	result_normal = result_normal.vers();
+	depth = depth / result_normal.Len();
+	result_normal = result_normal.Vers();
 
 	Vector2f centerA = Math::FindArithmeticMean(verticesA);
 	Vector2f centerB = Math::FindArithmeticMean(verticesB);
@@ -157,11 +157,11 @@ ContactType Collision::FindContactPoints(GameObject* objA, GameObject* objB) {
 
 	float minDistSq = INFINITY;
 
-	for (int i = 0; i < objA->getVertices().size(); i++) {
-		Vector2f p = objA->getVertices()[i];
-		for (int j = 0; j < objB->getVertices().size(); j++) {
-			Vector2f va = objB->getVertices()[j];
-			Vector2f vb = objB->getVertices()[(j + 1) % objB->getVertices().size()];
+	for (int i = 0; i < objA->GetVertices().size(); i++) {
+		Vector2f p = objA->GetVertices()[i];
+		for (int j = 0; j < objB->GetVertices().size(); j++) {
+			Vector2f va = objB->GetVertices()[j];
+			Vector2f vb = objB->GetVertices()[(j + 1) % objB->GetVertices().size()];
 
 			PointToSegmentType p2s = PointToSegmentDistance(p, va, vb);
 
@@ -184,11 +184,11 @@ ContactType Collision::FindContactPoints(GameObject* objA, GameObject* objB) {
 		}
 	}
 	/******************************************************/
-	for (int i = 0; i < objB->getVertices().size(); i++) {
-		Vector2f p = objB->getVertices()[i];
-		for (int j = 0; j < objA->getVertices().size(); j++) {
-			Vector2f va = objA->getVertices()[j];
-			Vector2f vb = objA->getVertices()[(j + 1) % objA->getVertices().size()];
+	for (int i = 0; i < objB->GetVertices().size(); i++) {
+		Vector2f p = objB->GetVertices()[i];
+		for (int j = 0; j < objA->GetVertices().size(); j++) {
+			Vector2f va = objA->GetVertices()[j];
+			Vector2f vb = objA->GetVertices()[(j + 1) % objA->GetVertices().size()];
 
 			PointToSegmentType p2s = PointToSegmentDistance(p, va, vb);
 

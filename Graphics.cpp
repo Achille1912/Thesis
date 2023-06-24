@@ -98,11 +98,11 @@ void Graphics::DrawCenterPoint(GameObject* t_obj, int t_width, int t_height, Col
     center.w = t_width;
     center.h = t_height;
     
-    center.x = (t_obj->getX() + t_obj->getW() / 2 - center.w / 2);
-    center.y = (t_obj->getY() + t_obj->getH() / 2 - center.h / 2);
+    center.x = (t_obj->GetX() + t_obj->GetW() / 2 - center.w / 2);
+    center.y = (t_obj->GetY() + t_obj->GetH() / 2 - center.h / 2);
 
-    SDL_SetRenderDrawColor(t_obj->getRenderer(), t_color.r, t_color.g, t_color.b, t_color.a);
-    SDL_RenderFillRectF(t_obj->getRenderer(), &center);
+    SDL_SetRenderDrawColor(t_obj->GetRenderer(), t_color.r, t_color.g, t_color.b, t_color.a);
+    SDL_RenderFillRectF(t_obj->GetRenderer(), &center);
     SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
 }
 

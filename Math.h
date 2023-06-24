@@ -15,7 +15,7 @@ struct Math {
 
     static float Deg(float rad);
 
-    static float getDistanceSquared(const Vector2f& t_vectorA, const Vector2f& t_vectorB);
+    static float GetDistanceSquared(const Vector2f& t_vectorA, const Vector2f& t_vectorB);
 
     static Vector2f VectorRotation(const Vector2f& point, const Vector2f& center, float rotation_deg);
 

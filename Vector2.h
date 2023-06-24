@@ -24,15 +24,15 @@ struct Vector2f
 
 	Vector2f(float t_x, float t_y) : x(t_x), y(t_y) {}
 
-	float len() { return std::sqrt( x * x + y * y); }
+	float Len() { return std::sqrt( x * x + y * y); }
 
-	Vector2f getDistance(Vector2f t_vector) {
+	Vector2f GetDistance(Vector2f t_vector) {
 		return Vector2f(x - t_vector.x, y - t_vector.y);
 	}
 
-	Vector2f vers() {
+	Vector2f Vers() {
 		if (x == 0 && y == 0) return Vector2f(0, 0);
-		else return (Vector2f(x / Vector2f(x, y).len(), y / Vector2f(x, y).len()));
+		else return (Vector2f(x / Vector2f(x, y).Len(), y / Vector2f(x, y).Len()));
 	}
 
 	// Operators With Vector

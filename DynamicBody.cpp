@@ -12,8 +12,6 @@ DynamicBody::DynamicBody(const char* t_textureSheet, SDL_Renderer* t_renderer, f
 	Vector2f t_velocity, float t_width, float t_height, float t_mass, float t_restitution)
 	:GameObject(t_textureSheet, t_renderer, t_xpos, t_ypos, t_width,t_height, t_mass, 0, t_restitution, 1/t_mass) {
 
-	m_renderer = t_renderer;
-	m_objectTexture = TextureManager::LoadTexture(t_textureSheet, t_renderer);
 	m_velocity = t_velocity;
 	m_angularVelocity = 0;
 	m_angularAcceleration = 0;
@@ -22,7 +20,7 @@ DynamicBody::DynamicBody(const char* t_textureSheet, SDL_Renderer* t_renderer, f
 
 }
 
-void DynamicBody::update(float t_dt, float t_gravity, int t_iterations) {
+void DynamicBody::Update(float t_dt, float t_gravity, int t_iterations) {
 
 	t_dt /= t_iterations;
 
@@ -37,8 +35,8 @@ void DynamicBody::update(float t_dt, float t_gravity, int t_iterations) {
 	Utils::SetRectSizeAndPosition(m_dstRect, m_xpos, m_ypos, m_width, m_height);
 
 	// Dumb friction
-	if (m_velocity.x < 0) m_velocity.x += (1.5 * t_dt * PIXELS_PER_METER);
-	if (m_velocity.x > 0) m_velocity.x -= (1.5 * t_dt * PIXELS_PER_METER);
+	if (m_velocity.x < 0) m_velocity.x += (float)(1.5 * t_dt * PIXELS_PER_METER);
+	if (m_velocity.x > 0) m_velocity.x -= (float)(1.5 * t_dt * PIXELS_PER_METER);
 
 	// Calculate New Vertices
 	CalculateVertices();
@@ -46,23 +44,23 @@ void DynamicBody::update(float t_dt, float t_gravity, int t_iterations) {
 	CalculateAABB();
 }
 
-void DynamicBody::move(Vector2f t_direction) {
+void DynamicBody::Move(Vector2f t_direction) {
 	m_xpos += t_direction.x;
 	m_ypos += t_direction.y;
 }
 
-void DynamicBody::moveBy(float t_xpos, float t_ypos) {
+void DynamicBody::MoveBy(float t_xpos, float t_ypos) {
 	m_xpos += t_xpos;
 	m_ypos += t_ypos;
 
 }
 
-void DynamicBody::moveTo(Vector2f t_position) {
+void DynamicBody::MoveTo(Vector2f t_position) {
 	m_xpos = t_position.x;
 	m_ypos = t_position.y;
 }
 
-void DynamicBody::rotate() {
+void DynamicBody::Rotate() {
 	m_theta += 10;
 
 	CalculateVertices();

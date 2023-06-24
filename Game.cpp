@@ -36,7 +36,7 @@ Game* Game::instance() {
  * @param t_height 
  * @param t_fullscreen 
  */
-void Game::init(const char* t_title, int t_xpos, int t_ypos, int t_width, int t_height, bool t_fullscreen) {
+void Game::Init(const char* t_title, int t_xpos, int t_ypos, int t_width, int t_height, bool t_fullscreen) {
 	// INITIAL STUFF
 	m_isRunning = Graphics::OpenWindow(t_title, t_xpos, t_ypos, t_width, t_height, t_fullscreen);
 	m_world = new World(-9.8f, false);
@@ -74,7 +74,7 @@ void Game::init(const char* t_title, int t_xpos, int t_ypos, int t_width, int t_
  * @brief Handle Game Events
  * 
  */
-void Game::handleEvents() {
+void Game::HandleEvents() {
 	Vector2f dir(0,0);
 	float step = 8;
 	SDL_Event event;
@@ -100,7 +100,7 @@ void Game::handleEvents() {
 				m_world->AddGameObject(new DynamicBody("./gfx/woodBox.jpg", Graphics::renderer, x, y, Vector2f(0, 0), 46, 46, (1 + (rand() % 10)), 0.4f));
 			}
 			else {
-				Vector2f vel = Vector2f(x, y) - player->getCenter();
+				Vector2f vel = Vector2f(x, y) - player->GetCenter();
 				player->AddVel(vel);
 			}
 		}
@@ -108,26 +108,26 @@ void Game::handleEvents() {
 	case SDL_KEYDOWN:
 		switch (event.key.keysym.sym) {
 		case SDLK_UP:
-			player->move(Vector2f(0, -step*2));
+			player->Move(Vector2f(0, -step*2));
 			break;
 
 		case SDLK_DOWN:
-			player->move(Vector2f(0, step));
+			player->Move(Vector2f(0, step));
 			break;
 
 		case SDLK_LEFT:
-			player->move(Vector2f(-step, 0));
+			player->Move(Vector2f(-step, 0));
 			break;
 
 		case SDLK_RIGHT:
-			player->move(Vector2f(step, 0));
+			player->Move(Vector2f(step, 0));
 			
 			break;
 		
 		case SDLK_r:
 			
-			player->rotate();
-			std::cout << player->getRotation() << std::endl;
+			player->Rotate();
+			std::cout << player->GetRotation() << std::endl;
 			break;
 		case SDLK_m:
 			if (m_world->m_basic) {
@@ -145,7 +145,7 @@ void Game::handleEvents() {
 	default:
 		break;
 	}
-	player->move(dir);
+	player->Move(dir);
 }
 
 
@@ -154,7 +154,7 @@ void Game::handleEvents() {
  * 
  * @param dt 
  */
-void Game::update(float dt) {
+void Game::Update(float dt) {
 	m_world->Update(dt, 80);
 }
 
@@ -163,13 +163,13 @@ void Game::update(float dt) {
  * @brief Render Graphics
  * 
  */
-void Game::render(){
+void Game::Render(){
 	Graphics::ClearScreen();
 	
 	if(!level0) SDL_RenderCopy(Graphics::renderer, Graphics::background_texture, NULL, NULL);
 
 	for (int i = 0; i < m_world->GetGameObjects().size(); i++) {
-		m_world->GetGameObjects()[i]->render();
+		m_world->GetGameObjects()[i]->Render();
 	}
 
 	//
@@ -200,7 +200,7 @@ void Game::render(){
  * @brief Close the Window
  * 
  */
-void Game::clean() {
+void Game::Clean() {
 	Graphics::CloseWindow();
 }
 

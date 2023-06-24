@@ -58,7 +58,7 @@ GameObject::GameObject(const char* t_textureSheet, SDL_Renderer* t_renderer, flo
  * @brief Render Game Object
  * 
  */
-void GameObject::render() {
+void GameObject::Render() {
 	SDL_RenderCopyExF(m_renderer, m_objectTexture, NULL, &m_dstRect, m_theta, NULL, SDL_FLIP_NONE);
 	SDL_SetRenderDrawColor(m_renderer, 255, 0, 0, 0);
 }
@@ -70,13 +70,13 @@ void GameObject::render() {
  */
 void GameObject::CalculateVertices() {
 	// Top-Left
-	m_vertices[0] = -Math::VectorRotation(Vector2f(m_xpos, m_ypos), getCenter(), m_theta);
+	m_vertices[0] = -Math::VectorRotation(Vector2f(m_xpos, m_ypos), GetCenter(), m_theta);
 	// Top-Right
-	m_vertices[1] = -Math::VectorRotation(Vector2f(m_xpos + m_width, m_ypos), getCenter(), m_theta);
+	m_vertices[1] = -Math::VectorRotation(Vector2f(m_xpos + m_width, m_ypos), GetCenter(), m_theta);
 	// Bottom-Right
-	m_vertices[2] = -Math::VectorRotation(Vector2f(m_xpos + m_width, m_ypos + m_height), getCenter(), m_theta);
+	m_vertices[2] = -Math::VectorRotation(Vector2f(m_xpos + m_width, m_ypos + m_height), GetCenter(), m_theta);
 	// Bottom-Left
-	m_vertices[3] = -Math::VectorRotation(Vector2f(m_xpos, m_ypos + m_height), getCenter(), m_theta);
+	m_vertices[3] = -Math::VectorRotation(Vector2f(m_xpos, m_ypos + m_height), GetCenter(), m_theta);
 }
 
 /**

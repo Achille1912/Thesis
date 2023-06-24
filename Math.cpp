@@ -32,7 +32,7 @@ Vector2f Math::VectorRotation(const Vector2f& point, const Vector2f& center, flo
 
 }
 
-float Math::getDistanceSquared(const Vector2f& t_vectorA, const Vector2f& t_vectorB) {
+float Math::GetDistanceSquared(const Vector2f& t_vectorA, const Vector2f& t_vectorB) {
     float dx = t_vectorA.x - t_vectorB.x;
     float dy = t_vectorA.y - t_vectorB.y;
     return (dx * dx + dy * dy);

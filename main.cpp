@@ -11,7 +11,7 @@ Game* game = Game::instance();
 
 int main(int argc, char** argv) {
 
-	game->init("Game", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, SCREEN_WIDTH, SCREEN_HEIGHT, false);
+	game->Init("Game", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, SCREEN_WIDTH, SCREEN_HEIGHT, false);
 
 	agp::FPS fps;
 	agp::Timer <float> frameTimer;
@@ -19,19 +19,19 @@ int main(int argc, char** argv) {
 	float dt = 0.01f;		// physics integration
 	float accumulator = 0;
 
-	while (game->running()) {
+	while (game->Running()) {
 		// Calculate delta time
-		game->handleEvents();
+		game->HandleEvents();
 		float frameTime = frameTimer.restart();
 		
 		accumulator += frameTime;
 		while (accumulator >= dt)
 		{
-			game->update(dt);
+			game->Update(dt);
 			accumulator -= dt;
 		}
 		
-		game->render();
+		game->Render();
 		fps.update();
 	}
 

@@ -18,15 +18,15 @@ class Game {
 
 public:
 	static Game* instance();
-	World* getWorld() { return m_world; }
-	void init(const char* t_title, int t_xpos, int t_ypos, int t_width, int t_height, bool t_fullscreen);
-	void handleEvents();
-	void update(float t_dt);
-	void render();
-	void clean();
+	World* GetWorld() { return m_world; }
+	void Init(const char* t_title, int t_xpos, int t_ypos, int t_width, int t_height, bool t_fullscreen);
+	void HandleEvents();
+	void Update(float t_dt);
+	void Render();
+	void Clean();
 
 	// GETTERS
-	bool running() { return m_isRunning; }
+	bool Running() { return m_isRunning; }
 
 private:
 	World* m_world;

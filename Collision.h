@@ -17,8 +17,9 @@ enum CollisionMode { DynVsDyn, DynVsStatic, StaticVsDyn };
 struct PointToSegmentType {
 public:
 	PointToSegmentType() {
+		distSq = 0;
+		closestPoint = Vector2f(0, 0);
 	}
-
 	float distSq;
 	Vector2f closestPoint;
 };
@@ -40,9 +41,7 @@ public:
 
 struct CollisionType {
 public:
-	CollisionType() {
-	}
-
+	CollisionType(){}
 	CollisionType(float d, Vector2f ax, CollisionMode m) {
 		depth = d;
 		CollidingAxis = Vector2f(ax.x, ax.y);
