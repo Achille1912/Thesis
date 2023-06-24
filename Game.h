@@ -12,6 +12,7 @@
 #include "Vector2.h"
 #include "World.h"
 #include "Collision.h"
+#include "LevelBuilder.h"
 
 
 class Game {
@@ -30,6 +31,7 @@ public:
 
 private:
 	World* m_world;
+	LevelBuilder* m_level_builder;
 	bool m_isRunning;
 
 	// singleton

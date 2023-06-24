@@ -1,8 +1,15 @@
-﻿  Collision.cpp
+﻿  Game.cpp
+D:\Progetti\[02] SdlGame\SDL_Tesi\SdlGameTesi\Game.cpp(82,118): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\Progetti\[02] SdlGame\SDL_Tesi\SdlGameTesi\Game.cpp(82,88): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\Progetti\[02] SdlGame\SDL_Tesi\SdlGameTesi\Game.cpp(82,85): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\Progetti\[02] SdlGame\SDL_Tesi\SdlGameTesi\Game.cpp(85,32): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\Progetti\[02] SdlGame\SDL_Tesi\SdlGameTesi\Game.cpp(85,29): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+  LevelBuilder.cpp
   Vector2.h
   Generating code
-  37 of 330 functions (11.2%) were compiled, the rest were copied from previous compilation.
-    24 functions were new in current compilation
-    12 functions had inline decision re-evaluated but remain unchanged
+D:\Progetti\[02] SdlGame\SDL_Tesi\SdlGameTesi\LevelBuilder.cpp(43): warning C4715: 'LevelBuilder::LoadLevel': not all control paths return a value
+  8 of 333 functions ( 2.4%) were compiled, the rest were copied from previous compilation.
+    1 functions were new in current compilation
+    0 functions had inline decision re-evaluated but remain unchanged
   Finished generating code
   SdlGameTesi.vcxproj -> D:\Progetti\[02] SdlGame\SDL_Tesi\x64\Release\SdlGameTesi.exe

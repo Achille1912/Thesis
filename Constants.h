@@ -12,3 +12,8 @@ const int SCREEN_HEIGHT = 600;
 
 const int ANGULAR_FACTOR = 38;
 
+enum Levels
+{
+	BASIC,
+	ANGRY_BIRDS
+};

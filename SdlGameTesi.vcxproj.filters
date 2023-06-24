@@ -48,6 +48,9 @@
     <ClCompile Include="Math.cpp">
       <Filter>File di risorse</Filter>
     </ClCompile>
+    <ClCompile Include="LevelBuilder.cpp">
+      <Filter>File di risorse</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game.h">
@@ -87,6 +90,9 @@
       <Filter>File di risorse</Filter>
     </ClInclude>
     <ClInclude Include="AABB.h">
+      <Filter>File di risorse</Filter>
+    </ClInclude>
+    <ClInclude Include="LevelBuilder.h">
       <Filter>File di risorse</Filter>
     </ClInclude>
   </ItemGroup>
