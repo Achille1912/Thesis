@@ -46,7 +46,7 @@ bool Graphics::OpenWindow(const char *t_title, int t_xpos, int t_ypos, int t_wid
             SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
             std::cout << "Renderer created." << std::endl;
         }
-        background_texture = IMG_LoadTexture(Graphics::renderer, "./gfx/background.jpg");
+        background_texture = IMG_LoadTexture(Graphics::renderer, "./gfx/background_mario.png");
 
         return true;
     }

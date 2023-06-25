@@ -38,6 +38,40 @@ DynamicBody *LevelBuilder::LoadLevel(Levels t_level_name)
 		return dynamic_cast<DynamicBody *>(m_world->GetGameObjects()[0]);
 	}
 	break;
+	case PEGGLE:
+	{
+		float mass2 = 100;
+		m_world->AddGameObject(new DynamicBody("./gfx/mario.png", Graphics::renderer, 10, 490 - 70, Vector2f(0, 0), 46, 46, mass2, 0));
+		
+		for (int i = 0; i < 10; ++i) {
+			m_world->AddGameObject(new StaticBody("./gfx/woodBox.jpg", Graphics::renderer, 20 + (i*80), 100, 10, 10, mass2, 20, 0, 0));
+		}
+		for (int i = 0; i < 10; ++i) {
+			m_world->AddGameObject(new StaticBody("./gfx/woodBox.jpg", Graphics::renderer, (i * 80), 200, 10, 10, mass2, 20, 0, 0));
+		}
+		for (int i = 0; i < 10; ++i) {
+			m_world->AddGameObject(new StaticBody("./gfx/woodBox.jpg", Graphics::renderer, 20 +(i * 80), 300, 10, 10, mass2, 20, 0, 0));
+		}
+		for (int i = 0; i < 10; ++i) {
+			m_world->AddGameObject(new StaticBody("./gfx/woodBox.jpg", Graphics::renderer,  (i * 80), 400, 10, 10, mass2, 20, 0, 0));
+		}
+
+		return dynamic_cast<DynamicBody*>(m_world->GetGameObjects()[0]);
+	}
+	break;
+	case STAIRS:
+	{
+		float mass2 = 100;
+		m_world->AddGameObject(new DynamicBody("./gfx/mario.png", Graphics::renderer, 10, 490 - 70, Vector2f(0, 0), 46, 46, mass2, 0));
+
+		for (int i = 0; i < 10; ++i) {
+			m_world->AddGameObject(new StaticBody("./gfx/woodBox.jpg", Graphics::renderer, 20 + (i * 30), 100 + (i * 30), 30, 30, mass2, 20, 0, 0));
+		}
+		
+
+		return dynamic_cast<DynamicBody*>(m_world->GetGameObjects()[0]);
+	}
+	break;
 	default:
 		break;
 	}

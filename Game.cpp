@@ -36,6 +36,7 @@ Game *Game::instance()
  * @param t_height
  * @param t_fullscreen
  */
+Levels level_name = STAIRS;
 void Game::Init(const char *t_title, int t_xpos, int t_ypos, int t_width, int t_height, bool t_fullscreen)
 {
 	// INITIAL STUFF
@@ -45,14 +46,26 @@ void Game::Init(const char *t_title, int t_xpos, int t_ypos, int t_width, int t_
 	// OBJECTS INITIALIZATION
 	float mass1 = 1;
 	float mass2 = 100;
-	if (level0)
+
+
+	switch (level_name)
 	{
+	case BASIC:
 		player = m_level_builder->LoadLevel(Levels::BASIC);
-	}
-	else
-	{
+		break;
+	case ANGRY_BIRDS:
 		player = m_level_builder->LoadLevel(Levels::ANGRY_BIRDS);
+		break;
+	case PEGGLE:
+		player = m_level_builder->LoadLevel(Levels::PEGGLE);
+		break;
+	case STAIRS:
+		player = m_level_builder->LoadLevel(Levels::STAIRS);
+		break;
+	default:
+		break;
 	}
+
 }
 
 /**
@@ -158,8 +171,14 @@ void Game::Render()
 {
 	Graphics::ClearScreen();
 
-	if (!level0)
-		SDL_RenderCopy(Graphics::renderer, Graphics::background_texture, NULL, NULL);
+	/*SDL_Rect* src_rect = new SDL_Rect();
+	src_rect->x = 0;
+	src_rect->y = 0;
+	src_rect->w = 400;
+	src_rect->h = 230;
+
+	if (level_name != BASIC)
+		SDL_RenderCopy(Graphics::renderer, Graphics::background_texture, src_rect, NULL);*/
 
 	for (int i = 0; i < m_world->GetGameObjects().size(); i++)
 	{

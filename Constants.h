@@ -15,5 +15,7 @@ const int ANGULAR_FACTOR = 38;
 enum Levels
 {
 	BASIC,
-	ANGRY_BIRDS
+	ANGRY_BIRDS,
+	PEGGLE,
+	STAIRS
 };
