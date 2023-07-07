@@ -8,8 +8,8 @@
 #include "Math.h"
 
 DynamicBody::DynamicBody(const char *t_textureSheet, SDL_Renderer *t_renderer, float t_xpos, float t_ypos,
-						 Vector2f t_velocity, float t_width, float t_height, float t_mass, float t_restitution)
-	: GameObject(t_textureSheet, t_renderer, t_xpos, t_ypos, t_width, t_height, t_mass, 0, t_restitution, 1 / t_mass)
+						 Vector2f t_velocity, float t_width, float t_height, float t_mass, float t_restitution, SDL_Color t_border_color)
+	: GameObject(t_textureSheet, t_renderer, t_xpos, t_ypos, t_width, t_height, t_mass, 0, t_restitution, 1 / t_mass, t_border_color)
 {
 
 	m_velocity = t_velocity;

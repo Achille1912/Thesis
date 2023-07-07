@@ -13,7 +13,7 @@ class GameObject
 {
 public:
 	GameObject(const char *t_textureSheet, SDL_Renderer *t_renderer, float t_xpos, float t_ypos, float t_width,
-			   float t_height, float t_mass, float t_theta, float t_restitution, float t_invMass);
+			   float t_height, float t_mass, float t_theta, float t_restitution, float t_invMass, SDL_Color t_border_color);
 	virtual ~GameObject() {} // This virtual function allows me do the dynamic_cast's
 
 	// SETTERS
@@ -66,6 +66,7 @@ protected:
 	SDL_Texture *m_objectTexture;
 	SDL_FRect m_dstRect;
 	SDL_Renderer *m_renderer;
+	SDL_Color m_border_color;
 };
 
 #endif

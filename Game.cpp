@@ -15,7 +15,6 @@
 #include "Utils.h"
 
 DynamicBody *player;
-bool level0 = true;
 
 // Singleton
 Game *Game::m_uniqueInstance = 0;
@@ -36,7 +35,7 @@ Game *Game::instance()
  * @param t_height
  * @param t_fullscreen
  */
-Levels level_name = STAIRS;
+Levels level_name = BASIC;
 void Game::Init(const char *t_title, int t_xpos, int t_ypos, int t_width, int t_height, bool t_fullscreen)
 {
 	// INITIAL STUFF
@@ -96,15 +95,21 @@ void Game::HandleEvents()
 		{
 			int x, y;
 			Uint32 mouseState = SDL_GetMouseState(&x, &y);
-			if (level0)
-			{
-				m_world->AddGameObject(new DynamicBody("./gfx/woodBox.jpg", Graphics::renderer, x, y, Vector2f(0, 0), 46, 46, (1 + (rand() % 10)), 0.4f));
-			}
-			else
+			if (level_name == ANGRY_BIRDS)
 			{
 				Vector2f vel = Vector2f(x, y) - player->GetCenter();
 				player->AddVel(vel);
 			}
+			else
+			{
+					float mass = (1 + (rand() % 100));
+					/*float weight_color = Utils::map_range(mass, 1, 10, 0, 255);
+					SDL_Color border_color = { weight_color , weight_color , weight_color , 255};*/
+					m_world->AddGameObject(new DynamicBody("", Graphics::renderer, x, y, Vector2f(0, 0), 46, 46, mass, 0.4f));
+				
+				
+			}
+			
 		}
 		break;
 	case SDL_KEYDOWN:
@@ -171,15 +176,14 @@ void Game::Render()
 {
 	Graphics::ClearScreen();
 
-	/*SDL_Rect* src_rect = new SDL_Rect();
-	src_rect->x = 0;
-	src_rect->y = 0;
-	src_rect->w = 400;
-	src_rect->h = 230;
-
-	if (level_name != BASIC)
-		SDL_RenderCopy(Graphics::renderer, Graphics::background_texture, src_rect, NULL);*/
-
+	if (level_name == ANGRY_BIRDS) {
+		SDL_Rect* src_rect = new SDL_Rect();
+		src_rect->x = 0;
+		src_rect->y = 0;
+		src_rect->w = 1280;
+		src_rect->h = 846;
+		SDL_RenderCopy(Graphics::renderer, Graphics::background_texture, src_rect, NULL);
+	}
 	for (int i = 0; i < m_world->GetGameObjects().size(); i++)
 	{
 		m_world->GetGameObjects()[i]->Render();
@@ -187,7 +191,7 @@ void Game::Render()
 
 	//
 	TTF_Font *font = TTF_OpenFont("./Roboto-Black.ttf", 14);
-	SDL_Color color = {0, 0, 0};
+	SDL_Color color = {255, 255, 255};
 
 	std::string text = "Number of objects: " + std::to_string(m_world->GetGameObjects().size());
 	SDL_Surface *surface = TTF_RenderText_Solid(font, text.c_str(), color);

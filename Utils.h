@@ -14,6 +14,12 @@ struct Utils
     {
         std::cout << str << std::endl;
     }
+
+    static float map_range(float value, float from_min, float from_max, float to_min, float to_max)
+    {
+        return (value - from_min) * (to_max - to_min) / (from_max - from_min) + to_min;
+    }
+
     static bool isInstanceOf(GameObject *obj, const std::type_info &type)
     {
         return typeid(*obj) == type;
@@ -30,6 +36,7 @@ struct Utils
 
 struct Color
 {
+    Color() : r(0.0f), g(0.0f), b(0.0f), a(0.0f) {}
     Color(int t_r, int t_g, int t_b, int t_a)
     {
         r = t_r;

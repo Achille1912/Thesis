@@ -9,6 +9,7 @@
 
 #include "GameObject.h"
 #include "Collision.h"
+#include "Constants.h"
 #include "Vector2.h"
 
 class DynamicBody : public GameObject
@@ -16,7 +17,7 @@ class DynamicBody : public GameObject
 
 public:
 	DynamicBody(const char *t_textureSheet, SDL_Renderer *t_renderer, float t_xpos, float t_ypos,
-				Vector2f t_velocity, float t_width, float t_height, float t_mass, float t_restitution);
+				Vector2f t_velocity, float t_width, float t_height, float t_mass, float t_restitution, SDL_Color t_border_color = default_color);
 
 	// SETTERS
 	void SetVelocity(Vector2f t_velocity) { m_velocity = t_velocity; }

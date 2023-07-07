@@ -23,11 +23,12 @@
  * @param t_invMass
  */
 GameObject::GameObject(const char *t_textureSheet, SDL_Renderer *t_renderer, float t_xpos, float t_ypos,
-					   float t_width, float t_height, float t_mass, float t_theta, float t_restitution, float t_invMass)
+					   float t_width, float t_height, float t_mass, float t_theta, float t_restitution, float t_invMass, SDL_Color t_border_color)
 {
 
 	m_renderer = t_renderer;
 	m_objectTexture = TextureManager::LoadTexture(t_textureSheet, t_renderer);
+	m_border_color = t_border_color;
 
 	m_width = t_width;
 	m_height = t_height;
@@ -60,8 +61,25 @@ GameObject::GameObject(const char *t_textureSheet, SDL_Renderer *t_renderer, flo
  */
 void GameObject::Render()
 {
-	SDL_RenderCopyExF(m_renderer, m_objectTexture, NULL, &m_dstRect, m_theta, NULL, SDL_FLIP_NONE);
-	SDL_SetRenderDrawColor(m_renderer, 255, 0, 0, 0);
+	if (m_objectTexture)
+	{
+		SDL_RenderCopyExF(m_renderer, m_objectTexture, NULL, &m_dstRect, m_theta, NULL, SDL_FLIP_NONE);
+	}
+	else
+	{
+		SDL_SetRenderDrawColor(m_renderer, m_border_color.r, m_border_color.g, m_border_color.b, m_border_color.a);
+		for (int i = 0; i < 2; i++) 
+		{
+			for (int j = 0; j < 3; j++) 
+			{
+				SDL_RenderDrawLineF(m_renderer, m_vertices[j].x + i, m_vertices[j].y + i,
+					m_vertices[j + 1].x + i, m_vertices[j + 1].y + i);
+			}
+			SDL_RenderDrawLineF(m_renderer, m_vertices[3].x + i, m_vertices[3].y + i,
+				m_vertices[0].x + i, m_vertices[0].y + i);
+		}
+	}
+	
 }
 
 /**

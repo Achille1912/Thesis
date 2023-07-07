@@ -7,13 +7,14 @@
 #include <array>
 
 #include "GameObject.h"
+#include "Constants.h"
 #include "Vector2.h"
 
 class StaticBody : public GameObject
 {
 public:
 	StaticBody(const char *t_textureSheet, SDL_Renderer *t_renderer, float t_xpos, float t_ypos, float t_width,
-			   float t_height, double t_mass, float t_friction, float t_angle, float t_restitution);
+			   float t_height, double t_mass, float t_friction, float t_angle, float t_restitution, SDL_Color t_border_color = default_color);
 
 	// SETTERS
 	void SetCenterPosition(float t_xpos, float t_ypos)

@@ -19,6 +19,7 @@ struct Graphics
     static SDL_Renderer *renderer;
     static float scale;
     static SDL_Texture *background_texture;
+    static Color background_color;
 
     static int Width();
     static int Height();

@@ -12,6 +12,7 @@ int Graphics::windowWidth = 0;
 int Graphics::windowHeight = 0;
 float Graphics::scale = 1.0;
 SDL_Texture *Graphics::background_texture;
+Color Graphics::background_color(0, 0, 102, 255);
 
 int Graphics::Width()
 {
@@ -29,6 +30,7 @@ bool Graphics::OpenWindow(const char *t_title, int t_xpos, int t_ypos, int t_wid
     windowWidth = t_width;
     windowHeight = t_height;
 
+
     if (SDL_Init(SDL_INIT_EVERYTHING) == 0)
     {
         TTF_Init();
@@ -41,12 +43,14 @@ bool Graphics::OpenWindow(const char *t_title, int t_xpos, int t_ypos, int t_wid
         }
 
         renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
+        SDL_RenderSetLogicalSize(renderer, 640, 480);
+
         if (renderer)
         {
-            SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
+            SDL_SetRenderDrawColor(renderer, background_color.r, background_color.g, background_color.b, background_color.a);
             std::cout << "Renderer created." << std::endl;
         }
-        background_texture = IMG_LoadTexture(Graphics::renderer, "./gfx/background_mario.png");
+        background_texture = IMG_LoadTexture(Graphics::renderer, "./gfx/background.jpg");
 
         return true;
     }
@@ -58,7 +62,7 @@ bool Graphics::OpenWindow(const char *t_title, int t_xpos, int t_ypos, int t_wid
 
 void Graphics::ClearScreen()
 {
-    SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
+    SDL_SetRenderDrawColor(renderer, background_color.r, background_color.g, background_color.b, background_color.a);
     SDL_RenderClear(renderer);
 }
 
