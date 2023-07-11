@@ -42,6 +42,10 @@ bool Graphics::OpenWindow(const char *t_title, int t_xpos, int t_ypos, int t_wid
             std::cout << "Window created." << std::endl;
         }
 
+        // Creazione contesto OpenGL
+        SDL_GLContext glContext = SDL_GL_CreateContext(window);
+     
+
         renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
         SDL_RenderSetLogicalSize(renderer, 640, 480);
 

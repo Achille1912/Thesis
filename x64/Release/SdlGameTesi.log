@@ -1,16 +1,11 @@
-﻿  Game.cpp
+﻿  World.cpp
 D:\Progetti\[02] SdlGame\SDL_Tesi\SdlGameTesi\Utils.h(39,16): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
 D:\Progetti\[02] SdlGame\SDL_Tesi\SdlGameTesi\Utils.h(39,25): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
 D:\Progetti\[02] SdlGame\SDL_Tesi\SdlGameTesi\Utils.h(39,34): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
 D:\Progetti\[02] SdlGame\SDL_Tesi\SdlGameTesi\Utils.h(39,43): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-D:\Progetti\[02] SdlGame\SDL_Tesi\SdlGameTesi\Game.cpp(100,32): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-D:\Progetti\[02] SdlGame\SDL_Tesi\SdlGameTesi\Game.cpp(100,29): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-D:\Progetti\[02] SdlGame\SDL_Tesi\SdlGameTesi\Game.cpp(105,17): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
-D:\Progetti\[02] SdlGame\SDL_Tesi\SdlGameTesi\Game.cpp(108,72): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-D:\Progetti\[02] SdlGame\SDL_Tesi\SdlGameTesi\Game.cpp(108,69): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
   Generating code
-  4 of 335 functions ( 1.2%) were compiled, the rest were copied from previous compilation.
-    0 functions were new in current compilation
-    0 functions had inline decision re-evaluated but remain unchanged
+  Previous IPDB and IOBJ mismatch, fall back to full compilation.
+D:\Progetti\[02] SdlGame\SDL_Tesi\SdlGameTesi\LevelBuilder.cpp(78): warning C4715: 'LevelBuilder::LoadLevel': not all control paths return a value
+  All 335 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
   Finished generating code
   SdlGameTesi.vcxproj -> D:\Progetti\[02] SdlGame\SDL_Tesi\x64\Release\SdlGameTesi.exe
