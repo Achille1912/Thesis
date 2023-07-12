@@ -39,24 +39,7 @@ PointToSegmentType PointToSegmentDistance(Vector2f p, Vector2f va, Vector2f vb)
 	return result;
 }
 
-Vector2f CalculateNormal(Vector2f pointA, Vector2f pointB)
-{
-	Vector2f directionVector = pointB - pointA;
 
-	return Vector2f(directionVector.y, -directionVector.x);
-}
-
-std::array<Vector2f, 4> CalculateNormals(std::array<Vector2f, 4> &vertices)
-{
-	std::array<Vector2f, 4> normals;
-
-	for (int i = 0; i < vertices.size(); i++)
-	{
-		normals[i] = CalculateNormal(vertices[i + 1 % vertices.size()], vertices[i]);
-	}
-	normals[vertices.size() - 1] = CalculateNormal(vertices[0], vertices[vertices.size() - 1]);
-	return normals;
-}
 
 CollisionType Collision::IntersectSAT(GameObject *objA, GameObject *objB)
 {
@@ -73,8 +56,20 @@ CollisionType Collision::IntersectSAT(GameObject *objA, GameObject *objB)
 
 	verticesB = objB->GetVertices();
 
-	std::array<Vector2f, 4> normalsA = CalculateNormals(verticesA);
-	std::array<Vector2f, 4> normalsB = CalculateNormals(verticesB);
+	std::array<Vector2f, 4> normalsA;
+	std::array<Vector2f, 4> normalsB;
+
+	if (Utils::isInstanceOf(objA, typeid(StaticBody)))
+		normalsA = objA->GetNormals();
+	else 
+		normalsA = Math::CalculateNormals(verticesA);
+
+	if (Utils::isInstanceOf(objB, typeid(StaticBody)))
+		normalsB = objB->GetNormals();
+	else
+		normalsB = Math::CalculateNormals(verticesB);
+
+
 
 	std::array<Vector2f, 8> normals;
 	for (int i = 0; i < normalsA.size(); i++)

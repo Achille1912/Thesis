@@ -87,3 +87,22 @@ Vector2f Math::BasicResponseImpulse(float restitution, const Vector2f &vrel, con
     Vector2f normal_result = normal;
     return (normal_result * j);
 }
+
+Vector2f Math::CalculateNormal(Vector2f pointA, Vector2f pointB)
+{
+    Vector2f directionVector = pointB - pointA;
+
+    return Vector2f(directionVector.y, -directionVector.x);
+}
+
+std::array<Vector2f, 4> Math::CalculateNormals(std::array<Vector2f, 4>& vertices)
+{
+    std::array<Vector2f, 4> normals;
+
+    for (int i = 0; i < vertices.size(); i++)
+    {
+        normals[i] = CalculateNormal(vertices[i + 1 % vertices.size()], vertices[i]);
+    }
+    normals[vertices.size() - 1] = CalculateNormal(vertices[0], vertices[vertices.size() - 1]);
+    return normals;
+}

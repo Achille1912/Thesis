@@ -42,9 +42,11 @@ public:
 	SDL_Texture *GetTex() { return m_objectTexture; }
 	float GetRotation() { return m_theta; }
 	std::array<Vector2f, 4> GetVertices() { return m_vertices; }
+	std::array<Vector2f, 4> GetNormals() { return m_normals; }
 	float GetRestitution() { return m_restitution; }
 	float GetInvMass() { return m_invMass; }
 	AABB GetAABB() { return m_aabb; }
+	bool GetIsStatic() { return m_is_static; }
 
 	// Functions
 	void CalculateVertices();
@@ -61,6 +63,8 @@ protected:
 	AABB m_aabb;
 	float m_restitution;
 	std::array<Vector2f, 4> m_vertices;
+	std::array<Vector2f, 4> m_normals;
+	bool m_is_static;
 
 	// Rendering
 	SDL_Texture *m_objectTexture;

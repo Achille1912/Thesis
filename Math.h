@@ -28,4 +28,9 @@ struct Math
     static float DistanceSquared(const Vector2f &a, const Vector2f &b);
 
     static Vector2f BasicResponseImpulse(float restitution, const Vector2f &vrel, const Vector2f &normal, float invMassA, float invMassB);
+
+    static Vector2f CalculateNormal(Vector2f pointA, Vector2f pointB);
+
+    static std::array<Vector2f, 4> CalculateNormals(std::array<Vector2f, 4>& vertices);
+
 };

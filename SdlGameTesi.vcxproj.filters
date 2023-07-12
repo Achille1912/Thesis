@@ -96,7 +96,4 @@
       <Filter>File di risorse</Filter>
     </ClInclude>
   </ItemGroup>
-  <ItemGroup>
-    <None Include="Dockerfile" />
-  </ItemGroup>
 </Project>

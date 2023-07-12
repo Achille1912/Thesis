@@ -22,4 +22,6 @@ StaticBody::StaticBody(const char *t_textureSheet, SDL_Renderer *t_renderer, flo
 					   float t_height, double t_mass, float t_friction, float t_angle, float t_restitution, SDL_Color t_border_color)
 	: GameObject(t_textureSheet, t_renderer, t_xpos, t_ypos, t_width, t_height, t_mass, t_angle, t_restitution, 0, t_border_color)
 {
+	m_is_static = true;
+	m_normals = Math::CalculateNormals(m_vertices);
 }

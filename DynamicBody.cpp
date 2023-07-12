@@ -17,10 +17,18 @@ DynamicBody::DynamicBody(const char *t_textureSheet, SDL_Renderer *t_renderer, f
 	m_angularAcceleration = 0;
 	m_moving = false;
 	m_momentOfInertia = (m_mass * (m_width * m_width + m_height * m_height)) / 12;
+	m_is_static = true;
 }
 
 void DynamicBody::Update(float t_dt, float t_gravity, int t_iterations)
 {
+	if (Math::NearlyEqual(m_velocity, Vector2f(0, 0)) &&
+		Math::NearlyEqual(m_angularVelocity, 0)) {
+		m_is_static = true;
+	}
+	else {
+		m_is_static = false;
+	}
 
 	t_dt /= t_iterations;
 
