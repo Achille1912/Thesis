@@ -3,6 +3,7 @@
 #ifndef STATICBODY_H
 #define STATICBODY_H
 
+/*! Importation of librairies*/
 #include <SDL_render.h>
 #include <array>
 

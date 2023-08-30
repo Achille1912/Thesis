@@ -1,65 +1,13 @@
-﻿  Collision.cpp
-D:\Progetti\[02] SdlGame\SDL_Tesi\SdlGameTesi\Utils.h(39,16): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-D:\Progetti\[02] SdlGame\SDL_Tesi\SdlGameTesi\Utils.h(39,25): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-D:\Progetti\[02] SdlGame\SDL_Tesi\SdlGameTesi\Utils.h(39,34): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-D:\Progetti\[02] SdlGame\SDL_Tesi\SdlGameTesi\Utils.h(39,43): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-  DynamicBody.cpp
-D:\Progetti\[02] SdlGame\SDL_Tesi\SdlGameTesi\Utils.h(39,16): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-D:\Progetti\[02] SdlGame\SDL_Tesi\SdlGameTesi\Utils.h(39,25): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-D:\Progetti\[02] SdlGame\SDL_Tesi\SdlGameTesi\Utils.h(39,34): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-D:\Progetti\[02] SdlGame\SDL_Tesi\SdlGameTesi\Utils.h(39,43): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-  Game.cpp
-D:\Progetti\[02] SdlGame\SDL_Tesi\SdlGameTesi\Utils.h(39,16): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-D:\Progetti\[02] SdlGame\SDL_Tesi\SdlGameTesi\Utils.h(39,25): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-D:\Progetti\[02] SdlGame\SDL_Tesi\SdlGameTesi\Utils.h(39,34): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-D:\Progetti\[02] SdlGame\SDL_Tesi\SdlGameTesi\Utils.h(39,43): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-D:\Progetti\[02] SdlGame\SDL_Tesi\SdlGameTesi\Game.cpp(100,32): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-D:\Progetti\[02] SdlGame\SDL_Tesi\SdlGameTesi\Game.cpp(100,29): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-D:\Progetti\[02] SdlGame\SDL_Tesi\SdlGameTesi\Game.cpp(105,17): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
-D:\Progetti\[02] SdlGame\SDL_Tesi\SdlGameTesi\Game.cpp(108,72): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-D:\Progetti\[02] SdlGame\SDL_Tesi\SdlGameTesi\Game.cpp(108,69): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-  GameObject.cpp
-D:\Progetti\[02] SdlGame\SDL_Tesi\SdlGameTesi\Utils.h(39,16): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-D:\Progetti\[02] SdlGame\SDL_Tesi\SdlGameTesi\Utils.h(39,25): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-D:\Progetti\[02] SdlGame\SDL_Tesi\SdlGameTesi\Utils.h(39,34): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-D:\Progetti\[02] SdlGame\SDL_Tesi\SdlGameTesi\Utils.h(39,43): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-  LevelBuilder.cpp
-D:\Progetti\[02] SdlGame\SDL_Tesi\SdlGameTesi\Utils.h(39,16): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-D:\Progetti\[02] SdlGame\SDL_Tesi\SdlGameTesi\Utils.h(39,25): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-D:\Progetti\[02] SdlGame\SDL_Tesi\SdlGameTesi\Utils.h(39,34): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-D:\Progetti\[02] SdlGame\SDL_Tesi\SdlGameTesi\Utils.h(39,43): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-D:\Progetti\[02] SdlGame\SDL_Tesi\SdlGameTesi\LevelBuilder.cpp(47,86): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-D:\Progetti\[02] SdlGame\SDL_Tesi\SdlGameTesi\LevelBuilder.cpp(50,86): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-D:\Progetti\[02] SdlGame\SDL_Tesi\SdlGameTesi\LevelBuilder.cpp(53,86): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-D:\Progetti\[02] SdlGame\SDL_Tesi\SdlGameTesi\LevelBuilder.cpp(56,87): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-D:\Progetti\[02] SdlGame\SDL_Tesi\SdlGameTesi\LevelBuilder.cpp(68,85): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-D:\Progetti\[02] SdlGame\SDL_Tesi\SdlGameTesi\LevelBuilder.cpp(68,69): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-  Math.cpp
-  StaticBody.cpp
-D:\Progetti\[02] SdlGame\SDL_Tesi\SdlGameTesi\Utils.h(39,16): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-D:\Progetti\[02] SdlGame\SDL_Tesi\SdlGameTesi\Utils.h(39,25): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-D:\Progetti\[02] SdlGame\SDL_Tesi\SdlGameTesi\Utils.h(39,34): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-D:\Progetti\[02] SdlGame\SDL_Tesi\SdlGameTesi\Utils.h(39,43): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-D:\Progetti\[02] SdlGame\SDL_Tesi\SdlGameTesi\StaticBody.cpp(23,78): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-  TextureManager.cpp
-D:\Progetti\[02] SdlGame\SDL_Tesi\SdlGameTesi\Utils.h(39,16): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-D:\Progetti\[02] SdlGame\SDL_Tesi\SdlGameTesi\Utils.h(39,25): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-D:\Progetti\[02] SdlGame\SDL_Tesi\SdlGameTesi\Utils.h(39,34): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-D:\Progetti\[02] SdlGame\SDL_Tesi\SdlGameTesi\Utils.h(39,43): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-  Vector2.h
-  World.cpp
-D:\Progetti\[02] SdlGame\SDL_Tesi\SdlGameTesi\Utils.h(39,16): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-D:\Progetti\[02] SdlGame\SDL_Tesi\SdlGameTesi\Utils.h(39,25): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-D:\Progetti\[02] SdlGame\SDL_Tesi\SdlGameTesi\Utils.h(39,34): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-D:\Progetti\[02] SdlGame\SDL_Tesi\SdlGameTesi\Utils.h(39,43): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-  main.cpp
-D:\Progetti\[02] SdlGame\SDL_Tesi\SdlGameTesi\Utils.h(39,16): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-D:\Progetti\[02] SdlGame\SDL_Tesi\SdlGameTesi\Utils.h(39,25): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-D:\Progetti\[02] SdlGame\SDL_Tesi\SdlGameTesi\Utils.h(39,34): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-D:\Progetti\[02] SdlGame\SDL_Tesi\SdlGameTesi\Utils.h(39,43): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+﻿  GameObject.cpp
+D:\Progetti\[02] SdlGame\SDL_Tesi\SdlGameTesi\Utils.h(43,16): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+D:\Progetti\[02] SdlGame\SDL_Tesi\SdlGameTesi\Utils.h(43,25): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+D:\Progetti\[02] SdlGame\SDL_Tesi\SdlGameTesi\Utils.h(43,34): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+D:\Progetti\[02] SdlGame\SDL_Tesi\SdlGameTesi\Utils.h(43,43): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+D:\Progetti\[02] SdlGame\SDL_Tesi\SdlGameTesi\GameObject.cpp(92,22): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+D:\Progetti\[02] SdlGame\SDL_Tesi\SdlGameTesi\GameObject.cpp(93,22): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
   Generating code
-  Previous IPDB and IOBJ mismatch, fall back to full compilation.
-D:\Progetti\[02] SdlGame\SDL_Tesi\SdlGameTesi\LevelBuilder.cpp(78): warning C4715: 'LevelBuilder::LoadLevel': not all control paths return a value
-  All 336 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  1 of 356 functions ( 0.3%) were compiled, the rest were copied from previous compilation.
+    0 functions were new in current compilation
+    2 functions had inline decision re-evaluated but remain unchanged
   Finished generating code
   SdlGameTesi.vcxproj -> D:\Progetti\[02] SdlGame\SDL_Tesi\x64\Release\SdlGameTesi.exe

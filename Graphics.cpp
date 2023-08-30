@@ -1,7 +1,7 @@
 #include <SDL.h>
 #include <SDL_image.h>
-#include <SDL_ttf.h>
 #include <iostream>
+#include <SDL_ttf.h>
 
 #include "Graphics.h"
 #include "Game.h"
@@ -30,10 +30,9 @@ bool Graphics::OpenWindow(const char *t_title, int t_xpos, int t_ypos, int t_wid
     windowWidth = t_width;
     windowHeight = t_height;
 
-
+    TTF_Init();
     if (SDL_Init(SDL_INIT_EVERYTHING) == 0)
     {
-        TTF_Init();
         std::cout << "Initialized." << std::endl;
 
         window = SDL_CreateWindow(t_title, t_xpos, t_ypos, t_width, t_height, flags);

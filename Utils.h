@@ -32,6 +32,10 @@ struct Utils
         t_dstRect.x = t_x;
         t_dstRect.y = t_y;
     }
+    static SDL_Color RandomColor() {
+        return { (unsigned char)(0 + (rand() % 254)),(unsigned char)(0 + (rand() % 254)),(unsigned char)(0 + (rand() % 254)),(unsigned char)(0 + (rand() % 254)) };
+    }
+
 };
 
 struct Color
@@ -49,5 +53,8 @@ struct Color
     int b;
     int a;
 };
+
+
+
 
 #endif

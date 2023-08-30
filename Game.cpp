@@ -188,14 +188,13 @@ void Game::Render()
 	{
 		m_world->GetGameObjects()[i]->Render();
 	}
-
 	//
-	TTF_Font *font = TTF_OpenFont("./Roboto-Black.ttf", 14);
-	SDL_Color color = {255, 255, 255};
+	TTF_Font* font = TTF_OpenFont("./Roboto-Black.ttf", 14);
+	SDL_Color color = { 255, 255, 255 };
 
 	std::string text = "Number of objects: " + std::to_string(m_world->GetGameObjects().size());
-	SDL_Surface *surface = TTF_RenderText_Solid(font, text.c_str(), color);
-	SDL_Texture *texture = SDL_CreateTextureFromSurface(Graphics::renderer, surface);
+	SDL_Surface* surface = TTF_RenderText_Solid(font, text.c_str(), color);
+	SDL_Texture* texture = SDL_CreateTextureFromSurface(Graphics::renderer, surface);
 
 	SDL_FreeSurface(surface);
 	SDL_Rect rect;
