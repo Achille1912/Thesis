@@ -7,9 +7,9 @@
 #include "Constants.h"
 #include "timeUtils.h"
 
-Game *game = Game::instance();
+Game* game = Game::instance();
 
-int main(int argc, char **argv)
+int main(int argc, char** argv)
 {
 
 	game->Init("Game", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, SCREEN_WIDTH, SCREEN_HEIGHT, false);

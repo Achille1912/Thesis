@@ -1,5 +1,4 @@
 #include <array>
-#include <SDL_ttf.h>
 #include "GameObject.h"
 #include "Vector2.h"
 #include "Graphics.h"
@@ -67,6 +66,7 @@ void GameObject::Render()
 	}
 	else
 	{
+	
 		SDL_SetRenderDrawColor(m_renderer, m_border_color.r, m_border_color.g, m_border_color.b, m_border_color.a);
 		for (int i = 0; i < 2; i++) 
 		{
@@ -79,22 +79,6 @@ void GameObject::Render()
 				m_vertices[0].x + i, m_vertices[0].y + i);
 		}
 	}
-	
-	TTF_Font* font = TTF_OpenFont("./Roboto-Black.ttf", 9);
-	SDL_Color color = { 255, 255, 255 };
-
-	std::string text = std::to_string(GetCenter().x) + ", " + std::to_string(GetCenter().y);
-	SDL_Surface* surface = TTF_RenderText_Solid(font, text.c_str(), color);
-	SDL_Texture* texture = SDL_CreateTextureFromSurface(Graphics::renderer, surface);
-
-	SDL_FreeSurface(surface);
-	SDL_Rect rect;
-	rect.x = GetCenter().x;
-	rect.y = GetCenter().y;
-	rect.w = 50;
-	rect.h = 10;
-
-	SDL_RenderCopy(Graphics::renderer, texture, NULL, &rect);
 }
 
 /**

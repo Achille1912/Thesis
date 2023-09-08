@@ -1,26 +1,17 @@
-cmake_minimum_required(VERSION 3.10)
+cmake_minimum_required(VERSION 2.8.12)
 
-# Definisci il nome del progetto
-project(Tesi)
+project(myProject)
 
 
-set(CMAKE_AUTORCC ON)
-set(CMAKE_AUTOMOC ON)
+file(GLOB SOURCES
+     "*.h"
+     "*.cpp"
+)
 
-# Imposta la versione del linguaggio C++ utilizzata
-set(CMAKE_CXX_STANDARD 11)
-
-# Trova le librerie SDL2 e SDL2image
 find_package(SDL2 REQUIRED)
 find_package(SDL2_image REQUIRED)
 
-# Aggiungi i file di inclusione delle librerie
-include_directories(${SDL2_INCLUDE_DIRS} ${SDL2_IMAGE_INCLUDE_DIRS})
 
-file(GLOB SOURCES *.h *.cpp)
+add_executable(${PROJECT_NAME} ${SOURCES})
 
-# Aggiungi gli eseguibili al progetto
-add_executable(Tesi ${SOURCES})
-
-# Collega le librerie utilizzate dall'eseguibile
-target_link_libraries(Tesi ${SDL2_LIBRARIES} ${SDL2_IMAGE_LIBRARIES})
+target_link_libraries(${PROJECT_NAME} SDL2 SDL2_image)

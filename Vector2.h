@@ -83,6 +83,11 @@ struct Vector2f
 		return Vector2f(x + t_vector.x, y + t_vector.y);
 	}
 
+	bool operator==(Vector2f t_vector)
+	{
+		return (x==t_vector.x&&y==t_vector.y);
+	}
+
 	Vector2f &operator+=(float t_value)
 	{
 		x += t_value;

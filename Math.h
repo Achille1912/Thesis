@@ -25,6 +25,10 @@ struct Math
 
     static bool NearlyEqual(const Vector2f &a, const Vector2f &b);
 
+    static bool AlmostEqual(float a, float b);
+
+    static bool AlmostEqual(const Vector2f& a, const Vector2f& b);
+
     static float DistanceSquared(const Vector2f &a, const Vector2f &b);
 
     static Vector2f BasicResponseImpulse(float restitution, const Vector2f &vrel, const Vector2f &normal, float invMassA, float invMassB);

@@ -74,7 +74,7 @@ std::vector<GameObject *> &World::GetGameObjects()
  * @brief Check if there are Collisions
  *
  */
-void World::CheckCollisions()
+void World::CheckCollisions(int it, int t_iteration)
 {
 	/************SAT COLLISION DETECTION******************/
 	for (int i = 0; i < m_objects.size(); ++i)
@@ -88,6 +88,11 @@ void World::CheckCollisions()
 			}
 			// If AABBs don't intersect, jump to the next check
 			if (!Collision::IntersectAABB(m_objects[i]->GetAABB(), m_objects[j]->GetAABB()))
+			{
+				continue;
+			}
+			// If Both Obj are Stationary, decrease the number of iterations 
+			if (m_objects[i]->GetIsStatic() && m_objects[j]->GetIsStatic())
 			{
 				continue;
 			}
@@ -293,7 +298,7 @@ void World::Update(float t_dt, int t_iterationNumber)
 					DeleteObject(obj);
 			}
 		}
-		CheckCollisions();
+		CheckCollisions(it, t_iterationNumber);
 	}
 }
 

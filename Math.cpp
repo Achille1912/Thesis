@@ -62,9 +62,19 @@ bool Math::NearlyEqual(float a, float b)
     return std::abs(a - b) < SmallAmount;
 }
 
+bool Math::AlmostEqual(float a, float b)
+{
+    return std::abs(a - b) < NotSoSmallAmount;
+}
+
 bool Math::NearlyEqual(const Vector2f &a, const Vector2f &b)
 {
     return NearlyEqual(a.x, b.x) && NearlyEqual(a.y, b.y);
+}
+
+bool Math::AlmostEqual(const Vector2f& a, const Vector2f& b)
+{
+    return AlmostEqual(a.x, b.x) && AlmostEqual(a.y, b.y);
 }
 
 float Math::DistanceSquared(const Vector2f &a, const Vector2f &b)

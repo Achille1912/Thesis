@@ -29,7 +29,7 @@ public:
 
 	void Update(float t_dt, int t_iterationNumber);
 
-	void CheckCollisions();
+	void CheckCollisions(int it, int t_iterationNumber);
 
 	void SolveDynVsDynCollisionBasic(DynamicBody *t_objA, DynamicBody *t_objB, CollisionType t_check);
 

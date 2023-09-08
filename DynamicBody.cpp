@@ -22,8 +22,7 @@ DynamicBody::DynamicBody(const char *t_textureSheet, SDL_Renderer *t_renderer, f
 
 void DynamicBody::Update(float t_dt, float t_gravity, int t_iterations)
 {
-	if (Math::NearlyEqual(m_velocity, Vector2f(0, 0)) &&
-		Math::NearlyEqual(m_angularVelocity, 0)) {
+	if (Math::AlmostEqual(m_velocity, Vector2f(0, 0))) {
 		m_is_static = true;
 	}
 	else {
@@ -33,9 +32,11 @@ void DynamicBody::Update(float t_dt, float t_gravity, int t_iterations)
 	t_dt /= t_iterations;
 
 	// Euler's Integration
-	m_velocity += Vector2f(0, t_gravity * t_dt);
+	
 	m_xpos += m_velocity.x * t_dt;
 	m_ypos += m_velocity.y * t_dt;
+
+	m_velocity += Vector2f(0, t_gravity * t_dt);
 
 	m_theta += m_angularVelocity * t_dt * ANGULAR_FACTOR;
 
@@ -44,9 +45,9 @@ void DynamicBody::Update(float t_dt, float t_gravity, int t_iterations)
 
 	// Dumb friction
 	if (m_velocity.x < 0)
-		m_velocity.x += (float)(1.5 * t_dt * PIXELS_PER_METER);
+		m_velocity.x += (float)(1.9 * t_dt * PIXELS_PER_METER);
 	if (m_velocity.x > 0)
-		m_velocity.x -= (float)(1.5 * t_dt * PIXELS_PER_METER);
+		m_velocity.x -= (float)(1.9 * t_dt * PIXELS_PER_METER);
 
 	// Calculate New Vertices
 	CalculateVertices();

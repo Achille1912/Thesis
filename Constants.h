@@ -8,6 +8,8 @@ const float PI = 3.14f;
 
 const float SmallAmount = 0.0005f;
 
+const float NotSoSmallAmount = 0.3f;
+
 const int SCREEN_WIDTH = 800;
 
 const int SCREEN_HEIGHT = 600;

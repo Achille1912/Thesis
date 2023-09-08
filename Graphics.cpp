@@ -1,17 +1,16 @@
 #include <SDL.h>
 #include <SDL_image.h>
 #include <iostream>
-#include <SDL_ttf.h>
 
 #include "Graphics.h"
 #include "Game.h"
 
-SDL_Window *Graphics::window = NULL;
-SDL_Renderer *Graphics::renderer = NULL;
+SDL_Window* Graphics::window = NULL;
+SDL_Renderer* Graphics::renderer = NULL;
 int Graphics::windowWidth = 0;
 int Graphics::windowHeight = 0;
 float Graphics::scale = 1.0;
-SDL_Texture *Graphics::background_texture;
+SDL_Texture* Graphics::background_texture;
 Color Graphics::background_color(0, 0, 102, 255);
 
 int Graphics::Width()
@@ -24,15 +23,16 @@ int Graphics::Height()
     return windowHeight;
 }
 
-bool Graphics::OpenWindow(const char *t_title, int t_xpos, int t_ypos, int t_width, int t_height, bool t_fullscreen)
+bool Graphics::OpenWindow(const char* t_title, int t_xpos, int t_ypos, int t_width, int t_height, bool t_fullscreen)
 {
     int flags = 0;
     windowWidth = t_width;
     windowHeight = t_height;
 
-    TTF_Init();
+    
     if (SDL_Init(SDL_INIT_EVERYTHING) == 0)
     {
+        
         std::cout << "Initialized." << std::endl;
 
         window = SDL_CreateWindow(t_title, t_xpos, t_ypos, t_width, t_height, flags);
@@ -43,7 +43,7 @@ bool Graphics::OpenWindow(const char *t_title, int t_xpos, int t_ypos, int t_wid
 
         // Creazione contesto OpenGL
         SDL_GLContext glContext = SDL_GL_CreateContext(window);
-     
+
 
         renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
         SDL_RenderSetLogicalSize(renderer, 640, 480);
@@ -87,14 +87,14 @@ void Graphics::CloseWindow()
     std::cout << "Game Closed." << std::endl;
 }
 
-void Graphics::SDL_RenderDrawRect(SDL_Renderer *t_renderer, float t_xpos, float t_ypos, float t_width, float t_height, Color t_color)
+void Graphics::SDL_RenderDrawRect(SDL_Renderer* t_renderer, float t_xpos, float t_ypos, float t_width, float t_height, Color t_color)
 {
     SDL_SetRenderDrawColor(Graphics::renderer, t_color.r, t_color.g, t_color.b, t_color.a);
-    SDL_FRect rect = {100, 100, 50, 50};
+    SDL_FRect rect = { 100, 100, 50, 50 };
     SDL_RenderFillRectF(t_renderer, &rect);
 }
 
-void Graphics::SDL_RenderDrawCircle(SDL_Renderer *t_renderer, int t_x, int t_y, int t_radius)
+void Graphics::SDL_RenderDrawCircle(SDL_Renderer* t_renderer, int t_x, int t_y, int t_radius)
 {
     for (int w = 0; w <= t_radius * 2; w++)
     {
@@ -110,7 +110,7 @@ void Graphics::SDL_RenderDrawCircle(SDL_Renderer *t_renderer, int t_x, int t_y, 
     }
 }
 
-void Graphics::DrawCenterPoint(GameObject *t_obj, int t_width, int t_height, Color t_color)
+void Graphics::DrawCenterPoint(GameObject* t_obj, int t_width, int t_height, Color t_color)
 {
     SDL_SetRenderDrawColor(renderer, 255, 0, 0, 255);
     SDL_FRect center;
@@ -126,7 +126,7 @@ void Graphics::DrawCenterPoint(GameObject *t_obj, int t_width, int t_height, Col
     SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
 }
 
-void Graphics::DrawVertices(SDL_Renderer *t_renderer, std::array<Vector2f, 4> t_vertices, Color t_color)
+void Graphics::DrawVertices(SDL_Renderer* t_renderer, std::array<Vector2f, 4> t_vertices, Color t_color)
 {
     SDL_SetRenderDrawColor(Graphics::renderer, t_color.r, t_color.g, t_color.b, t_color.a);
     for (int i = 0; i < t_vertices.size(); i++)
