@@ -3,7 +3,7 @@
 #ifndef DYNAMICBODY_H
 #define DYNAMICBODY_H
 
-#include <SDL_render.h>
+#include <SDL2/SDL_render.h>
 #include <vector>
 #include <tuple>
 

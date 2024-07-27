@@ -4,7 +4,7 @@
 #define STATICBODY_H
 
 /*! Importation of librairies*/
-#include <SDL_render.h>
+#include <SDL2/SDL_render.h>
 #include <array>
 
 #include "GameObject.h"

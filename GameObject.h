@@ -3,7 +3,7 @@
 #ifndef GAMEOBJECT_H
 #define GAMEOBJECT_H
 
-#include <SDL_render.h>
+#include <SDL2/SDL_render.h>
 #include <array>
 
 #include "Vector2.h"

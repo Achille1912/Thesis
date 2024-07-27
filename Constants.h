@@ -1,6 +1,6 @@
 #pragma once
 
-#include <SDL_render.h>
+#include <SDL2/SDL_render.h>
 
 const int PIXELS_PER_METER = 50;
 

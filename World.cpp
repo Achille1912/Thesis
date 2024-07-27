@@ -8,6 +8,8 @@
 #include "Utils.h"
 #include "timeUtils.h"
 #include "array"
+#include <vector>
+#include <algorithm> // for std::find
 
 
 /**

@@ -3,8 +3,8 @@
 #ifndef GRAPHICS_H
 #define GRAPHICS_H
 
-#include <SDL.h>
-#include <SDL_image.h>
+#include <SDL2/SDL.h>
+#include <SDL2/SDL_image.h>
 #include <array>
 
 #include "Vector2.h"

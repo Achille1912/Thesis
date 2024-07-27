@@ -4,6 +4,7 @@
 #define VECTOR2_H
 
 #include <iostream>
+#include <cmath>
 
 class Point
 {
